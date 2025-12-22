@@ -48,6 +48,12 @@
           Projects
         </a>
         <a 
+          href="/honour" 
+          class="text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath.startsWith('/honour') ? 'text-gray-900 dark:text-gray-100 font-medium' : ''}"
+        >
+          Experience
+        </a>
+        <a 
           href="/contact" 
           class="text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath === '/contact' ? 'text-gray-900 dark:text-gray-100 font-medium' : ''}"
         >
@@ -101,6 +107,13 @@
             on:click={closeMobileMenu}
           >
             Projects
+          </a>
+          <a 
+            href="/honour" 
+            class="px-4 py-3 text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath.startsWith('/honour') ? 'text-gray-900 dark:text-gray-100 font-medium' : ''}"
+            on:click={closeMobileMenu}
+          >
+            Honour
           </a>
           <a 
             href="/contact" 
