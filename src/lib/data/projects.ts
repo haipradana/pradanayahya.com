@@ -24,7 +24,7 @@ export const projects: Project[] = [
     description:
       "Sentimen analisis publik dan topic modeling pada keputusan Prabowo yang mengabulkan abolisi Tom dan amnesti Hasto.",
     image:
-      "https://raw.githubusercontent.com/haipradana/pradanayahya.me/refs/heads/main/static/images/projects/abolisi_tom_hasto/tom2.jpg",
+      "https://raw.githubusercontent.com/haipradana/pradanayahya.com/refs/heads/main/static/images/projects/abolisi_tom_hasto/tom2.jpg",
     tags: ["NLP", "Sentiment Analysis", "BERTopic"],
     category: "nlp",
     demoUrl:
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     description:
       "Sentimen analisis dan topic modeling pada vonis Tom Lembong, BERT untuk klasifikasi sentimen dan BertTopic untuk topic modeling.",
     image:
-      "https://raw.githubusercontent.com/haipradana/pradanayahya.me/refs/heads/main/static/images/projects/vonis_tom_lembong/thumbnailTom1.jpg",
+      "https://raw.githubusercontent.com/haipradana/pradanayahya.com/refs/heads/main/static/images/projects/vonis_tom_lembong/thumbnailTom1.jpg",
     tags: ["NLP", "Sentiment Analysis", "BERTopic"],
     category: "nlp",
     demoUrl:
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     description:
       "Fine-tuned RoBERTa sentiment-based model untuk klasifikasi hate speech pada teks bahasa Indonesia.",
     image:
-      "https://raw.githubusercontent.com/haipradana/pradanayahya.me/refs/heads/main/static/images/projects/hate_classification_roberta/hate_roberta.jpg",
+      "https://raw.githubusercontent.com/haipradana/pradanayahya.com/refs/heads/main/static/images/projects/hate_classification_roberta/hate_roberta.jpg",
     tags: ["NLP", "RoBERTa", "Fine-Tuning"],
     category: "nlp",
     demoUrl:
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     description:
       "Fine-tuned IndoBERT base untuk klasifikasi sarkas pada teks bahasa Indonesia, dengan dataset media sosial.",
     image:
-      "https://raw.githubusercontent.com/haipradana/pradanayahya.me/refs/heads/main/static/images/projects/sarcasm_indobert_1/sarcasm_indobert.jpg",
+      "https://raw.githubusercontent.com/haipradana/pradanayahya.com/refs/heads/main/static/images/projects/sarcasm_indobert_1/sarcasm_indobert.jpg",
     tags: ["NLP", "IndoBERT", "Fine-Tuning"],
     category: "nlp",
     demoUrl:
@@ -88,7 +88,7 @@ export const projects: Project[] = [
     description:
       "Sistem analisis perilaku pelanggan dari rekaman CCTV. Menggunakan computer vision dan multimodal transformer untuk memberikan strategi bisnis.",
     image:
-      "https://raw.githubusercontent.com/haipradana/pradanayahya.me/refs/heads/main/static/images/projects/datathon_2025-1/retail-behaviour-1.jpg",
+      "https://raw.githubusercontent.com/haipradana/pradanayahya.com/refs/heads/main/static/images/projects/datathon_2025-1/retail-behaviour-1.jpg",
     tags: ["Computer Vision", "TimeSformer", "LLM"],
     category: "computer-vision",
     demoUrl:
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     description:
       "Generate movie recommendations based on your mood. Built with semantic search, sentiment analysis, and mood-based filtering.",
     image:
-      "https://raw.githubusercontent.com/haipradana/pradanayahya.me/refs/heads/main/static/images/projects/mood2movie/mood2movie.jpg",
+      "https://raw.githubusercontent.com/haipradana/pradanayahya.com/refs/heads/main/static/images/projects/mood2movie/mood2movie.jpg",
     tags: ["Python", "LLM", "Transformers", "NLP"],
     category: "llm",
     demoUrl: "https://mood2movie.streamlit.app/",
@@ -118,7 +118,7 @@ export const projects: Project[] = [
     description:
       "RAG-based assistant that uses ModernBERT for semantic retrieval. Upload your PDFs and get precise, citation-backed answers.",
     image:
-      "https://raw.githubusercontent.com/haipradana/pradanayahya.me/refs/heads/main/static/images/projects/chatmydocs/modernbert.jpg",
+      "https://raw.githubusercontent.com/haipradana/pradanayahya.com/refs/heads/main/static/images/projects/chatmydocs/modernbert.jpg",
     tags: ["RAG", "Python", "ModernBERT"],
     category: "llm",
     demoUrl: "https://github.com/haipradana/ChatMyDocs",
