@@ -2,6 +2,8 @@
   import { onMount } from "svelte";
   import { MessageCircle, X, Send } from "lucide-svelte";
   import { sendChatMessage, getChatHistory } from "$lib/api";
+  import { marked } from "marked";
+  import DOMPurify from "dompurify";
 
   let isOpen = false;
   let messages: Array<{ role: "user" | "assistant"; content: string }> = [];
@@ -55,6 +57,12 @@
       sessionId = null;
       localStorage.removeItem("chat_session_id");
     }
+  }
+
+  // Parse markdown and sanitize
+  function parseMessage(content: string): string {
+    const rawHtml = marked.parse(content) as string;
+    return DOMPurify.sanitize(rawHtml);
   }
 
   async function sendMessage(text?: string) {
@@ -186,10 +194,14 @@
               class={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                 message.role === "user"
                   ? "bg-blue-500 text-white"
-                  : "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+                  : "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 markdown-content"
               }`}
             >
-              {message.content}
+              {#if message.role === "assistant"}
+                {@html parseMessage(message.content)}
+              {:else}
+                {message.content}
+              {/if}
             </div>
           </div>
         {/each}
@@ -239,4 +251,32 @@
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap");
+
+  /* Markdown Styles for Chat */
+  :global(.markdown-content p) {
+    margin-bottom: 0.5rem;
+  }
+  :global(.markdown-content p:last-child) {
+    margin-bottom: 0;
+  }
+  :global(.markdown-content a) {
+    color: #3b82f6;
+    text-decoration: underline;
+  }
+  :global(.dark .markdown-content a) {
+    color: #60a5fa;
+  }
+  :global(.markdown-content ul) {
+    list-style-type: disc;
+    margin-left: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  :global(.markdown-content ol) {
+    list-style-type: decimal;
+    margin-left: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  :global(.markdown-content strong) {
+    font-weight: 600;
+  }
 </style>
