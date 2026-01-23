@@ -4,7 +4,8 @@
   import { sendChatMessage, getChatHistory } from "$lib/api";
   import { marked } from "marked";
   import DOMPurify from "dompurify";
-
+  import { fade, fly } from "svelte/transition";
+  import { cubicOut } from "svelte/easing";
   let isOpen = false;
   let messages: Array<{ role: "user" | "assistant"; content: string }> = [];
   let inputValue = "";
@@ -120,20 +121,33 @@
 <!-- Floating Toggle Button -->
 <button
   on:click={toggleChat}
-  class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 dark:from-slate-700 dark:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
+  class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 dark:from-slate-700 dark:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center overflow-hidden"
   aria-label="Toggle chat"
 >
   {#if isOpen}
-    <X class="w-6 h-6" />
+    <div
+      in:fade={{ duration: 200 }}
+      out:fade={{ duration: 200 }}
+      class="absolute inset-0 flex items-center justify-center"
+    >
+      <X class="w-6 h-6" />
+    </div>
   {:else}
-    <MessageCircle class="w-6 h-6" />
+    <div
+      in:fade={{ duration: 200 }}
+      out:fade={{ duration: 200 }}
+      class="absolute inset-0 flex items-center justify-center"
+    >
+      <MessageCircle class="w-6 h-6" />
+    </div>
   {/if}
 </button>
 
 <!-- Chat Window -->
 {#if isOpen}
   <div
-    class="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-3rem)] h-[520px] max-h-[calc(100vh-10rem)] bg-white dark:bg-gray-900 rounded-3xl shadow-xl dark:shadow-2xl flex flex-col overflow-hidden border border-gray-200 dark:border-gray-800"
+    transition:fly={{ y: 20, duration: 300, easing: cubicOut }}
+    class="fixed bottom-24 right-6 z-50 w-[380px] sm:w-[480px] md:w-[550px] max-w-[calc(100vw-3rem)] h-[520px] sm:h-[600px] max-h-[calc(100vh-10rem)] bg-white dark:bg-gray-900 rounded-3xl shadow-xl dark:shadow-2xl flex flex-col overflow-hidden border border-gray-200 dark:border-gray-800"
   >
     <!-- Header - Clean & Minimal -->
     <div
