@@ -121,13 +121,18 @@
     }
 
     function formatDate(dateString: string) {
-        return new Date(dateString).toLocaleString("id-ID", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-        });
+        return new Date(dateString)
+            .toLocaleString("id-ID", {
+                timeZone: "Asia/Jakarta",
+                day: "2-digit",
+                month: "2-digit",
+                year: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: undefined,
+                hour12: false,
+            })
+            .replace(/\./g, ":"); // Format as HH:mm
     }
 </script>
 
@@ -209,7 +214,7 @@
                 <MessageCircle class="w-4 h-4" />
                 AI CHAT
                 <span
-                    class="bg-orange-500 text-white text-xs px-2 py-0.5 rounded-full"
+                    class="bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full"
                 >
                     {chats.length}
                 </span>
@@ -233,7 +238,7 @@
         {#if isLoading}
             <div class="flex items-center justify-center py-20">
                 <div
-                    class="animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500"
+                    class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"
                 ></div>
             </div>
         {:else if activeTab === "contacts"}
@@ -416,7 +421,7 @@
                                         </p>
                                     </div>
                                     <span
-                                        class="text-xs bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 px-2 py-0.5 rounded-full"
+                                        class="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded-full"
                                     >
                                         {chat.message_count} pesan
                                     </span>
@@ -463,7 +468,7 @@
                                         <div
                                             class={`max-w-[80%] rounded-2xl px-4 py-2 ${
                                                 message.role === "user"
-                                                    ? "bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-br-md"
+                                                    ? "bg-blue-500 text-white rounded-br-md"
                                                     : "bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-bl-md"
                                             }`}
                                         >
@@ -504,7 +509,7 @@
                     <button
                         on:click={handleSync}
                         disabled={isSyncing}
-                        class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-lg hover:from-pink-600 hover:to-purple-700 disabled:opacity-50 transition-all"
+                        class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-sky-400 to-blue-600 text-white rounded-lg hover:from-sky-500 hover:to-blue-700 disabled:opacity-50 transition-all"
                     >
                         {#if isSyncing}
                             <svg

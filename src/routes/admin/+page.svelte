@@ -50,7 +50,7 @@
             <!-- Header -->
             <div class="text-center mb-8">
                 <div
-                    class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center"
+                    class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-sky-400 to-blue-600 flex items-center justify-center"
                 >
                     <Lock class="w-8 h-8 text-white" />
                 </div>
@@ -82,7 +82,7 @@
                             required
                             disabled={isLoading}
                             placeholder="Username"
-                            class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 disabled:opacity-50"
+                            class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
                         />
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                             required
                             disabled={isLoading}
                             placeholder="Password"
-                            class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 disabled:opacity-50"
+                            class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
                         />
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                 <button
                     type="submit"
                     disabled={isLoading || !username.trim() || !password.trim()}
-                    class="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium hover:from-pink-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                    class="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-sky-400 to-blue-600 text-white font-medium hover:from-sky-500 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                 >
                     {#if isLoading}
                         <span class="flex items-center justify-center gap-2">
@@ -156,7 +156,7 @@
             <p
                 class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6"
             >
-                <a href="/" class="text-pink-500 hover:text-pink-600"
+                <a href="/" class="text-blue-500 hover:text-blue-600"
                     >← Kembali ke beranda</a
                 >
             </p>
