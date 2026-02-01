@@ -150,7 +150,7 @@
               : ''}"
             on:click={closeMobileMenu}
           >
-            Honour
+            Experience
           </a>
           <a
             href="/contact"
