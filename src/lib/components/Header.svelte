@@ -87,8 +87,32 @@
         </a>
       </nav>
 
-      <!-- Theme Toggle & Mobile Menu Button -->
-      <div class="flex items-center space-x-3 lg:space-x-4">
+      <!-- Mobile Quick Links + Theme Toggle & Mobile Menu Button -->
+      <div class="flex items-center space-x-1 sm:space-x-2 lg:space-x-4">
+        <!-- Mobile Quick Access Links -->
+        <div class="flex md:hidden items-center space-x-1">
+          <a
+            href="/portfolio"
+            class="px-2 py-1.5 text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 {currentPath.startsWith(
+              '/portfolio',
+            )
+              ? 'text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-800'
+              : ''}"
+          >
+            Projects
+          </a>
+          <a
+            href="/honour"
+            class="px-2 py-1.5 text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 {currentPath.startsWith(
+              '/honour',
+            )
+              ? 'text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-800'
+              : ''}"
+          >
+            Experience
+          </a>
+        </div>
+
         <button
           on:click={theme.toggle}
           class="p-2 sm:p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 active:scale-95"
