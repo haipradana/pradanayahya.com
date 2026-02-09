@@ -77,6 +77,16 @@
           Experience
         </a>
         <a
+          href="/blogs"
+          class="text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath.startsWith(
+            '/blogs',
+          )
+            ? 'text-gray-900 dark:text-gray-100 font-medium'
+            : ''}"
+        >
+          Blog
+        </a>
+        <a
           href="/contact"
           class="text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath ===
           '/contact'
@@ -175,6 +185,17 @@
             on:click={closeMobileMenu}
           >
             Experience
+          </a>
+          <a
+            href="/blogs"
+            class="px-4 py-3 text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath.startsWith(
+              '/blogs',
+            )
+              ? 'text-gray-900 dark:text-gray-100 font-medium'
+              : ''}"
+            on:click={closeMobileMenu}
+          >
+            Blog
           </a>
           <a
             href="/contact"
