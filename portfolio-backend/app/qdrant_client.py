@@ -70,6 +70,26 @@ def get_collection_info() -> dict:
         }
 
 
+def list_payloads_by_category(category: str, limit: int = 100) -> list[dict]:
+    """List payloads for a category without semantic ranking."""
+    scroll_filter = Filter(
+        must=[
+            FieldCondition(
+                key="category",
+                match=MatchValue(value=category)
+            )
+        ]
+    )
+    points, _ = client.scroll(
+        collection_name=settings.collection_name,
+        scroll_filter=scroll_filter,
+        limit=limit,
+        with_payload=True,
+        with_vectors=False,
+    )
+    return [point.payload for point in points if point.payload]
+
+
 def upsert_point(
     point_id: int,
     dense: list[float],

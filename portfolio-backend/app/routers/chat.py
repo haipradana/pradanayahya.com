@@ -13,10 +13,56 @@ from ..database import get_db
 from ..models import ChatSession, ChatMessage
 from ..schemas import ChatCreate, ChatResponse
 from ..embed import embed_text
-from ..qdrant_client import hybrid_search
+from ..qdrant_client import hybrid_search, list_payloads_by_category
 from ..llm import generate_answer
 
 router = APIRouter(prefix="/api/chat", tags=["Chat"])
+
+
+def requested_listing(message: str) -> str | None:
+    """Detect broad listing requests that need full category context."""
+    text = message.lower()
+    listing_words = (
+        "apa saja",
+        "list",
+        "daftar",
+        "semua",
+        "sebutkan",
+        "tampilkan",
+    )
+    if not any(word in text for word in listing_words):
+        return None
+
+    if any(word in text for word in ("project", "projek", "portfolio", "portofolio")):
+        return "project"
+    if any(word in text for word in ("experience", "pengalaman")):
+        return "experience"
+    if any(word in text for word in ("award", "penghargaan", "juara", "prestasi")):
+        return "award"
+    if any(word in text for word in ("education", "pendidikan", "kuliah")):
+        return "education"
+    return None
+
+
+def build_listing_context(category: str) -> tuple[str, list[dict]]:
+    """Build context from every payload in a Qdrant category."""
+    payloads = list_payloads_by_category(category)
+    payloads.sort(key=lambda item: (item.get("year") or 0, item.get("title") or ""), reverse=True)
+
+    context_parts = []
+    sources = []
+    for payload in payloads:
+        text = payload.get("content", payload.get("text", ""))
+        if not text:
+            continue
+        context_parts.append(text)
+        sources.append({
+            "category": payload.get("category", "unknown"),
+            "title": payload.get("title", ""),
+            "score": 1.0,
+        })
+
+    return "\n\n".join(context_parts), sources
 
 
 @router.post("/session")
@@ -62,32 +108,36 @@ async def chat(
     )
     db.add(user_message)
     
-    # Embed the question
-    dense, sparse = embed_text(data.message)
-    
-    # Hybrid search for relevant context
-    results = hybrid_search(
-        dense=dense,
-        sparse=sparse,
-        limit=5
-    )
-    
-    # Build context from search results
-    context_parts = []
-    sources = []
-    
-    for r in results:
-        if r.payload:
-            text = r.payload.get("content", r.payload.get("text", ""))
-            if text:
-                context_parts.append(text)
-                sources.append({
-                    "category": r.payload.get("category", "unknown"),
-                    "title": r.payload.get("title", ""),
-                    "score": r.score
-                })
-    
-    context = "\n\n".join(context_parts)
+    listing_category = requested_listing(data.message)
+    if listing_category:
+        context, sources = build_listing_context(listing_category)
+    else:
+        # Embed the question
+        dense, sparse = embed_text(data.message)
+        
+        # Hybrid search for relevant context
+        results = hybrid_search(
+            dense=dense,
+            sparse=sparse,
+            limit=5
+        )
+        
+        # Build context from search results
+        context_parts = []
+        sources = []
+        
+        for r in results:
+            if r.payload:
+                text = r.payload.get("content", r.payload.get("text", ""))
+                if text:
+                    context_parts.append(text)
+                    sources.append({
+                        "category": r.payload.get("category", "unknown"),
+                        "title": r.payload.get("title", ""),
+                        "score": r.score
+                    })
+        
+        context = "\n\n".join(context_parts)
     
     # Generate answer
     if context:
@@ -115,7 +165,7 @@ async def chat(
     return ChatResponse(
         session_id=session.id,
         answer=answer,
-        sources=sources[:3]  # Return top 3 sources
+        sources=sources[:10]
     )
 
 

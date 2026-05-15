@@ -22,6 +22,7 @@ from ..auth import (
     SESSION_COOKIE_NAME,
     require_admin
 )
+from ..qdrant_client import get_collection_info
 
 router = APIRouter(prefix="/api/admin", tags=["Admin"])
 
@@ -255,9 +256,8 @@ async def get_stats(
         select(func.count()).select_from(ChatMessage)
     )
     
-    # Qdrant points - will be fetched from Qdrant client
-    # For now, return 0 until we implement qdrant_client
-    total_qdrant_points = 0
+    collection_info = get_collection_info()
+    total_qdrant_points = collection_info.get("points_count", 0)
     
     return DashboardStats(
         total_contacts=total_contacts or 0,
