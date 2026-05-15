@@ -1,0 +1,39 @@
+services:
+  # Database khusus Portfolio
+  portfolio-db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - portfolio_db_data:/var/lib/postgresql/data
+    networks:
+      - default
+
+  # API Backend
+  portfolio-api:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    depends_on:
+      - portfolio-db
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio-api.rule=Host(`api.pradanayahya.com`)"
+      - "traefik.http.routers.portfolio-api.entrypoints=websecure"
+      - "traefik.http.routers.portfolio-api.tls.certresolver=le"
+      - "traefik.http.services.portfolio-api.loadbalancer.server.port=8000"
+    networks:
+      - default
+      - traefik_network
+
+volumes:
+  portfolio_db_data:
+
+networks:
+  default:
+  traefik_network:
+    external: true
+    name: n8n-stack_default

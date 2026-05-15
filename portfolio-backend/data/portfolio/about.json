@@ -1,0 +1,32 @@
+[
+    {
+        "category": "about",
+        "title": "Bio",
+        "content": "Pradana Yahya Abdillah (Dana) adalah mahasiswa Teknologi Informasi di Universitas Gadjah Mada (UGM), Yogyakarta. Dia adalah seorang Machine Learning dan Data Science Enthusiast yang sangat tertarik dengan dunia artificial intelligence."
+    },
+    {
+        "category": "about",
+        "title": "Minat dan Fokus",
+        "content": "Dana sangat tertarik dengan machine learning, deep learning, dan bagaimana cara mengekstrak insight dari data. Belakangan ini dia aktif mengeksplorasi berbagai area di AI seperti Natural Language Processing (NLP), Large Language Models (LLMs), dan Computer Vision."
+    },
+    {
+        "category": "about",
+        "title": "Skills Programming",
+        "content": "Pradana menguasai Python untuk machine learning dan data science. Dia familiar dengan framework seperti PyTorch, TensorFlow, Transformers (Hugging Face), dan Scikit-learn. Untuk NLP, dia berpengalaman dengan BERT, IndoBERT, RoBERTa, dan BERTopic."
+    },
+    {
+        "category": "about",
+        "title": "Open Source",
+        "content": "Dana suka bekerja pada personal projects untuk bereksperimen dengan ide, tools, dan frameworks baru. Dia menyukai kolaborasi dan knowledge sharing melalui open-source, dan senang jika karyanya bisa berkontribusi ke komunitas dan industri."
+    },
+    {
+        "category": "about",
+        "title": "Hobi",
+        "content": "Di luar programming, Dana menikmati hiking dan bermain sepak bola. Aktivitas tersebut membantu me-refresh pikirannya dan memberikan energi untuk kembali dengan ide dan motivasi baru."
+    },
+    {
+        "category": "about",
+        "title": "Contact",
+        "content": "Pradana dapat dihubungi melalui email di pradanayahyaabdillah@mail.ugm.ac.id. Akun GitHub-nya adalah haipradana, LinkedIn di linkedin.com/in/pradana-yahya, Hugging Face di huggingface.co/haipradana, dan Twitter/X di x.com/haipradana."
+    }
+]

@@ -1,0 +1,84 @@
+[
+    {
+        "category": "project",
+        "title": "Sentimen Analisis Abolisi Tom dan Hasto",
+        "content": "Project sentimen analisis publik dan topic modeling pada keputusan Prabowo yang mengabulkan abolisi Tom dan amnesti Hasto. Menggunakan teknik NLP dan BERTopic untuk topic modeling.",
+        "tech_stack": [
+            "NLP",
+            "Sentiment Analysis",
+            "BERTopic"
+        ],
+        "year": 2025
+    },
+    {
+        "category": "project",
+        "title": "Sentimen Analisis Vonis Tom Lembong",
+        "content": "Project sentimen analisis dan topic modeling pada vonis Tom Lembong. Menggunakan BERT untuk klasifikasi sentimen dan BERTopic untuk topic modeling.",
+        "tech_stack": [
+            "NLP",
+            "Sentiment Analysis",
+            "BERTopic",
+            "BERT"
+        ],
+        "year": 2025
+    },
+    {
+        "category": "project",
+        "title": "Klasifikasi Hate Speech (RoBERTa)",
+        "content": "Fine-tuned RoBERTa sentiment-based model untuk klasifikasi hate speech pada teks bahasa Indonesia. Model ini di-deploy di Hugging Face.",
+        "tech_stack": [
+            "NLP",
+            "RoBERTa",
+            "Fine-Tuning",
+            "Hugging Face"
+        ],
+        "year": 2025
+    },
+    {
+        "category": "project",
+        "title": "Deteksi Sarkas (IndoBERT Fine-Tuning)",
+        "content": "Fine-tuned IndoBERT base untuk klasifikasi sarkas pada teks bahasa Indonesia, dengan dataset dari media sosial. Model tersedia di Hugging Face.",
+        "tech_stack": [
+            "NLP",
+            "IndoBERT",
+            "Fine-Tuning",
+            "Hugging Face"
+        ],
+        "year": 2025
+    },
+    {
+        "category": "project",
+        "title": "Retail Behaviour Analysis v1",
+        "content": "Sistem analisis perilaku pelanggan dari rekaman CCTV. Menggunakan computer vision dan multimodal transformer (TimeSformer) untuk memberikan strategi bisnis.",
+        "tech_stack": [
+            "Computer Vision",
+            "TimeSformer",
+            "LLM"
+        ],
+        "year": 2025
+    },
+    {
+        "category": "project",
+        "title": "Mood2Movie",
+        "content": "Generate movie recommendations berdasarkan mood pengguna. Dibangun dengan semantic search, sentiment analysis, dan mood-based filtering.",
+        "tech_stack": [
+            "Python",
+            "LLM",
+            "Transformers",
+            "NLP",
+            "Streamlit"
+        ],
+        "year": 2025
+    },
+    {
+        "category": "project",
+        "title": "ChatMyDocs",
+        "content": "RAG-based assistant yang menggunakan ModernBERT untuk semantic retrieval. Upload PDF dan dapatkan jawaban yang presisi dengan citasi.",
+        "tech_stack": [
+            "RAG",
+            "Python",
+            "ModernBERT"
+        ],
+        "year": 2025
+    }
+]

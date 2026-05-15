@@ -1,0 +1,32 @@
+[
+    {
+        "category": "faq",
+        "title": "Siapa Dana/Pradana?",
+        "content": "Pradana Yahya Abdillah (Dana) adalah mahasiswa Teknologi Informasi di Universitas Gadjah Mada. Dia adalah Machine Learning dan Data Science Enthusiast yang aktif mengeksplorasi NLP, LLMs, dan Computer Vision."
+    },
+    {
+        "category": "faq",
+        "title": "Apa keahlian Pradana?",
+        "content": "Pradana memiliki keahlian di bidang Machine Learning dan Data Science. Dia menguasai Python, PyTorch, TensorFlow, Transformers (Hugging Face). Untuk NLP, dia berpengalaman dengan BERT, IndoBERT, RoBERTa, dan BERTopic."
+    },
+    {
+        "category": "faq",
+        "title": "Apa project Pradana?",
+        "content": "Pradana telah mengerjakan berbagai project seperti Sentimen Analisis dengan BERT dan BERTopic, Klasifikasi Hate Speech dengan RoBERTa, Deteksi Sarkas dengan IndoBERT, Retail Behaviour Analysis dengan Computer Vision, Mood2Movie untuk rekomendasi film, dan ChatMyDocs untuk RAG-based document assistant."
+    },
+    {
+        "category": "faq",
+        "title": "Bagaimana menghubungi Pradana?",
+        "content": "Kamu bisa menghubungi Pradana melalui email di pradanayahyaabdillah@mail.ugm.ac.id, LinkedIn di linkedin.com/in/pradana-yahya, GitHub di github.com/haipradana, atau Hugging Face di huggingface.co/haipradana."
+    },
+    {
+        "category": "faq",
+        "title": "Siapa Latent?",
+        "content": "Latent adalah asisten AI di website portfolio Pradana. Latent dibuat menggunakan teknologi RAG (Retrieval Augmented Generation) dengan hybrid search untuk memberikan informasi akurat tentang Pradana dan project-projectnya."
+    },
+    {
+        "category": "faq",
+        "title": "Pradana kuliah dimana?",
+        "content": "Pradana kuliah di Universitas Gadjah Mada (UGM), Yogyakarta, mengambil jurusan Teknologi Informasi."
+    }
+]
