@@ -3,12 +3,13 @@
 </script>
 
 <footer class="border-t border-gray-200 dark:border-gray-800 mt-16">
-  <div class="max-w-4xl mx-auto px-4 py-6">
-    <div class="flex flex-col md:flex-row items-center justify-between">
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-7">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 md:mb-0">
         2025-PRESENT © Pradana Yahya Abdillah
+      </p>
       
-      <div class="flex space-x-3">
+      <div class="flex items-center gap-3">
         <a
           href="https://github.com/haipradana"
           target="_blank"

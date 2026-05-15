@@ -24,28 +24,28 @@
 <header
   class="sticky top-0 z-50 bg-white/80 dark:bg-dark-custom/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-colors duration-300"
 >
-  <div class="max-w-3xl lg:max-w-4xl mx-auto px-6 lg:px-8">
-    <div class="flex items-center justify-between h-12 lg:h-14">
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
+    <div class="flex items-center justify-between h-14 lg:h-16">
       <!-- Logo -->
-      <a href="/" class="py-1 sm:py-2 lg:py-3">
+      <a href="/" class="shrink-0 py-1 sm:py-2 lg:py-3">
         {#if $theme === "dark"}
           <img
             src="/images/logodana-dark.png"
             alt="Pradana Logo"
-            class="h-8 sm:h-7 lg:h-8 w-auto"
+            class="h-8 lg:h-9 w-auto"
           />
         {:else}
           <img
             src="/images/logodana-light.png"
             alt="Pradana Logo"
-            class="h-8 sm:h-7 lg:h-8 w-auto"
+            class="h-8 lg:h-9 w-auto"
           />
         {/if}
       </a>
 
       <!-- Desktop Navigation -->
       <nav
-        class="hidden md:flex items-center space-x-8 lg:space-x-10 xl:space-x-12"
+        class="hidden md:flex flex-1 items-center justify-center gap-7 lg:gap-10 xl:gap-12"
       >
         <a
           href="/"
@@ -98,7 +98,7 @@
       </nav>
 
       <!-- Mobile Quick Links + Theme Toggle & Mobile Menu Button -->
-      <div class="flex items-center space-x-1 sm:space-x-2 lg:space-x-4">
+      <div class="flex shrink-0 items-center gap-1 sm:gap-2 lg:gap-4">
         <!-- Mobile Quick Access Links -->
         <div class="flex md:hidden items-center space-x-1">
           <a
