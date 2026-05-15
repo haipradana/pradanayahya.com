@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
 from .database import init_db
+from .qdrant_client import get_collection_info
 from .routers import contact, admin, chat, ingest
 
 
@@ -58,8 +59,10 @@ async def root():
 @app.get("/health")
 async def health():
     """Detailed health check"""
+    qdrant_info = get_collection_info()
     return {
         "status": "healthy",
         "database": "connected",
-        "qdrant": "pending"  # Will be updated when qdrant_client is implemented
+        "qdrant": qdrant_info.get("status", "unknown"),
+        "qdrant_points": qdrant_info.get("points_count", 0)
     }
