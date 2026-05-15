@@ -1,0 +1,151 @@
+[
+  {
+    "id": "edu-ugm-information-engineering",
+    "category": "education",
+    "title": "Teknologi Informasi (S1)",
+    "content": "Education: Teknologi Informasi (S1). Organisasi: Universitas Gadjah Mada (UGM). Periode: 2023 - Now. Deskripsi: Undergraduate study in Information Engineering. Tags: Education.",
+    "org": "Universitas Gadjah Mada (UGM)",
+    "period": {
+      "from": "2023",
+      "to": "Now"
+    },
+    "tags": [
+      "Education"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "fafd52a85941e7f2f5746dd37f983d999c2e655e18fdae2713446f4741f1df6f"
+  },
+  {
+    "id": "exp-fukuro-cv-programmer",
+    "category": "experience",
+    "title": "Computer Vision Programmer of FUKURO",
+    "content": "Experience: Computer Vision Programmer of FUKURO. Organisasi: Gadjah Mada Robotic Team (GMRT). Periode: Nov 2024 - now. Deskripsi: Menghandle tugas vision dengan kamera 360 derajat sebagai mata robot untuk memahami posisinya dan mengetahui posisi musuh, kawan, dan bola Tags: Computer Vision, Team.",
+    "org": "Gadjah Mada Robotic Team (GMRT)",
+    "period": {
+      "from": "Nov 2024",
+      "to": "now"
+    },
+    "tags": [
+      "Computer Vision",
+      "Team"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "9c7fb7978dbb9d25acfbc878906d806ff56d1d84c438d61d64ac38a3fdb9fd21"
+  },
+  {
+    "id": "exp-fukuro-captain",
+    "category": "experience",
+    "title": "Captain FUKURO (KRSBI-Beroda)",
+    "content": "Experience: Captain FUKURO (KRSBI-Beroda). Organisasi: Gadjah Mada Robotic Team (GMRT). Periode: Oct 2025 - now. Deskripsi: Sebagai kapten yang memimpin tim robotik sepakbola beroda milik UGM. Tags: Leadership, Team.",
+    "org": "Gadjah Mada Robotic Team (GMRT)",
+    "period": {
+      "from": "Oct 2025",
+      "to": "now"
+    },
+    "tags": [
+      "Leadership",
+      "Team"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "5e342edcd7eb2a9637d0184d0826368467ae1a3c172d1141ad0d6c717d45e32f"
+  },
+  {
+    "id": "award-datathon-2025-1st",
+    "category": "award",
+    "title": "Juara 1 DATATHON 2025",
+    "content": "Award: Juara 1 DATATHON 2025. Organisasi: RISTEK Universitas Indonesia. Periode: June 2025 - Sep 2025. Deskripsi: Memenangkan kompetisi DATATHON 2025 dengan proyek TRACKO, platform untuk analisis toko retail dengan computer vision memanfaatkan CCTV sederhana",
+    "org": "RISTEK Universitas Indonesia",
+    "period": {
+      "from": "June 2025",
+      "to": "Sep 2025"
+    },
+    "tags": [],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "bab7745de9ff51e5d1efdeb2210b56cb96e46453e9484005548045b14ede5644"
+  },
+  {
+    "id": "exp-datains-ai-engineer-intern",
+    "category": "experience",
+    "title": "AI Engineer Intern",
+    "content": "Experience: AI Engineer Intern. Organisasi: DataIns. Periode: Sep 2025 - Dec 2025. Deskripsi: Sebagai AI Engineer intern topik smart space. Menerapkan end-to-end sistem asisten suara cerdas untuk mengontrol IoT dan RAG dengan automation workflow N8N Tags: TTS, STT, AI.",
+    "org": "DataIns",
+    "period": {
+      "from": "Sep 2025",
+      "to": "Dec 2025"
+    },
+    "tags": [
+      "TTS",
+      "STT",
+      "AI"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "cdd3baff5d76eb510ada1b5452930825c9d266c3af1d7e269f5c09106610a09b"
+  },
+  {
+    "id": "award-action-unesa-3rd",
+    "category": "award",
+    "title": "Juara 3 Data Mining ACTION",
+    "content": "Award: Juara 3 Data Mining ACTION. Organisasi: Universitas Negeri Surabaya. Periode: Nov 2025 - Nov 2025. Deskripsi: Mendapatkan juara 3 dalam cabang lomba Data Mining di ACTION UNESA. Tags: Competition, Award.",
+    "org": "Universitas Negeri Surabaya",
+    "period": {
+      "from": "Nov 2025",
+      "to": "Nov 2025"
+    },
+    "tags": [
+      "Competition",
+      "Award"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "61f72b7be5e6c018ec1c0566a63148ee3ea28d1f5f33d5059370b70aceffc232"
+  },
+  {
+    "id": "award-logika-ui-2025-2nd",
+    "category": "award",
+    "title": "Juara 2 DSC LOGIKA UI 2025",
+    "content": "Award: Juara 2 DSC LOGIKA UI 2025. Organisasi: Universitas Indonesia. Periode: Nov 2025 - Nov 2025. Deskripsi: Mendapatkan juara 2 dalam Data Science Competition (DSC) LOGIKA UI 2025. Tags: Competition, Award.",
+    "org": "Universitas Indonesia",
+    "period": {
+      "from": "Nov 2025",
+      "to": "Nov 2025"
+    },
+    "tags": [
+      "Competition",
+      "Award"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "f1f6be47ad4a11860fc7a4a5b896734e7aeaad8a4520ea2d22a04229d0599a05"
+  },
+  {
+    "id": "exp-research-assistant",
+    "category": "experience",
+    "title": "Research Assistant",
+    "content": "Experience: Research Assistant. Organisasi: Universitas Gadjah Mada (UGM). Periode: Dec 2025 - Now. Deskripsi: Asisten Peneliti di Departemen Teknik Elektro dan Teknologi Informasi UGM (DTETI) dengan topik Smart Lab & Space Tags: Research, Assistant.",
+    "org": "Universitas Gadjah Mada (UGM)",
+    "period": {
+      "from": "Dec 2025",
+      "to": "Now"
+    },
+    "tags": [
+      "Research",
+      "Assistant"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "13c4daddfad4d56b37e4937394832c30cda146069efa40339253927c68f662b9"
+  },
+  {
+    "id": "exp-bmkg-intern",
+    "category": "experience",
+    "title": "Machine Learning Intern",
+    "content": "Experience: Machine Learning Intern. Organisasi: BMKG. Periode: Dec 2025 - Now. Deskripsi: Internship di BMKG Stasiun Klimatologi Yogyakarta. Tags: Internship.",
+    "org": "BMKG",
+    "period": {
+      "from": "Dec 2025",
+      "to": "Now"
+    },
+    "tags": [
+      "Internship"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "6f53102e5c01a370bb0463482df6e638695785b1be60e26f6ca1e0d282ab3031"
+  }
+]

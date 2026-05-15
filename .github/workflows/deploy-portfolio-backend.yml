@@ -1,0 +1,65 @@
+name: Deploy portfolio backend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/deploy-portfolio-backend.yml"
+      - "portfolio-backend/**"
+      - "scripts/generate_rag_data.py"
+      - "src/lib/data/**"
+      - "static/projects/**"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy and sync RAG on VPS
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_PORT: ${{ secrets.VPS_PORT || '22' }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$VPS_HOST" ] || [ -z "$VPS_USER" ] || [ -z "$VPS_SSH_KEY" ]; then
+            echo "Skipping deploy because VPS_HOST, VPS_USER, or VPS_SSH_KEY is not configured."
+            exit 0
+          fi
+
+          mkdir -p ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/vps_key
+          chmod 600 ~/.ssh/vps_key
+          ssh-keyscan -p "$VPS_PORT" "$VPS_HOST" >> ~/.ssh/known_hosts
+
+          ssh -i ~/.ssh/vps_key -p "$VPS_PORT" "$VPS_USER@$VPS_HOST" 'sudo bash -s' <<'REMOTE'
+          set -euo pipefail
+
+          APP_ROOT=/root/n8n-stack
+          REPO_DIR="$APP_ROOT/pradanayahya.com"
+          LEGACY_BACKEND_DIR="$APP_ROOT/portfolio-backend"
+          REPO_URL=https://github.com/haipradana/pradanayahya.com.git
+
+          if [ ! -d "$REPO_DIR/.git" ]; then
+            git clone "$REPO_URL" "$REPO_DIR"
+          fi
+
+          git -C "$REPO_DIR" fetch origin main
+          git -C "$REPO_DIR" reset --hard origin/main
+
+          if [ ! -f "$REPO_DIR/portfolio-backend/.env" ] && [ -f "$LEGACY_BACKEND_DIR/.env" ]; then
+            cp "$LEGACY_BACKEND_DIR/.env" "$REPO_DIR/portfolio-backend/.env"
+            chmod 600 "$REPO_DIR/portfolio-backend/.env"
+          fi
+
+          cd "$REPO_DIR"
+          python3 scripts/generate_rag_data.py
+
+          cd "$REPO_DIR/portfolio-backend"
+          docker compose up -d --build
+          docker compose exec -T portfolio-api python -m app.sync_ingest
+          REMOTE

@@ -1,84 +1,129 @@
 [
-    {
-        "category": "project",
-        "title": "Sentimen Analisis Abolisi Tom dan Hasto",
-        "content": "Project sentimen analisis publik dan topic modeling pada keputusan Prabowo yang mengabulkan abolisi Tom dan amnesti Hasto. Menggunakan teknik NLP dan BERTopic untuk topic modeling.",
-        "tech_stack": [
-            "NLP",
-            "Sentiment Analysis",
-            "BERTopic"
-        ],
-        "year": 2025
-    },
-    {
-        "category": "project",
-        "title": "Sentimen Analisis Vonis Tom Lembong",
-        "content": "Project sentimen analisis dan topic modeling pada vonis Tom Lembong. Menggunakan BERT untuk klasifikasi sentimen dan BERTopic untuk topic modeling.",
-        "tech_stack": [
-            "NLP",
-            "Sentiment Analysis",
-            "BERTopic",
-            "BERT"
-        ],
-        "year": 2025
-    },
-    {
-        "category": "project",
-        "title": "Klasifikasi Hate Speech (RoBERTa)",
-        "content": "Fine-tuned RoBERTa sentiment-based model untuk klasifikasi hate speech pada teks bahasa Indonesia. Model ini di-deploy di Hugging Face.",
-        "tech_stack": [
-            "NLP",
-            "RoBERTa",
-            "Fine-Tuning",
-            "Hugging Face"
-        ],
-        "year": 2025
-    },
-    {
-        "category": "project",
-        "title": "Deteksi Sarkas (IndoBERT Fine-Tuning)",
-        "content": "Fine-tuned IndoBERT base untuk klasifikasi sarkas pada teks bahasa Indonesia, dengan dataset dari media sosial. Model tersedia di Hugging Face.",
-        "tech_stack": [
-            "NLP",
-            "IndoBERT",
-            "Fine-Tuning",
-            "Hugging Face"
-        ],
-        "year": 2025
-    },
-    {
-        "category": "project",
-        "title": "Retail Behaviour Analysis v1",
-        "content": "Sistem analisis perilaku pelanggan dari rekaman CCTV. Menggunakan computer vision dan multimodal transformer (TimeSformer) untuk memberikan strategi bisnis.",
-        "tech_stack": [
-            "Computer Vision",
-            "TimeSformer",
-            "LLM"
-        ],
-        "year": 2025
-    },
-    {
-        "category": "project",
-        "title": "Mood2Movie",
-        "content": "Generate movie recommendations berdasarkan mood pengguna. Dibangun dengan semantic search, sentiment analysis, dan mood-based filtering.",
-        "tech_stack": [
-            "Python",
-            "LLM",
-            "Transformers",
-            "NLP",
-            "Streamlit"
-        ],
-        "year": 2025
-    },
-    {
-        "category": "project",
-        "title": "ChatMyDocs",
-        "content": "RAG-based assistant yang menggunakan ModernBERT untuk semantic retrieval. Upload PDF dan dapatkan jawaban yang presisi dengan citasi.",
-        "tech_stack": [
-            "RAG",
-            "Python",
-            "ModernBERT"
-        ],
-        "year": 2025
-    }
+  {
+    "id": "project-sentimen-analisis-abolisi-tom-dan-hasto",
+    "category": "project",
+    "title": "Sentimen Analisis Abolisi Tom dan Hasto",
+    "content": "Project: Sentimen Analisis Abolisi Tom dan Hasto. Deskripsi: Sentimen analisis publik dan topic modeling pada keputusan Prabowo yang mengabulkan abolisi Tom dan amnesti Hasto. Kategori: nlp. Tahun: 2025. Tech stack: NLP, Sentiment Analysis, BERTopic.",
+    "slug": "sentimen-analisis-abolisi-tom-dan-hasto",
+    "year": 2025,
+    "project_category": "nlp",
+    "tech_stack": [
+      "NLP",
+      "Sentiment Analysis",
+      "BERTopic"
+    ],
+    "demo_url": "https://x.com/haipradana/status/1951344945295663171?t=cn_0U9QgrNNQDYqveyJCYQ&s=19",
+    "github_url": "https://github.com/haipradana/barengdata/tree/main/Abolisi%20Tom%20Lembong",
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "0f37e25789431d59b15cda79d6595e05f93af70e9637845a578d9c3e25e8e07b"
+  },
+  {
+    "id": "project-sentimen-analisis-vonis-tom-lembong",
+    "category": "project",
+    "title": "Sentimen Analisis Vonis Tom Lembong",
+    "content": "Project: Sentimen Analisis Vonis Tom Lembong. Deskripsi: Sentimen analisis dan topic modeling pada vonis Tom Lembong, BERT untuk klasifikasi sentimen dan BertTopic untuk topic modeling. Kategori: nlp. Tahun: 2025. Tech stack: NLP, Sentiment Analysis, BERTopic.",
+    "slug": "sentimen-analisis-vonis-tom-lembong",
+    "year": 2025,
+    "project_category": "nlp",
+    "tech_stack": [
+      "NLP",
+      "Sentiment Analysis",
+      "BERTopic"
+    ],
+    "demo_url": "https://www.instagram.com/p/DM72xWmPTen",
+    "github_url": "https://github.com/haipradana/barengdata/tree/main/Tom%20Lembong%201",
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "e1832746cae101c7b3db3e7a23f8ad70b15396cb502cc220e2485552f9f7f680"
+  },
+  {
+    "id": "project-hate-speech-roberta",
+    "category": "project",
+    "title": "Klasifikasi Hate Speech (RoBERTa)",
+    "content": "Project: Klasifikasi Hate Speech (RoBERTa). Deskripsi: Fine-tuned RoBERTa sentiment-based model untuk klasifikasi hate speech pada teks bahasa Indonesia. Kategori: nlp. Tahun: 2025. Tech stack: NLP, RoBERTa, Fine-Tuning.",
+    "slug": "hate-speech-roberta",
+    "year": 2025,
+    "project_category": "nlp",
+    "tech_stack": [
+      "NLP",
+      "RoBERTa",
+      "Fine-Tuning"
+    ],
+    "demo_url": "https://huggingface.co/haipradana/roberta-hate-classification-model",
+    "github_url": "https://github.com/haipradana/RoBERTa-Indonesian-Hate-Tweet-Classification",
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "7dc68892e78b89d2e9c31c64ee97cd3f0ea76675339dba244a772589c6c63eb8"
+  },
+  {
+    "id": "project-sarcasm-indobert",
+    "category": "project",
+    "title": "Deteksi Sarkas (IndoBERT Fine-Tuning)",
+    "content": "Project: Deteksi Sarkas (IndoBERT Fine-Tuning). Deskripsi: Fine-tuned IndoBERT base untuk klasifikasi sarkas pada teks bahasa Indonesia, dengan dataset media sosial. Kategori: nlp. Tahun: 2025. Tech stack: NLP, IndoBERT, Fine-Tuning.",
+    "slug": "sarcasm-indobert",
+    "year": 2025,
+    "project_category": "nlp",
+    "tech_stack": [
+      "NLP",
+      "IndoBERT",
+      "Fine-Tuning"
+    ],
+    "demo_url": "https://huggingface.co/haipradana/indobert-indonesia-satire-sarcastic-classification-model",
+    "github_url": "https://github.com/haipradana/indobert-indonesia-sarcastic-satire-classification",
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "2114a0e9c4811ce17a5c7fc06d980634d690433e246414bef8e07d380ae3fa2b"
+  },
+  {
+    "id": "project-retail-behaviour-analysis-v1",
+    "category": "project",
+    "title": "Retail Behaviour Analysis v1",
+    "content": "Project: Retail Behaviour Analysis v1. Deskripsi: Sistem analisis perilaku pelanggan dari rekaman CCTV. Menggunakan computer vision dan multimodal transformer untuk memberikan strategi bisnis. Kategori: computer-vision. Tahun: 2025. Tech stack: Computer Vision, TimeSformer, LLM. Detail: DATATHON 2025 - Retail Behaviour Analysis Overview Sistem analitik berbasis AI untuk optimalisasi strategi bisnis melalui analisis perilaku pelanggan dari rekaman CCTV. Menggunakan computer vision dan multimodal transformer untuk memberikan insights actionable bagi strategi bisnis retail. Key Features - **Segmentasi Rak**: YOLOv11-seg (94.73% precision, 73.37% recall) - **Pelacakan Multi-Person**: ByteTrack untuk tracking real-time - **Klasifikasi Aksi**: TimeSFormer dengan domain adaptation (75.0% accuracy) - **Analisis Behavior**: Heat-map, dwell-time, dan traffic analysis - **6 Action Classes**: Reach/Retract from Shelf, Hand in Shelf, Inspect Product/Shelf, Background Outputs - Heat-map visualisasi traffic pelanggan - Statistik interaksi per rak - Statistik dwell time setiap pelanggan - Rekomendasi optimasi layout toko dari keramaian rak - Comprehensive behavioral insights Datasets HuggingFace - MERL Dataset - CCTV-Like Dataset - Shelf Segmentation Models HuggingFace - Action Recognition Model - Domain Adaptation - Shelf Segmentation - YOLOv11 Model 🚀 Deployment This full pipeline has deployed on Huggingface Space 🤗 Demo Video dan Dokumentasi Lihat Demo Video",
+    "slug": "retail-behaviour-analysis-v1",
+    "year": 2025,
+    "project_category": "computer-vision",
+    "tech_stack": [
+      "Computer Vision",
+      "TimeSformer",
+      "LLM"
+    ],
+    "demo_url": "https://huggingface.co/spaces/haipradana/retail-behavior-analysis",
+    "github_url": "https://github.com/haipradana/DATATHON-2025-Retail-Behaviour-Analysis",
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "cb6824870ffb4959f7905c763a8268385f9bafa25d437130a4bac4be9dae360f"
+  },
+  {
+    "id": "project-mood2movie",
+    "category": "project",
+    "title": "Mood2Movie",
+    "content": "Project: Mood2Movie. Deskripsi: Generate movie recommendations based on your mood. Built with semantic search, sentiment analysis, and mood-based filtering. Kategori: llm. Tahun: 2025. Tech stack: Python, LLM, Transformers, NLP. Detail: Mood2Movie : Rekomendasi Film Berdasarkan Mood Kamu Overview Mood2Movie adalah aplikasi rekomendasi film cerdas yang memahami mood kamu dan memberikan saran film paling cocok untuk ditonton. Aplikasi ini dibangun dengan semantic search, analisis sentimen, dan filtering berbasis mood. Kamu bisa mengetikkan perasaan atau suasana hati yang sedang kamu rasakan, atau cukup masukkan kata kunci apapun terkait film yang ingin kamu tonton, tidak harus judul film, cukup tuliskan apa yang ada di pikiranmu. **Coba sekarang:** Mood2Movie Fitur Utama - **Rekomendasi Berdasarkan Mood**: Saran film berdasarkan mood atau ketertarikan yang kamu input - **Natural Language Understanding**: Jelaskan saja apa yang kamu rasakan atau ingin tonton, sistem akan mengerti - **Content Based Filtering**: Pencarian semantik untuk mencocokkan overview film dengan input menggunakan Sentence Transformer - **AI-Enhanced Query**: Query akan diproses dan dipahami lebih baik dengan bantuan LLM Langsung kunjungi mood2movie.streamlit.app untuk mencoba! Terima kasih!",
+    "slug": "mood2movie",
+    "year": 2025,
+    "project_category": "llm",
+    "tech_stack": [
+      "Python",
+      "LLM",
+      "Transformers",
+      "NLP"
+    ],
+    "demo_url": "https://mood2movie.streamlit.app/",
+    "github_url": "https://github.com/haipradana/Mood2Movie",
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "04f2338874e70164512a24c554dce7ff7b8f0aeb66a6f5f89046b085056d488b"
+  },
+  {
+    "id": "project-chatmydocs",
+    "category": "project",
+    "title": "ChatMyDocs",
+    "content": "Project: ChatMyDocs. Deskripsi: RAG-based assistant that uses ModernBERT for semantic retrieval. Upload your PDFs and get precise, citation-backed answers. Kategori: llm. Tahun: 2025. Tech stack: RAG, Python, ModernBERT. Detail: ChatMyDocs dengan ModernBERT Overview ChatMyDocs memungkinkan Anda melakukan chat secara real-time dengan file PDF Anda. Berbeda dengan LLM biasa yang cenderung kehilangan konteks pada dokumen panjang yang berakibat jawaban \"HALU\", ChatMyDocs menggunakan ModernBERT untuk membuat embedding dari setiap potongan teks PDF dan menyimpannya dalam VectorStoreIndex. Saat Anda bertanya, sistem akan mencari potongan teks yang paling relevan menggunakan embedding, kemudian melakukan reranking dengan cross-encoder agar hasilnya semakin akurat. Jawaban yang diberikan akan disertai dengan sumber (cite) dari bagian PDF terkait, sehingga lebih relevan dan dapat dipertanggungjawabkan. Sistem ini memanfaatkan ModernBERT untuk membuat embedding (representasi vektor) dari setiap potongan teks PDF, yang kemudian disimpan dalam VectorStoreIndex. Saat Anda mengajukan pertanyaan, sistem akan: - Membagi PDF menjadi potongan-potongan kecil (chunk) - Membuat embedding dari pertanyaan Anda - Melakukan pencarian chunk yang paling relevan menggunakan similarity embedding - Melakukan reranking hasil pencarian dengan cross-encoder agar hasil semakin presisi - Memberikan jawaban yang dirangkum oleh LLM, lengkap dengan sumber (cite) dari bagian PDF terkait Dengan cara ini, jawaban yang diberikan sangat relevan, dapat dipertanggungjawabkan, dan meminimalisir risiko “halu” yang sering terjadi jika hanya mengandalkan LLM tanpa retrieval. Fitur Utama - **ModernBERT Embeddings**: Menggunakan `nomic-ai/modernbert-embed-base` untuk pencarian semantik - **Smart Reranking**: Reranking dengan cross-encoder `cross-encoder/ms-marco-MiniLM-L-6-v2` - **Dukungan OCR**: Ekstraksi teks otomatis dengan fallback EasyOCR - **Streaming Responses**: Chat real-time dengan Gemini 2.5-flash - **Sumber Jawaban**: Menampilkan sumber dokumen untuk setiap jawaban Stack - **Frontend**: Streamlit - **Embeddings**: ModernBERT (nomic-ai/modernbert-embed-base) - **Reranking**: Cross-encoder (cross-encoder/ms-marco-MiniLM-L-6-v2) - **LLM**: Google Gemini 2.5-flash - **Pemrosesan PDF**: PyPDF2 + EasyOCR (untuk pdf gambar, bukan hasil scan) - **Vector Store**: LlamaIndex VectorStoreIndex",
+    "slug": "chatmydocs",
+    "year": 2025,
+    "project_category": "llm",
+    "tech_stack": [
+      "RAG",
+      "Python",
+      "ModernBERT"
+    ],
+    "demo_url": "https://github.com/haipradana/ChatMyDocs",
+    "github_url": "https://github.com/haipradana/ChatMyDocs",
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "1b0669f26af3e9272282cde3ac14e62c2d26046d38c9c7ebbe3fe781de012cd2"
+  }
 ]

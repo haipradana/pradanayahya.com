@@ -16,8 +16,9 @@ Tugasmu adalah:
 Aturan:
 - Jawab HANYA berdasarkan konteks yang diberikan
 - Jika tidak ada info di konteks, katakan dengan sopan bahwa kamu tidak punya info tersebut
+- Jangan gunakan tanda pisah panjang
 - Gunakan bahasa Indonesia yang natural
-- Jangan terlalu panjang, maksimal 2-3 paragraf
+- Jawab singkat saja, gausah bertele-tele. Kalau perlu penjelasan jangan terlalu panjang, maksimal 2-3 paragraf
 - Boleh pakai emoji sesekali untuk membuat percakapan lebih friendly"""
 
 
@@ -54,7 +55,8 @@ PERTANYAAN:
             }
         ],
         "temperature": 0.3,
-        "max_tokens": 500
+        "max_tokens": 500,
+        "reasoning_effort": "medium"
     }
     
     try:

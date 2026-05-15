@@ -2,9 +2,6 @@
 Ingest router - JSON file management and Qdrant sync
 """
 import json
-import hashlib
-from pathlib import Path
-from datetime import datetime
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select, desc
@@ -20,29 +17,12 @@ from ..schemas import (
     IngestLogResponse
 )
 from ..auth import require_admin
-from ..embed import embed_text
 from ..qdrant_client import (
-    upsert_points_batch, 
-    delete_all_points,
     get_collection_info,
-    ensure_collection_exists
 )
+from ..ingest_service import get_data_dir, sync_portfolio_files
 
 router = APIRouter(prefix="/api/admin/ingest", tags=["Ingest"])
-
-# Data directory path
-DATA_DIR = Path(__file__).parent.parent.parent / "data" / "portfolio"
-
-
-def get_data_dir() -> Path:
-    """Ensure data directory exists and return path"""
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    return DATA_DIR
-
-
-def make_point_id(text: str) -> int:
-    """Generate unique point ID from text hash"""
-    return int(hashlib.md5(text.encode()).hexdigest()[:8], 16)
 
 
 # ============ File Management ============
@@ -154,83 +134,7 @@ async def sync_to_qdrant(
     Sync all JSON files to Qdrant.
     Clears existing data and re-ingests everything.
     """
-    data_dir = get_data_dir()
-    
-    # Ensure collection exists
-    ensure_collection_exists()
-    
-    # Clear existing points
-    delete_all_points()
-    
-    total_points = 0
-    logs = []
-    
-    for file_path in data_dir.glob("*.json"):
-        try:
-            with open(file_path, "r", encoding="utf-8") as f:
-                items = json.load(f)
-            
-            if not isinstance(items, list):
-                items = [items]
-            
-            points = []
-            for item in items:
-                # Get the text content to embed
-                content = item.get("content", "")
-                if not content:
-                    continue
-                
-                # Generate embeddings
-                dense, sparse = embed_text(content)
-                
-                # Create point
-                point_id = make_point_id(content)
-                points.append({
-                    "id": point_id,
-                    "dense": dense,
-                    "sparse": sparse,
-                    "payload": {
-                        "category": item.get("category", item.get("type", "general")),
-                        "title": item.get("title", ""),
-                        "content": content,
-                        "source_file": file_path.name,
-                        **{k: v for k, v in item.items() if k not in ["content", "category", "type", "title"]}
-                    }
-                })
-            
-            # Batch upsert
-            if points:
-                upsert_points_batch(points)
-            
-            # Log success
-            log = IngestLog(
-                filename=file_path.name,
-                status="success",
-                points_count=len(points)
-            )
-            db.add(log)
-            logs.append({"filename": file_path.name, "status": "success", "points": len(points)})
-            total_points += len(points)
-            
-        except Exception as e:
-            # Log failure
-            log = IngestLog(
-                filename=file_path.name,
-                status="failed",
-                points_count=0,
-                error_message=str(e)
-            )
-            db.add(log)
-            logs.append({"filename": file_path.name, "status": "failed", "error": str(e)})
-    
-    await db.flush()
-    
-    return {
-        "success": True,
-        "total_points": total_points,
-        "files_processed": len(logs),
-        "details": logs
-    }
+    return await sync_portfolio_files(db)
 
 
 @router.get("/status")
