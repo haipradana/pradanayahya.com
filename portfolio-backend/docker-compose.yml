@@ -21,6 +21,7 @@ services:
       - portfolio-db
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=n8n-stack_default"
       - "traefik.http.routers.portfolio-api.rule=Host(`api.pradanayahya.com`)"
       - "traefik.http.routers.portfolio-api.entrypoints=websecure"
       - "traefik.http.routers.portfolio-api.tls.certresolver=le"
