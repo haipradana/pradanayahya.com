@@ -103,8 +103,53 @@
   <title>Pradana Yahya Abdillah — AI Engineer & Data Scientist</title>
   <meta
     name="description"
-    content="Pradana Yahya Abdillah — third-year IT student at Universitas Gadjah Mada. Building production AI across NLP, computer vision, and on-device LLMs."
+    content="Pradana Yahya Abdillah (Dana) — AI engineer & data scientist at Universitas Gadjah Mada. Building things across NLP, computer vision, and on-device LLMs. Champion of DATATHON 2025."
   />
+  <link rel="canonical" href="https://pradanayahya.com/" />
+  <!-- ProfilePage + Breadcrumb + ItemList for the home page. -->
+  <script type="application/ld+json">
+    {JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'ProfilePage',
+          '@id': 'https://pradanayahya.com/#profile',
+          url: 'https://pradanayahya.com/',
+          name: 'Pradana Yahya Abdillah — AI Engineer & Data Scientist',
+          mainEntity: { '@id': 'https://pradanayahya.com/#person' },
+          inLanguage: 'en',
+        },
+        {
+          '@type': 'Person',
+          '@id': 'https://pradanayahya.com/#person',
+          name: 'Pradana Yahya Abdillah',
+          alternateName: ['Dana', 'haipradana'],
+          url: 'https://pradanayahya.com',
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pradanayahya.com/' },
+            { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://pradanayahya.com/portfolio' },
+            { '@type': 'ListItem', position: 3, name: 'Experience', item: 'https://pradanayahya.com/experience' },
+            { '@type': 'ListItem', position: 4, name: 'Awards', item: 'https://pradanayahya.com/awards' },
+            { '@type': 'ListItem', position: 5, name: 'Writings', item: 'https://pradanayahya.com/blogs' },
+            { '@type': 'ListItem', position: 6, name: 'Contact', item: 'https://pradanayahya.com/contact' },
+          ],
+        },
+        {
+          '@type': 'ItemList',
+          name: 'Featured projects',
+          itemListElement: featured.map((p, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            url: `https://pradanayahya.com/portfolio/${p.slug}`,
+            name: p.title,
+          })),
+        },
+      ],
+    })}
+  </script>
 </svelte:head>
 
 <!-- ─── Hero ─────────────────────────────────────────────────────────────── -->
@@ -114,9 +159,9 @@
     <div class="absolute top-[40%] left-[2%] h-[280px] w-[280px] rounded-full bg-amber-200/10 dark:bg-amber-500/3 blur-3xl"></div>
   </div>
 
-  <div class="mx-auto max-w-5xl px-5 sm:px-8 pt-8 lg:pt-12 pb-12 lg:pb-16">
-    <div class="grid gap-8 lg:grid-cols-12 lg:gap-10 items-center">
-      <div class="lg:col-span-8 animate-fade-up">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8 pt-8 md:pt-12 pb-12 md:pb-16">
+    <div class="grid gap-8 md:grid-cols-12 md:gap-8 lg:gap-10 items-center">
+      <div class="md:col-span-7 lg:col-span-8 animate-fade-up">
         <div class="inline-flex flex-wrap items-center gap-2 mb-4">
           <span class="inline-flex items-center gap-1.5 text-ink-muted-light dark:text-ink-muted-dark">
             <MapPin class="h-3.5 w-3.5" />
@@ -125,7 +170,7 @@
           <span class="chip-accent">Open to opportunities</span>
         </div>
 
-        <h1 class="font-display text-[clamp(2rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-ink-light dark:text-ink-dark text-balance">
+        <h1 class="font-display text-[clamp(2rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-ink-light dark:text-ink-dark text-balance max-w-[14ch]">
           Welcome, I’m
           <span class="italic text-accent-600 dark:text-accent-400">Dana</span>.
         </h1>
@@ -134,13 +179,11 @@
           AI Engineer · Data Scientist
         </p>
 
-        <p class="mt-5 max-w-xl text-[14.5px] leading-relaxed text-ink-light/85 dark:text-ink-dark/85 text-pretty">
+        <p class="mt-5 max-w-md text-[14.5px] leading-relaxed text-ink-light/85 dark:text-ink-dark/85 text-pretty">
           Third-year <strong class="font-semibold">Information Technology</strong>
           student at <strong class="font-semibold">Universitas Gadjah Mada</strong>,
-          building production-deployed systems across <em>computer vision</em>,
-          <em>NLP</em>, and <em>on-device LLMs</em>. Currently helping the
-          Smart Lab at DTETI, interning at BMKG, and captaining
-          <strong class="font-semibold">FUKURO</strong> for RoboCup 2026.
+          passionate about <em>computer vision</em>, <em>NLP</em>, and
+          <em>on-device LLMs</em>.
         </p>
 
         <div class="mt-6 flex flex-wrap items-center gap-2">
@@ -168,7 +211,7 @@
           </div>
         </div>
 
-        <div class="mt-8 grid grid-cols-3 gap-4 max-w-md">
+        <div class="mt-8 hidden sm:grid grid-cols-3 gap-4 max-w-md">
           {#each stats as s}
             <div>
               <div class="font-display text-xl text-ink-light dark:text-ink-dark">{s.value}</div>
@@ -181,7 +224,7 @@
       </div>
 
       <div
-        class="lg:col-span-4 animate-fade-up w-full max-w-[16rem] sm:max-w-[18rem] mx-auto lg:max-w-none lg:ml-auto"
+        class="md:col-span-5 lg:col-span-4 animate-fade-up w-full max-w-[11rem] sm:max-w-[14rem] mx-auto md:max-w-none md:ml-auto"
         style="animation-delay:120ms"
       >
         <HeroCarousel images={heroPhotos} interval={5500} />

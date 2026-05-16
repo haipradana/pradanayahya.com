@@ -45,15 +45,15 @@
   >
     <div
       class="mt-3 flex items-center justify-between transition-all duration-300 ease-out"
-      class:h-14={!scrolled}
-      class:h-12={scrolled}
+      class:h-16={!scrolled}
+      class:h-14={scrolled}
       class:rounded-full={scrolled}
-      class:px-3={scrolled}
-      class:sm:px-4={scrolled}
+      class:px-4={scrolled}
+      class:sm:px-5={scrolled}
       class:pill={scrolled}
     >
       <a href="/" class="group flex items-center pl-1" aria-label="Home">
-        <span class="font-display text-[20px] font-medium tracking-tight text-ink-light dark:text-ink-dark">
+        <span class="font-display text-[22px] font-medium tracking-tight text-ink-light dark:text-ink-dark">
           Pradana
         </span>
       </a>
@@ -63,7 +63,7 @@
           {@const active = item.match(currentPath)}
           <a
             href={item.href}
-            class="relative px-3 py-1.5 text-[13.5px] font-medium transition-colors {active ? 'text-ink-light dark:text-ink-dark' : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'}"
+            class="relative px-3 py-2 text-[14px] font-medium transition-colors {active ? 'text-ink-light dark:text-ink-dark' : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'}"
           >
             {item.label}
             {#if active}
@@ -76,25 +76,25 @@
       <div class="flex items-center gap-1.5">
         <button
           on:click={theme.toggle}
-          class="inline-flex h-8 w-8 items-center justify-center rounded-full text-ink-muted-light dark:text-ink-muted-dark hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted transition-colors"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full text-ink-muted-light dark:text-ink-muted-dark hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted transition-colors"
           aria-label="Toggle theme"
         >
           {#if $theme === 'dark'}
-            <Sun class="h-4 w-4" />
+            <Sun class="h-[18px] w-[18px]" />
           {:else}
-            <Moon class="h-4 w-4" />
+            <Moon class="h-[18px] w-[18px]" />
           {/if}
         </button>
 
         <button
-          class="md:hidden inline-flex h-8 w-8 items-center justify-center rounded-full text-ink-muted-light dark:text-ink-muted-dark hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted transition-colors"
+          class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full text-ink-muted-light dark:text-ink-muted-dark hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted transition-colors"
           on:click={() => (mobileOpen = !mobileOpen)}
           aria-label="Toggle menu"
         >
           {#if mobileOpen}
-            <X class="h-4 w-4" />
+            <X class="h-[18px] w-[18px]" />
           {:else}
-            <Menu class="h-4 w-4" />
+            <Menu class="h-[18px] w-[18px]" />
           {/if}
         </button>
       </div>

@@ -2,26 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pradanayahya.com/</loc>
-    <lastmod>2026-01-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://pradanayahya.com/portfolio</loc>
-    <lastmod>2026-01-12</lastmod>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pradanayahya.com/experience</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pradanayahya.com/honour</loc>
-    <lastmod>2026-01-12</lastmod>
+    <loc>https://pradanayahya.com/awards</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pradanayahya.com/blogs</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pradanayahya.com/contact</loc>
-    <lastmod>2026-01-12</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- Projects -->
+  <url><loc>https://pradanayahya.com/portfolio/bmkg-hirup-pm25</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/nusavoice-on-device-llm</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/smart-space-jarvis</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/kawanisyarat-bisindo</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/ask-docs-agentic-rag</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/dinov3-traditional-houses</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/indobert-culinary-ner</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/sentimen-analisis-abolisi-tom-dan-hasto</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/sentimen-analisis-vonis-tom-lembong</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/hate-speech-roberta</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/sarcasm-indobert</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/retail-behaviour-analysis-v1</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/mood2movie</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://pradanayahya.com/portfolio/chatmydocs</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Blog posts -->
+  <url><loc>https://pradanayahya.com/blogs/hello-world</loc><lastmod>2026-02-09</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
 </urlset>
