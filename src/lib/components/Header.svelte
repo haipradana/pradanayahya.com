@@ -1,214 +1,140 @@
 <script lang="ts">
-  import { page } from "$app/stores";
-  import { theme } from "$lib/stores/theme";
-  import { Sun, Moon, Menu, X } from "lucide-svelte";
-  import { onMount } from "svelte";
+  import { page } from '$app/stores';
+  import { theme } from '$lib/stores/theme';
+  import { Sun, Moon, Menu, X } from 'lucide-svelte';
+  import { onMount } from 'svelte';
+  import { fly } from 'svelte/transition';
 
-  let isMobileMenuOpen = false;
+  type NavItem = { href: string; label: string; match: (path: string) => boolean };
+
+  const nav: NavItem[] = [
+    { href: '/', label: 'About', match: (p) => p === '/' },
+    { href: '/portfolio', label: 'Projects', match: (p) => p.startsWith('/portfolio') },
+    { href: '/experience', label: 'Experience', match: (p) => p.startsWith('/experience') || p.startsWith('/honour') },
+    { href: '/awards', label: 'Awards', match: (p) => p.startsWith('/awards') },
+    { href: '/blogs', label: 'Writings', match: (p) => p.startsWith('/blogs') },
+    { href: '/contact', label: 'Contact', match: (p) => p === '/contact' },
+  ];
+
+  let mobileOpen = false;
+  let scrolled = false;
 
   onMount(() => {
     theme.init();
+    const onScroll = () => (scrolled = window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   });
-
-  const toggleMobileMenu = () => {
-    isMobileMenuOpen = !isMobileMenuOpen;
-  };
-
-  const closeMobileMenu = () => {
-    isMobileMenuOpen = false;
-  };
 
   $: currentPath = $page.url.pathname;
 </script>
 
 <header
-  class="sticky top-0 z-50 bg-white/80 dark:bg-dark-custom/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-colors duration-300"
+  class="sticky top-0 z-50 transition-all duration-300"
+  class:scrolled
 >
-  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
-    <div class="flex items-center justify-between h-14 lg:h-16">
-      <!-- Logo -->
-      <a href="/" class="shrink-0 py-1 sm:py-2 lg:py-3">
-        {#if $theme === "dark"}
-          <img
-            src="/images/logodana-dark.png"
-            alt="Pradana Logo"
-            class="h-8 lg:h-9 w-auto"
-          />
-        {:else}
-          <img
-            src="/images/logodana-light.png"
-            alt="Pradana Logo"
-            class="h-8 lg:h-9 w-auto"
-          />
-        {/if}
+  <div
+    class="mx-auto transition-[max-width,padding] duration-300 ease-out"
+    class:max-w-6xl={!scrolled}
+    class:max-w-3xl={scrolled}
+    class:px-5={!scrolled}
+    class:sm:px-8={!scrolled}
+    class:px-3={scrolled}
+    class:sm:px-4={scrolled}
+  >
+    <div
+      class="mt-3 flex items-center justify-between transition-all duration-300 ease-out"
+      class:h-14={!scrolled}
+      class:h-12={scrolled}
+      class:rounded-full={scrolled}
+      class:px-3={scrolled}
+      class:sm:px-4={scrolled}
+      class:pill={scrolled}
+    >
+      <a href="/" class="group flex items-center pl-1" aria-label="Home">
+        <span class="font-display text-[20px] font-medium tracking-tight text-ink-light dark:text-ink-dark">
+          Pradana
+        </span>
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav
-        class="hidden md:flex flex-1 items-center justify-center gap-7 lg:gap-10 xl:gap-12"
-      >
-        <a
-          href="/"
-          class="text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath ===
-          '/'
-            ? 'text-gray-900 dark:text-gray-100 font-medium'
-            : ''}"
-        >
-          About
-        </a>
-        <a
-          href="/portfolio"
-          class="text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath.startsWith(
-            '/portfolio',
-          )
-            ? 'text-gray-900 dark:text-gray-100 font-medium'
-            : ''}"
-        >
-          Projects
-        </a>
-        <a
-          href="/honour"
-          class="text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath.startsWith(
-            '/honour',
-          )
-            ? 'text-gray-900 dark:text-gray-100 font-medium'
-            : ''}"
-        >
-          Experience
-        </a>
-        <a
-          href="/blogs"
-          class="text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath.startsWith(
-            '/blogs',
-          )
-            ? 'text-gray-900 dark:text-gray-100 font-medium'
-            : ''}"
-        >
-          Blog
-        </a>
-        <a
-          href="/contact"
-          class="text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath ===
-          '/contact'
-            ? 'text-gray-900 dark:text-gray-100 font-medium'
-            : ''}"
-        >
-          Reach me!
-        </a>
+      <nav class="hidden md:flex items-center gap-1">
+        {#each nav as item}
+          {@const active = item.match(currentPath)}
+          <a
+            href={item.href}
+            class="relative px-3 py-1.5 text-[13.5px] font-medium transition-colors {active ? 'text-ink-light dark:text-ink-dark' : 'text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'}"
+          >
+            {item.label}
+            {#if active}
+              <span class="absolute left-3 right-3 -bottom-0.5 h-px bg-accent-500"></span>
+            {/if}
+          </a>
+        {/each}
       </nav>
 
-      <!-- Mobile Quick Links + Theme Toggle & Mobile Menu Button -->
-      <div class="flex shrink-0 items-center gap-1 sm:gap-2 lg:gap-4">
-        <!-- Mobile Quick Access Links -->
-        <div class="flex md:hidden items-center space-x-1">
-          <a
-            href="/portfolio"
-            class="px-2 py-1.5 text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 {currentPath.startsWith(
-              '/portfolio',
-            )
-              ? 'text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-800'
-              : ''}"
-          >
-            Projects
-          </a>
-          <a
-            href="/honour"
-            class="px-2 py-1.5 text-xs font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 {currentPath.startsWith(
-              '/honour',
-            )
-              ? 'text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-800'
-              : ''}"
-          >
-            Experience
-          </a>
-        </div>
-
+      <div class="flex items-center gap-1.5">
         <button
           on:click={theme.toggle}
-          class="p-2 sm:p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 active:scale-95"
+          class="inline-flex h-8 w-8 items-center justify-center rounded-full text-ink-muted-light dark:text-ink-muted-dark hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted transition-colors"
           aria-label="Toggle theme"
         >
-          {#if $theme === "dark"}
-            <Sun class="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7" />
+          {#if $theme === 'dark'}
+            <Sun class="h-4 w-4" />
           {:else}
-            <Moon class="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7" />
+            <Moon class="h-4 w-4" />
           {/if}
         </button>
 
-        <!-- Mobile menu button -->
         <button
-          class="md:hidden p-2 sm:p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 active:scale-95"
-          on:click={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
+          class="md:hidden inline-flex h-8 w-8 items-center justify-center rounded-full text-ink-muted-light dark:text-ink-muted-dark hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted transition-colors"
+          on:click={() => (mobileOpen = !mobileOpen)}
+          aria-label="Toggle menu"
         >
-          {#if isMobileMenuOpen}
-            <X class="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7" />
+          {#if mobileOpen}
+            <X class="h-4 w-4" />
           {:else}
-            <Menu class="w-5 h-5 lg:w-6 lg:h-6 xl:w-7 xl:h-7" />
+            <Menu class="h-4 w-4" />
           {/if}
         </button>
       </div>
     </div>
 
-    <!-- Mobile Navigation -->
-    {#if isMobileMenuOpen}
-      <nav class="md:hidden py-4 border-t border-gray-200 dark:border-gray-800">
-        <div class="flex flex-col space-y-2">
-          <a
-            href="/"
-            class="px-4 py-3 text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath ===
-            '/'
-              ? 'text-gray-900 dark:text-gray-100 font-medium'
-              : ''}"
-            on:click={closeMobileMenu}
-          >
-            About
-          </a>
-          <a
-            href="/portfolio"
-            class="px-4 py-3 text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath.startsWith(
-              '/portfolio',
-            )
-              ? 'text-gray-900 dark:text-gray-100 font-medium'
-              : ''}"
-            on:click={closeMobileMenu}
-          >
-            Projects
-          </a>
-          <a
-            href="/honour"
-            class="px-4 py-3 text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath.startsWith(
-              '/honour',
-            )
-              ? 'text-gray-900 dark:text-gray-100 font-medium'
-              : ''}"
-            on:click={closeMobileMenu}
-          >
-            Experience
-          </a>
-          <a
-            href="/blogs"
-            class="px-4 py-3 text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath.startsWith(
-              '/blogs',
-            )
-              ? 'text-gray-900 dark:text-gray-100 font-medium'
-              : ''}"
-            on:click={closeMobileMenu}
-          >
-            Blog
-          </a>
-          <a
-            href="/contact"
-            class="px-4 py-3 text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors {currentPath ===
-            '/contact'
-              ? 'text-gray-900 dark:text-gray-100 font-medium'
-              : ''}"
-            on:click={closeMobileMenu}
-          >
-            Reach me!
-          </a>
+    {#if mobileOpen}
+      <nav transition:fly={{ y: -8, duration: 180 }} class="md:hidden pb-4 pt-2">
+        <div class="surface rounded-2xl p-2">
+          {#each nav as item}
+            {@const active = item.match(currentPath)}
+            <a
+              href={item.href}
+              on:click={() => (mobileOpen = false)}
+              class="block rounded-xl px-4 py-3 text-sm font-medium transition-colors {active ? 'bg-surface-light-muted dark:bg-surface-dark-muted text-ink-light dark:text-ink-dark' : 'text-ink-muted-light dark:text-ink-muted-dark'}"
+            >
+              {item.label}
+            </a>
+          {/each}
         </div>
       </nav>
     {/if}
   </div>
 </header>
+
+<style>
+  /* Floating rounded pill when scrolled. */
+  .pill {
+    background-color: color-mix(in oklab, theme('colors.surface.light') 78%, transparent);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid theme('colors.ink.faint-light');
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.6) inset,
+      0 10px 30px -10px rgba(0, 0, 0, 0.12);
+  }
+  :global(.dark) .pill {
+    background-color: color-mix(in oklab, theme('colors.surface.dark') 70%, transparent);
+    border-color: theme('colors.ink.faint-dark');
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.04) inset,
+      0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  }
+</style>

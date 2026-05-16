@@ -1,165 +1,426 @@
 <script lang="ts">
-  import { Github, Linkedin, Mail, Twitter, ExternalLink } from "lucide-svelte";
+  import {
+    ArrowUpRight,
+    MapPin,
+    Github,
+    Linkedin,
+    Mail,
+    Twitter,
+  } from 'lucide-svelte';
+  import HeroCarousel from '$lib/components/HeroCarousel.svelte';
+  import ProjectCard from '$lib/components/ProjectCard.svelte';
+  import { projects } from '$lib/data/projects';
+  import { honours, sortAwardsByBest } from '$lib/data/honours';
+
+  // Hero photo carousel. Drop additional files into /static/images/hero/
+  // and append them here to extend the slideshow.
+  const heroPhotos = [
+    { src: '/images/profile.webp', alt: 'Pradana Yahya', caption: 'Yogyakarta, ID' },
+    // { src: '/images/hero/hackathon.webp', alt: 'DATATHON 2025', caption: 'DATATHON 2025 — Champion' },
+    // { src: '/images/hero/fukuro.webp',    alt: 'GMRT FUKURO', caption: 'FUKURO — RoboCup 2026' },
+    // { src: '/images/hero/bmkg.webp',      alt: 'BMKG intern', caption: 'BMKG Yogyakarta' },
+  ];
+
+  // Featured: TRACKO, KawanIsyarat, NusaVoice
+  const featuredSlugs = [
+    'retail-behaviour-analysis-v1',
+    'kawanisyarat-bisindo',
+    'nusavoice-on-device-llm',
+  ];
+  const featured = featuredSlugs
+    .map((s) => projects.find((p) => p.slug === s))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+  const featuredAwards = sortAwardsByBest(
+    honours.filter((h) => h.type === 'award')
+  ).slice(0, 4);
+
+  // Professional experiences, newest first (education excluded).
+  const allExperiences = honours.filter((h) => h.type === 'experience').reverse();
+  const EXPERIENCE_VISIBLE = 3;
+  let experiencesExpanded = false;
+  $: visibleExperiences = experiencesExpanded
+    ? allExperiences
+    : allExperiences.slice(0, EXPERIENCE_VISIBLE);
+
+  const skillGroups: { title: string; items: string[] }[] = [
+    {
+      title: 'Programming Languages',
+      items: ['Python', 'TypeScript / JavaScript', 'C / C++', 'Java', 'SQL'],
+    },
+    {
+      title: 'Machine Learning & AI',
+      items: [
+        'PyTorch',
+        'TensorFlow / TFLite',
+        'Hugging Face',
+        'PEFT / LoRA',
+        'scikit-learn',
+        'Pandas',
+      ],
+    },
+    {
+      title: 'NLP & LLM',
+      items: ['IndoBERT', 'RoBERTa', 'BERTopic', 'RAG', 'Agents', 'Whisper · Piper'],
+    },
+    {
+      title: 'Computer Vision',
+      items: ['OpenCV', 'TimeSformer', 'DINOv3', 'ROS2', 'TFLite on-device'],
+    },
+    {
+      title: 'Frontend',
+      items: ['React', 'Next.js', 'SvelteKit', 'Tailwind CSS'],
+    },
+    {
+      title: 'Backend & Data',
+      items: ['FastAPI', 'Flask', 'Node.js', 'PostgreSQL', 'MongoDB'],
+    },
+    {
+      title: 'DevOps & Cloud',
+      items: ['Docker', 'Git', 'Azure', 'Home Assistant', 'N8N'],
+    },
+    {
+      title: 'Hardware',
+      items: ['Raspberry Pi', 'Edge devices'],
+    },
+  ];
+
+  const socials = [
+    { href: 'https://github.com/haipradana', label: 'GitHub', icon: Github },
+    { href: 'https://linkedin.com/in/pradana-yahya', label: 'LinkedIn', icon: Linkedin },
+    { href: 'https://x.com/haipradana', label: 'Twitter / X', icon: Twitter },
+    { href: 'mailto:pradana@pradanayahya.com', label: 'Email', icon: Mail },
+  ];
+
+  const stats = [
+    { label: 'Production deployments', value: '4+' },
+    { label: 'Competition podiums', value: '3' },
+    { label: 'Years building AI', value: '3' },
+  ];
 </script>
 
 <svelte:head>
-  <title>Pradana Yahya Abdillah - Machine Learning & Data Science</title>
+  <title>Pradana Yahya Abdillah — AI Engineer & Data Scientist</title>
   <meta
     name="description"
-    content="This is my personal website. I'm a Machine Learning & Data Science Enthusiast. Passionate about AI, NLP, LLMs, and Computer Vision."
+    content="Pradana Yahya Abdillah — third-year IT student at Universitas Gadjah Mada. Building production AI across NLP, computer vision, and on-device LLMs."
   />
 </svelte:head>
 
-<div class="max-w-4xl lg:max-w-5xl mx-auto px-7 lg:px-8 py-16 lg:py-20">
-  <!-- Profile Section -->
-  <section class="text-center mb-10 lg:mb-14">
-    <div
-      class="w-32 h-32 lg:w-40 lg:h-40 mx-auto mb-4 lg:mb-6 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 p-1"
+<!-- ─── Hero ─────────────────────────────────────────────────────────────── -->
+<section class="relative">
+  <div class="hero-wash pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute top-[12%] right-[6%] h-[360px] w-[360px] rounded-full bg-accent-200/10 dark:bg-accent-500/4 blur-3xl"></div>
+    <div class="absolute top-[40%] left-[2%] h-[280px] w-[280px] rounded-full bg-amber-200/10 dark:bg-amber-500/3 blur-3xl"></div>
+  </div>
+
+  <div class="mx-auto max-w-5xl px-5 sm:px-8 pt-8 lg:pt-12 pb-12 lg:pb-16">
+    <div class="grid gap-8 lg:grid-cols-12 lg:gap-10 items-center">
+      <div class="lg:col-span-8 animate-fade-up">
+        <div class="inline-flex flex-wrap items-center gap-2 mb-4">
+          <span class="inline-flex items-center gap-1.5 text-ink-muted-light dark:text-ink-muted-dark">
+            <MapPin class="h-3.5 w-3.5" />
+            <span class="text-xs tracking-wide">Yogyakarta, Indonesia</span>
+          </span>
+          <span class="chip-accent">Open to opportunities</span>
+        </div>
+
+        <h1 class="font-display text-[clamp(2rem,4.4vw,3.2rem)] font-medium leading-[1.05] text-ink-light dark:text-ink-dark text-balance">
+          Welcome, I’m
+          <span class="italic text-accent-600 dark:text-accent-400">Dana</span>.
+        </h1>
+
+        <p class="mt-3 text-[15px] text-ink-muted-light dark:text-ink-muted-dark">
+          AI Engineer · Data Scientist
+        </p>
+
+        <p class="mt-5 max-w-xl text-[14.5px] leading-relaxed text-ink-light/85 dark:text-ink-dark/85 text-pretty">
+          Third-year <strong class="font-semibold">Information Technology</strong>
+          student at <strong class="font-semibold">Universitas Gadjah Mada</strong>,
+          building production-deployed systems across <em>computer vision</em>,
+          <em>NLP</em>, and <em>on-device LLMs</em>. Currently helping the
+          Smart Lab at DTETI, interning at BMKG, and captaining
+          <strong class="font-semibold">FUKURO</strong> for RoboCup 2026.
+        </p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-2">
+          <a href="/portfolio" class="btn-primary">
+            See projects
+            <ArrowUpRight class="h-4 w-4" />
+          </a>
+          <a href="/experience" class="btn-ghost">Experience</a>
+
+          <span class="hidden sm:inline-block mx-1 h-5 w-px bg-ink-faint-light dark:bg-ink-faint-dark"></span>
+
+          <div class="flex items-center gap-1">
+            {#each socials as s}
+              <a
+                href={s.href}
+                target={s.href.startsWith('http') ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                title={s.label}
+                class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-faint-light dark:border-ink-faint-dark text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted transition-colors"
+              >
+                <svelte:component this={s.icon} class="h-4 w-4" />
+              </a>
+            {/each}
+          </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-3 gap-4 max-w-md">
+          {#each stats as s}
+            <div>
+              <div class="font-display text-xl text-ink-light dark:text-ink-dark">{s.value}</div>
+              <div class="mt-1 text-[10px] uppercase tracking-[0.18em] text-ink-muted-light dark:text-ink-muted-dark">
+                {s.label}
+              </div>
+            </div>
+          {/each}
+        </div>
+      </div>
+
+      <div
+        class="lg:col-span-4 animate-fade-up w-full max-w-[16rem] sm:max-w-[18rem] mx-auto lg:max-w-none lg:ml-auto"
+        style="animation-delay:120ms"
+      >
+        <HeroCarousel images={heroPhotos} interval={5500} />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── About ────────────────────────────────────────────────────────────── -->
+<section class="mx-auto max-w-5xl px-5 sm:px-8 py-14">
+  <div class="grid gap-10 lg:grid-cols-12">
+    <div class="lg:col-span-4">
+      <p class="eyebrow">01 — About</p>
+      <h2 class="font-display text-3xl lg:text-4xl mt-3 text-ink-light dark:text-ink-dark">
+        Curious by default, shipping by habit.
+      </h2>
+    </div>
+    <div class="lg:col-span-8 space-y-5 text-[15px] leading-relaxed text-ink-light/85 dark:text-ink-dark/85">
+      <p>
+        I gravitate toward problems that sit at the seam between <strong>research</strong>
+        and <strong>production</strong>: fine-tuning small models that need to run on a
+        Raspberry Pi, building RAG pipelines that have to answer correctly the first
+        time, training vision systems that play soccer in real time.
+      </p>
+      <p>
+        Recent work spans an offline BISINDO translator for the Deaf community
+        (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/kawanisyarat-bisindo">KawanIsyarat</a>),
+        a multimodal retail-analytics platform that won DATATHON 2025
+        (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/retail-behaviour-analysis-v1">TRACKO</a>),
+        and an on-device Indonesian intent LLM for IoT control
+        (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/nusavoice-on-device-llm">NusaVoice</a>).
+      </p>
+      <p>
+        Outside the terminal, I hike, play football, and lead
+        <strong>Gadjah Mada Robotic Team — FUKURO</strong>, which qualified for
+        RoboCup 2026 in Incheon, South Korea.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Featured projects ───────────────────────────────────────────────── -->
+<section class="mx-auto max-w-5xl px-5 sm:px-8 py-12">
+  <div class="flex items-end justify-between mb-8 gap-4">
+    <div>
+      <p class="eyebrow">02 — Selected work</p>
+      <h2 class="font-display text-3xl lg:text-4xl mt-3 text-ink-light dark:text-ink-dark">
+        Featured projects.
+      </h2>
+    </div>
+    <a href="/portfolio" class="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark transition-colors">
+      All projects <ArrowUpRight class="h-4 w-4" />
+    </a>
+  </div>
+
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {#each featured as project}
+      <ProjectCard {project} />
+    {/each}
+  </div>
+
+  <div class="mt-8 flex justify-center sm:hidden">
+    <a href="/portfolio" class="btn-ghost">
+      All projects <ArrowUpRight class="h-4 w-4" />
+    </a>
+  </div>
+</section>
+
+<!-- ─── Experience ──────────────────────────────────────────────────────── -->
+<section class="mx-auto max-w-5xl px-5 sm:px-8 py-12">
+  <div class="flex items-end justify-between mb-8 gap-4">
+    <div>
+      <p class="eyebrow">03 — Experience</p>
+      <h2 class="font-display text-3xl lg:text-4xl mt-3 text-ink-light dark:text-ink-dark">
+        Where I’ve been.
+      </h2>
+    </div>
+    <a
+      href="/experience"
+      class="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark transition-colors"
     >
-      <img
-        src="/images/profile.webp"
-        alt="Profile"
-        class="w-full h-full object-cover rounded-full"
-      />
+      Full timeline <ArrowUpRight class="h-4 w-4" />
+    </a>
+  </div>
+
+  <ol class="relative border-l border-ink-faint-light dark:border-ink-faint-dark">
+    {#each visibleExperiences as item (item.id)}
+      <li class="relative grid gap-x-6 gap-y-2 grid-cols-12 py-6">
+        <span
+          class="absolute -left-[5px] top-7 inline-block h-2.5 w-2.5 rounded-full bg-surface-light dark:bg-surface-dark ring-2 ring-accent-500"
+          aria-hidden="true"
+        ></span>
+
+        <div class="col-span-12 sm:col-span-3 pl-6">
+          {#if item.period}
+            <p class="text-[11px] uppercase tracking-[0.18em] text-ink-muted-light dark:text-ink-muted-dark">
+              {item.period.from}{#if item.period.to && item.period.to !== item.period.from} — {item.period.to}{/if}
+            </p>
+          {/if}
+          {#if item.location}
+            <p class="mt-1 text-[12px] text-ink-muted-light/80 dark:text-ink-muted-dark/80">
+              {item.location}
+            </p>
+          {/if}
+        </div>
+
+        <div class="col-span-12 sm:col-span-9 sm:pl-0 pl-6">
+          <h3 class="font-display text-lg lg:text-xl text-ink-light dark:text-ink-dark leading-snug">
+            {item.title}
+          </h3>
+          {#if item.org}
+            <p class="mt-1 text-sm font-medium text-ink-light/80 dark:text-ink-dark/80">
+              {item.org}
+            </p>
+          {/if}
+          {#if item.description}
+            <p class="mt-2 text-[14px] leading-relaxed text-ink-muted-light dark:text-ink-muted-dark text-pretty">
+              {item.description}
+            </p>
+          {/if}
+          {#if item.tags?.length}
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              {#each item.tags.slice(0, 4) as t}
+                <span class="chip">{t}</span>
+              {/each}
+            </div>
+          {/if}
+        </div>
+      </li>
+    {/each}
+  </ol>
+
+  {#if allExperiences.length > EXPERIENCE_VISIBLE}
+    <div class="mt-6 flex justify-center">
+      <button
+        type="button"
+        on:click={() => (experiencesExpanded = !experiencesExpanded)}
+        class="btn-ghost"
+        aria-expanded={experiencesExpanded}
+      >
+        {#if experiencesExpanded}
+          Show less
+        {:else}
+          Load more
+          <span class="text-[11px] text-ink-muted-light dark:text-ink-muted-dark">
+            (+{allExperiences.length - EXPERIENCE_VISIBLE})
+          </span>
+        {/if}
+      </button>
+    </div>
+  {/if}
+</section>
+
+<!-- ─── Skills & Awards (2-col on desktop, stacked on mobile) ───────────── -->
+<section class="mx-auto max-w-5xl px-5 sm:px-8 py-14">
+  <div class="grid gap-12 lg:grid-cols-12">
+    <!-- Technical Skills -->
+    <div class="lg:col-span-8">
+      <p class="eyebrow">04 — Toolbox</p>
+      <h2 class="font-display text-3xl lg:text-4xl mt-3 text-ink-light dark:text-ink-dark">
+        Technical Skills.
+      </h2>
+
+      <div class="mt-8 grid gap-x-8 gap-y-7 sm:grid-cols-2">
+        {#each skillGroups as group}
+          <div class="border-l-2 border-accent-500/70 pl-4">
+            <h3 class="text-[12px] font-semibold uppercase tracking-[0.14em] text-ink-light dark:text-ink-dark">
+              {group.title}
+            </h3>
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              {#each group.items as item}
+                <span class="chip">{item}</span>
+              {/each}
+            </div>
+          </div>
+        {/each}
+      </div>
     </div>
 
-    <!-- Social Links -->
-    <div class="flex justify-center space-x-2 lg:space-x-4 mb-3 lg:mb-4">
-      <a
-        href="https://github.com/haipradana"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-2 lg:p-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors hover:scale-110 transform duration-200"
-        aria-label="GitHub"
-      >
-        <Github class="w-5 h-5 lg:w-6 lg:h-6" />
-      </a>
-      <a
-        href="https://huggingface.co/haipradana"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-2 lg:p-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors hover:scale-110 transform duration-200"
-        aria-label="Hugging Face"
-      >
-        <svg
-          class="w-5 h-5 lg:w-6 lg:h-6"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          stroke="currentColor"
-          stroke-width="0.3"
-        >
-          <path
-            d="M1.4446 11.5059c0 1.1021 0.1673 2.1585 0.4847 3.1563 -0.0378 -0.0028 -0.0691 -0.0058 -0.1058 -0.0058 -0.4209 0 -0.8015 0.16 -1.0704 0.4512 -0.3454 0.3737 -0.4984 0.8335 -0.4316 1.293a1.576 1.576 0 0 0 0.2148 0.5978c-0.2319 0.1864 -0.4018 0.4456 -0.4844 0.7578 -0.0646 0.2448 -0.131 0.7543 0.2149 1.2794a1.4552 1.4552 0 0 0 -0.0625 0.1055c-0.208 0.3923 -0.2207 0.8372 -0.0371 1.25 0.2783 0.6258 0.9696 1.1175 2.3126 1.6467 0.8356 0.3292 1.5988 0.5411 1.6056 0.543 1.1046 0.2847 2.104 0.4277 2.969 0.4277 1.4173 0 2.4754 -0.3849 3.1525 -1.1446 1.538 0.2651 2.791 0.1403 3.592 0.006 0.6773 0.7555 1.7332 1.1387 3.1467 1.1387 0.8649 0 1.8643 -0.143 2.969 -0.4278 0.0068 -0.0019 0.77 -0.2138 1.6056 -0.543 1.343 -0.5292 2.0343 -1.0208 2.3126 -1.6466 0.1836 -0.4129 0.171 -0.8577 -0.037 -1.25a1.4685 1.4685 0 0 0 -0.0626 -0.1056c0.346 -0.525 0.2795 -1.0346 0.2149 -1.2793 -0.0826 -0.3122 -0.2525 -0.5714 -0.4844 -0.7579 0.11 -0.1816 0.1831 -0.3788 0.2148 -0.5977 0.0669 -0.4595 -0.0862 -0.9193 -0.4316 -1.293 -0.2688 -0.2913 -0.6495 -0.4513 -1.0704 -0.4513 -0.0209 0 -0.0376 0.0008 -0.0588 0.0018 0.3162 -0.9966 0.4846 -2.0518 0.4846 -3.1523 0 -5.807 -4.7362 -10.5144 -10.5789 -10.5144 -5.8426 0 -10.5788 4.7073 -10.5788 10.5144Zm10.5788 -9.4831c5.2727 0 9.5476 4.246 9.5476 9.483a9.4201 9.4201 0 0 1 -0.2696 2.2365c-0.0039 -0.0047 -0.0079 -0.011 -0.0117 -0.0156 -0.274 -0.3255 -0.6679 -0.5059 -1.1075 -0.5059 -0.352 0 -0.714 0.1155 -1.0763 0.3438 -0.2403 0.1517 -0.5058 0.422 -0.7793 0.7598 -0.2534 -0.3492 -0.608 -0.5832 -1.0137 -0.6465a1.5174 1.5174 0 0 0 -0.2344 -0.0176c-0.9263 0 -1.4828 0.7993 -1.6935 1.5177 -0.1046 0.2426 -0.6065 1.3482 -1.3614 2.0978 -1.1681 1.1601 -1.4458 2.3534 -0.8396 3.6382 -0.843 0.1029 -1.5836 0.0927 -2.365 -0.006 0.5906 -1.212 0.3626 -2.4388 -0.8426 -3.6322 -0.755 -0.7496 -1.2568 -1.8552 -1.3614 -2.0978 -0.2107 -0.7184 -0.7673 -1.5177 -1.6935 -1.5177 -0.078 0 -0.1568 0.0054 -0.2344 0.0176 -0.4057 0.0633 -0.7604 0.2973 -1.0137 0.6465 -0.2735 -0.3379 -0.539 -0.6081 -0.7794 -0.7598 -0.3622 -0.2283 -0.7243 -0.3438 -1.0762 -0.3438 -0.4266 0 -0.8094 0.171 -1.0821 0.4786a9.4208 9.4208 0 0 1 -0.2598 -2.1936c0 -5.237 4.2749 -9.483 9.5475 -9.483zM8.6443 7.0036c-0.4838 0.0043 -0.9503 0.2667 -1.1934 0.7227 -0.3536 0.6633 -0.1006 1.4873 0.5645 1.84 0.351 0.1862 0.4883 -0.5261 0.836 -0.6485 0.3107 -0.1095 0.841 0.399 1.0078 0.086 0.3536 -0.6634 0.1025 -1.4874 -0.5625 -1.84a1.3659 1.3659 0 0 0 -0.6524 -0.1602Zm6.8403 0c-0.2199 -0.002 -0.4426 0.05 -0.6504 0.1602 -0.665 0.3526 -0.9181 1.1766 -0.5645 1.84 0.1669 0.313 0.6971 -0.1955 1.0079 -0.086 0.3476 0.1224 0.4867 0.8347 0.838 0.6485 0.6649 -0.3527 0.916 -1.1767 0.5624 -1.84 -0.243 -0.456 -0.7096 -0.7184 -1.1934 -0.7227Zm-9.7565 1.418a0.8768 0.8768 0 0 0 -0.877 0.877c0 0.4846 0.3925 0.877 0.877 0.877a0.8768 0.8768 0 0 0 0.877 -0.877 0.8768 0.8768 0 0 0 -0.877 -0.877zm12.6434 0c-0.4845 0 -0.879 0.3925 -0.879 0.877 0 0.4846 0.3945 0.877 0.879 0.877a0.8768 0.8768 0 0 0 0.877 -0.877 0.8768 0.8768 0 0 0 -0.877 -0.877zM8.7927 11.459c-0.179 -0.003 -0.2793 0.1107 -0.2793 0.416 0 0.8097 0.3874 2.125 1.4279 2.924 0.207 -0.7123 1.3453 -1.2832 1.5079 -1.2012 0.2315 0.1167 0.2191 0.4417 0.6074 0.7266 0.3884 -0.285 0.374 -0.6098 0.6056 -0.7266 0.1627 -0.082 1.3009 0.4889 1.5079 1.2012 1.0404 -0.799 1.4278 -2.1144 1.4278 -2.924 0 -1.2212 -1.583 0.6402 -3.5413 0.6485 -1.4686 -0.0061 -2.7266 -1.0558 -3.2639 -1.0645zM4.312 14.4768c0.5792 0.365 1.6964 2.2751 2.1056 3.0177 0.1371 0.2488 0.371 0.3536 0.582 0.3536 0.4188 0 0.7465 -0.4138 0.0391 -0.9395 -1.0636 -0.791 -0.6914 -2.0846 -0.1836 -2.1642a0.4302 0.4302 0 0 1 0.0664 -0.004c0.4616 0 0.666 0.7892 0.666 0.7892s0.5959 1.4898 1.6213 2.508c0.942 0.9356 1.062 1.703 0.4961 2.6661 -0.0164 -0.004 -0.0159 0.0236 -0.1484 0.2149 -0.1853 0.2673 -0.4322 0.4688 -0.7188 0.6152 -0.5062 0.2269 -1.1397 0.2696 -1.7833 0.2696 -1.037 0 -2.1017 -0.1824 -2.6975 -0.336 -0.0293 -0.0075 -3.6505 -0.9567 -3.1916 -1.8224 0.0771 -0.1454 0.2033 -0.2031 0.3633 -0.2031 0.6463 0 1.823 0.9551 2.3283 0.9551 0.113 0 0.196 -0.0865 0.2285 -0.2031 0.2249 -0.8045 -3.2787 -1.0522 -2.9846 -2.1642 0.0519 -0.1967 0.193 -0.2757 0.3907 -0.2754 0.854 0 2.7704 1.4923 3.172 1.4923 0.0307 0 0.0525 -0.0085 0.0645 -0.0274 0.2012 -0.3227 0.1096 -0.5865 -1.3087 -1.4395 -1.4182 -0.8533 -2.4315 -1.329 -1.8653 -1.9416 0.0651 -0.0707 0.1574 -0.1015 0.2695 -0.1015 0.8611 0.0002 2.8948 1.84 2.8948 1.84s0.5487 0.5683 0.8809 0.5683c0.0762 0 0.1416 -0.0315 0.1855 -0.1054 0.2355 -0.3946 -2.1858 -2.2183 -2.3224 -2.971 -0.0926 -0.51 0.0641 -0.7676 0.3555 -0.7676 -0.0006 0.008 0.1701 -0.0285 0.4942 0.1759zm16.2257 0.5918c-0.1366 0.7526 -2.5579 2.5764 -2.3224 2.9709 0.044 0.074 0.1092 0.1055 0.1855 0.1055 0.3321 0 0.881 -0.5684 0.881 -0.5684s2.0336 -1.8397 2.8947 -1.84c0.1121 0 0.2044 0.0308 0.2695 0.1016 0.5662 0.6125 -0.447 1.0882 -1.8653 1.9415 -1.4183 0.853 -1.51 1.1168 -1.3087 1.4396 0.012 0.0188 0.0337 0.0273 0.0644 0.0273 0.4016 0 2.3181 -1.4923 3.1721 -1.4923 0.1977 -0.0002 0.3388 0.0787 0.3907 0.2754 0.294 1.112 -3.2095 1.3597 -2.9846 2.1642 0.0325 0.1166 0.1156 0.2032 0.2285 0.2032 0.5054 0 1.682 -0.9552 2.3283 -0.9552 0.16 0 0.2862 0.0577 0.3633 0.2032 0.459 0.8656 -3.1623 1.8149 -3.1916 1.8224 -0.5958 0.1535 -1.6605 0.336 -2.6975 0.336 -0.6351 0 -1.261 -0.0409 -1.7638 -0.2599 -0.2949 -0.1472 -0.5488 -0.3516 -0.7383 -0.625 -0.0411 -0.0682 -0.1026 -0.1476 -0.1426 -0.205 -0.5726 -0.9679 -0.455 -1.7371 0.4903 -2.676 1.0254 -1.0182 1.6212 -2.508 1.6212 -2.508s0.2044 -0.7891 0.666 -0.7891a0.4318 0.4318 0 0 1 0.0665 0.0039c0.5078 0.0796 0.88 1.3732 -0.1836 2.1642 -0.7074 0.5257 -0.3797 0.9395 0.039 0.9395 0.211 0 0.445 -0.1047 0.5821 -0.3535 0.4092 -0.7426 1.5264 -2.6527 2.1056 -3.0178 0.5588 -0.3524 0.99 -0.1816 0.8497 0.5918z"
-            stroke-linejoin="round"
-            stroke-linecap="round"
-          />
-        </svg>
-      </a>
-      <a
-        href="https://www.linkedin.com/in/pradana-yahya/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-2 lg:p-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors hover:scale-110 transform duration-200"
-        aria-label="LinkedIn"
-      >
-        <Linkedin class="w-4 h-4 lg:w-5 lg:h-5" />
-      </a>
-      <a
-        href="https://x.com/haipradana"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-2 lg:p-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors hover:scale-110 transform duration-200"
-        aria-label="Twitter"
-      >
-        <Twitter class="w-4 h-4 lg:w-5 lg:h-5" />
-      </a>
-      <a
-        href="mailto:pradanayahyaabdillah@mail.ugm.ac.id"
-        class="p-2 lg:p-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors hover:scale-110 transform duration-200"
-        aria-label="Email"
-      >
-        <Mail class="w-4 h-4 lg:w-5 lg:h-5" />
-      </a>
-    </div>
-
-    <p
-      class="text-gray-600 dark:text-gray-400 text-base lg:text-lg font-medium"
-    >
-      Machine Learning & Data Science Enthusiast
-    </p>
-  </section>
-
-  <!-- About Section -->
-  <section class="px-4 lg:px-16 max-w-3xl lg:max-w-4xl mx-auto">
-    <h1
-      class="lg:text-2xl xl:text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-8 lg:mb-12 leading-tight"
-    >
-      Hi, Dana here!
-    </h1>
-
-    <div class="space-y-6 lg:space-y-8">
-      <p
-        class="text-[14px] lg:text-base text-gray-900 dark:text-gray-300 leading-loose font-normal"
-      >
-        I am Pradana Yahya Abdillah, a bachelor student in Information
-        Technology UGM. This is my personal website.
-      </p>
-
-      <p
-        class="text-[14px] lg:text-base text-gray-700 dark:text-gray-400 leading-loose font-normal"
-      >
-        I'm deeply interested by the world of machine learning, deep learning,
-        and how we can extract meaningful insights from data. Lately, I've been
-        actively exploring various area in AI, such as Natural Language
-        Processing (NLP), Large Languae Models (LLMs), and Computer Vision.
-      </p>
-
-      <p
-        class="text-[14px] lg:text-base text-gray-700 dark:text-gray-400 leading-loose font-normal"
-      >
-        I enjoy working on personal projects to experiment with new ideas, tool,
-        and frameworks You can check out some of the projects I've built on my
+    <!-- Latest Awards -->
+    <aside class="lg:col-span-4">
+      <div class="flex items-end justify-between gap-3">
+        <div>
+          <p class="eyebrow">05 — Recognition</p>
+          <h2 class="font-display text-3xl lg:text-4xl mt-3 text-ink-light dark:text-ink-dark">
+            Latest Awards.
+          </h2>
+        </div>
         <a
-          href="/portfolio"
-          class="text-gray-800 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 underline transition-colors font-medium"
+          href="/awards"
+          class="hidden lg:inline-flex items-center gap-1 text-xs font-medium text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark transition-colors"
         >
-          portfolio here
-        </a>. I love how collaboration and knowledge sharing happens through
-        open-source and I am happy to see what I do could eventually feedback to
-        the community and industry.
-      </p>
-
-      <p
-        class="text-[15px] lg:text-base text-gray-700 dark:text-gray-400 leading-loose font-normal"
-      >
-        Outside of programming, I find joy in hiking and playing football. They
-        help me refresh my mind and give me the energy boost that I need to come
-        back with new ideas and motivation.
-      </p>
-    </div>
-
-    <div class="text-center mt-12 lg:mt-16">
-      <p
-        class="text-sm lg:text-base text-gray-600 dark:text-gray-400 mb-4 lg:mb-6 px-4"
-      >
-        Let's keep in touch! Drop me a message at
-        <br class="sm:hidden" />
-        <a
-          href="mailto:pradanayahyaabdillah@mail.ugm.ac.id"
-          class="text-gray-800 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 underline transition-colors font-medium break-all sm:break-normal"
-        >
-          pradanayahyaabdillah@mail.ugm.ac.id
+          All <ArrowUpRight class="h-3.5 w-3.5" />
         </a>
-      </p>
+      </div>
+
+      <ol class="mt-8 space-y-6 border-l border-ink-faint-light dark:border-ink-faint-dark pl-5">
+        {#each featuredAwards as a}
+          <li>
+            <p class="text-[11px] uppercase tracking-[0.18em] text-ink-muted-light dark:text-ink-muted-dark">
+              {a.period?.from ?? ''}
+            </p>
+            <h3 class="font-display text-[17px] leading-snug mt-1 text-ink-light dark:text-ink-dark">
+              {a.title}
+            </h3>
+            {#if a.org}
+              <p class="mt-1 text-[13px] text-ink-muted-light dark:text-ink-muted-dark">
+                {a.org}
+              </p>
+            {/if}
+          </li>
+        {/each}
+      </ol>
+
       <a
-        href="https://pradanayahya.com/contact"
-        class="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 bg-gray-800 hover:bg-gray-700 dark:bg-gray-200 dark:hover:bg-gray-100 text-white dark:text-gray-900 font-medium rounded-lg lg:rounded-xl transition-all duration-200 hover:scale-105 transform text-sm sm:text-base"
+        href="/awards"
+        class="mt-8 lg:hidden inline-flex items-center gap-1 text-sm font-medium text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark transition-colors"
       >
-        <Mail
-          class="w-3 h-3 sm:w-4 sm:h-4 lg:w-4 lg:h-4 mr-1 sm:mr-2 lg:mr-2"
-        />
-        <span class="text-xs sm:text-sm lg:text-base">Get in Touch</span>
+        All awards <ArrowUpRight class="h-4 w-4" />
       </a>
-    </div>
-  </section>
-</div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  /* Fade the ambient hero wash to transparent at the bottom so it doesn’t
+     leave a hard seam where the section ends. */
+  .hero-wash {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      black 55%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      black 55%,
+      transparent 100%
+    );
+  }
+</style>
