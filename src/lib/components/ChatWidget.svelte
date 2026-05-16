@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { MessageCircle, X, Send } from "lucide-svelte";
+  import { MessageCircle, X, Send, Trash2 } from "lucide-svelte";
   import { sendChatMessage, getChatHistory } from "$lib/api";
   import { marked } from "marked";
   import DOMPurify from "dompurify";
@@ -13,6 +13,7 @@
   let sessionId: string | null = null;
   let messagesContainer: HTMLDivElement;
   let isDarkMode = false;
+  let chatVersion = 0;
 
   const quickActions = [
     {
@@ -69,6 +70,7 @@
   async function sendMessage(text?: string) {
     const messageText = text || inputValue.trim();
     if (!messageText || isLoading) return;
+    const currentChatVersion = chatVersion;
 
     messages = [...messages, { role: "user", content: messageText }];
     inputValue = "";
@@ -84,12 +86,14 @@
         messageText,
         sessionId || undefined,
       );
+      if (currentChatVersion !== chatVersion) return;
       if (!sessionId) {
         sessionId = response.session_id;
         localStorage.setItem("chat_session_id", sessionId!);
       }
       messages = [...messages, { role: "assistant", content: response.answer }];
     } catch (error) {
+      if (currentChatVersion !== chatVersion) return;
       messages = [
         ...messages,
         {
@@ -98,11 +102,13 @@
         },
       ];
     } finally {
-      isLoading = false;
-      setTimeout(() => {
-        if (messagesContainer)
-          messagesContainer.scrollTop = messagesContainer.scrollHeight;
-      }, 10);
+      if (currentChatVersion === chatVersion) {
+        isLoading = false;
+        setTimeout(() => {
+          if (messagesContainer)
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, 10);
+      }
     }
   }
 
@@ -115,6 +121,15 @@
 
   function toggleChat() {
     isOpen = !isOpen;
+  }
+
+  function clearUserChat() {
+    chatVersion += 1;
+    messages = [];
+    inputValue = "";
+    sessionId = null;
+    isLoading = false;
+    localStorage.removeItem("chat_session_id");
   }
 </script>
 
@@ -166,12 +181,25 @@
           style="font-family: 'Plus Jakarta Sans', sans-serif;">Latent</span
         >
       </div>
-      <button
-        on:click={toggleChat}
-        class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500 dark:text-gray-400"
-      >
-        <X class="w-5 h-5" />
-      </button>
+      <div class="flex items-center gap-1">
+        <button
+          type="button"
+          on:click={clearUserChat}
+          class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500 dark:text-gray-400"
+          aria-label="Hapus chat di browser"
+          title="Hapus chat"
+        >
+          <Trash2 class="w-5 h-5" />
+        </button>
+        <button
+          type="button"
+          on:click={toggleChat}
+          class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500 dark:text-gray-400"
+          aria-label="Tutup chat"
+        >
+          <X class="w-5 h-5" />
+        </button>
+      </div>
     </div>
 
     <!-- Messages Area -->
