@@ -1,151 +1,215 @@
 [
   {
-    "id": "edu-ugm-information-engineering",
+    "id": "edu-ugm-information-technology",
     "category": "education",
-    "title": "Teknologi Informasi (S1)",
-    "content": "Education: Teknologi Informasi (S1). Organisasi: Universitas Gadjah Mada (UGM). Periode: 2023 - Now. Deskripsi: Undergraduate study in Information Engineering. Tags: Education.",
-    "org": "Universitas Gadjah Mada (UGM)",
+    "title": "B.Sc. in Information Technology",
+    "content": "Education: B.Sc. in Information Technology. Organisasi: Universitas Gadjah Mada. Periode: Aug 2023 - Present. Deskripsi: Undergraduate student at the Faculty of Engineering, focusing on machine learning, computer vision, and on-device AI systems. Current GPA 3.44. Tags: Education.",
+    "org": "Universitas Gadjah Mada",
     "period": {
-      "from": "2023",
-      "to": "Now"
+      "from": "Aug 2023",
+      "to": "Present"
     },
     "tags": [
       "Education"
     ],
     "source": "src/lib/data/honours.ts",
-    "content_hash": "fafd52a85941e7f2f5746dd37f983d999c2e655e18fdae2713446f4741f1df6f"
+    "content_hash": "40bc594e4278ec53f125a62b15ee215e2cfc1e69411046b752babd61e1ec36a5"
+  },
+  {
+    "id": "exp-night-login-community",
+    "category": "experience",
+    "title": "Data Science Member",
+    "content": "Experience: Data Science Member. Organisasi: Night Login Community (NDSC) — UGM. Periode: Mar 2024 - Mar 2025. Deskripsi: Built ML models and collaborated on data preprocessing, feature engineering, and evaluation across multiple study projects within the data science division. Tags: Machine Learning, Data Science.",
+    "org": "Night Login Community (NDSC) — UGM",
+    "period": {
+      "from": "Mar 2024",
+      "to": "Mar 2025"
+    },
+    "tags": [
+      "Machine Learning",
+      "Data Science"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "584f9b7bbe6eec808aace71ad0eefc08525157d06fdd97a8a410f9601a6a2bc7"
   },
   {
     "id": "exp-fukuro-cv-programmer",
     "category": "experience",
-    "title": "Computer Vision Programmer of FUKURO",
-    "content": "Experience: Computer Vision Programmer of FUKURO. Organisasi: Gadjah Mada Robotic Team (GMRT). Periode: Nov 2024 - now. Deskripsi: Menghandle tugas vision dengan kamera 360 derajat sebagai mata robot untuk memahami posisinya dan mengetahui posisi musuh, kawan, dan bola Tags: Computer Vision, Team.",
+    "title": "Computer Vision Programmer — FUKURO",
+    "content": "Experience: Computer Vision Programmer — FUKURO. Organisasi: Gadjah Mada Robotic Team (GMRT). Periode: Oct 2024 - Present. Deskripsi: Develop image processing algorithms for an omnidirectional 360° vision system used in wheeled soccer robots, plus real-time object detection and tracking for in-match decision making. Tags: Computer Vision, OpenCV, ROS2, C++.",
     "org": "Gadjah Mada Robotic Team (GMRT)",
     "period": {
-      "from": "Nov 2024",
-      "to": "now"
+      "from": "Oct 2024",
+      "to": "Present"
     },
     "tags": [
       "Computer Vision",
-      "Team"
+      "OpenCV",
+      "ROS2",
+      "C++"
     ],
     "source": "src/lib/data/honours.ts",
-    "content_hash": "9c7fb7978dbb9d25acfbc878906d806ff56d1d84c438d61d64ac38a3fdb9fd21"
+    "content_hash": "442647ce901b013c95c580a8f5fe561491a9ce3fadfad58e4e977e2e41dac5ba"
   },
   {
     "id": "exp-fukuro-captain",
     "category": "experience",
-    "title": "Captain FUKURO (KRSBI-Beroda)",
-    "content": "Experience: Captain FUKURO (KRSBI-Beroda). Organisasi: Gadjah Mada Robotic Team (GMRT). Periode: Oct 2025 - now. Deskripsi: Sebagai kapten yang memimpin tim robotik sepakbola beroda milik UGM. Tags: Leadership, Team.",
+    "title": "Team Captain — FUKURO (KRSBI Wheeled)",
+    "content": "Experience: Team Captain — FUKURO (KRSBI Wheeled). Organisasi: Gadjah Mada Robotic Team (GMRT). Periode: Sep 2025 - Present. Deskripsi: Lead the wheeled soccer robot team for the national KRSBI competition, coordinating hardware and software divisions. Qualified to represent UGM at RoboCup 2026 in Incheon, South Korea. Tags: Leadership, Robotics.",
     "org": "Gadjah Mada Robotic Team (GMRT)",
     "period": {
-      "from": "Oct 2025",
-      "to": "now"
+      "from": "Sep 2025",
+      "to": "Present"
     },
     "tags": [
       "Leadership",
-      "Team"
+      "Robotics"
     ],
     "source": "src/lib/data/honours.ts",
-    "content_hash": "5e342edcd7eb2a9637d0184d0826368467ae1a3c172d1141ad0d6c717d45e32f"
-  },
-  {
-    "id": "award-datathon-2025-1st",
-    "category": "award",
-    "title": "Juara 1 DATATHON 2025",
-    "content": "Award: Juara 1 DATATHON 2025. Organisasi: RISTEK Universitas Indonesia. Periode: June 2025 - Sep 2025. Deskripsi: Memenangkan kompetisi DATATHON 2025 dengan proyek TRACKO, platform untuk analisis toko retail dengan computer vision memanfaatkan CCTV sederhana",
-    "org": "RISTEK Universitas Indonesia",
-    "period": {
-      "from": "June 2025",
-      "to": "Sep 2025"
-    },
-    "tags": [],
-    "source": "src/lib/data/honours.ts",
-    "content_hash": "bab7745de9ff51e5d1efdeb2210b56cb96e46453e9484005548045b14ede5644"
+    "content_hash": "b28a0adbe18c16666ca0cafc26490c205dbc405824e507892943c23d87419440"
   },
   {
     "id": "exp-datains-ai-engineer-intern",
     "category": "experience",
     "title": "AI Engineer Intern",
-    "content": "Experience: AI Engineer Intern. Organisasi: DataIns. Periode: Sep 2025 - Dec 2025. Deskripsi: Sebagai AI Engineer intern topik smart space. Menerapkan end-to-end sistem asisten suara cerdas untuk mengontrol IoT dan RAG dengan automation workflow N8N Tags: TTS, STT, AI.",
-    "org": "DataIns",
+    "content": "Experience: AI Engineer Intern. Organisasi: DataIns — PT Global Data Inspirasi. Periode: Oct 2025 - Dec 2025. Deskripsi: Built the “Smart Space” (Jarvis) voice assistant for laboratory automation at DTETI UGM: local-first ASR/TTS pipeline (Whisper + Piper) running fully offline on Raspberry Pi, with a fine-tuned custom Piper voice, integrated with an LLM and N8N for IoT workflow control over lab devices. Tags: Whisper, Piper, LLM, N8N, Raspberry Pi.",
+    "org": "DataIns — PT Global Data Inspirasi",
     "period": {
-      "from": "Sep 2025",
+      "from": "Oct 2025",
       "to": "Dec 2025"
     },
     "tags": [
-      "TTS",
-      "STT",
-      "AI"
+      "Whisper",
+      "Piper",
+      "LLM",
+      "N8N",
+      "Raspberry Pi"
     ],
     "source": "src/lib/data/honours.ts",
-    "content_hash": "cdd3baff5d76eb510ada1b5452930825c9d266c3af1d7e269f5c09106610a09b"
-  },
-  {
-    "id": "award-action-unesa-3rd",
-    "category": "award",
-    "title": "Juara 3 Data Mining ACTION",
-    "content": "Award: Juara 3 Data Mining ACTION. Organisasi: Universitas Negeri Surabaya. Periode: Nov 2025 - Nov 2025. Deskripsi: Mendapatkan juara 3 dalam cabang lomba Data Mining di ACTION UNESA. Tags: Competition, Award.",
-    "org": "Universitas Negeri Surabaya",
-    "period": {
-      "from": "Nov 2025",
-      "to": "Nov 2025"
-    },
-    "tags": [
-      "Competition",
-      "Award"
-    ],
-    "source": "src/lib/data/honours.ts",
-    "content_hash": "61f72b7be5e6c018ec1c0566a63148ee3ea28d1f5f33d5059370b70aceffc232"
-  },
-  {
-    "id": "award-logika-ui-2025-2nd",
-    "category": "award",
-    "title": "Juara 2 DSC LOGIKA UI 2025",
-    "content": "Award: Juara 2 DSC LOGIKA UI 2025. Organisasi: Universitas Indonesia. Periode: Nov 2025 - Nov 2025. Deskripsi: Mendapatkan juara 2 dalam Data Science Competition (DSC) LOGIKA UI 2025. Tags: Competition, Award.",
-    "org": "Universitas Indonesia",
-    "period": {
-      "from": "Nov 2025",
-      "to": "Nov 2025"
-    },
-    "tags": [
-      "Competition",
-      "Award"
-    ],
-    "source": "src/lib/data/honours.ts",
-    "content_hash": "f1f6be47ad4a11860fc7a4a5b896734e7aeaad8a4520ea2d22a04229d0599a05"
+    "content_hash": "58747fd94c58cfda0566cfad256746d3b8bb5816f223310e1654f950a16720da"
   },
   {
     "id": "exp-research-assistant",
     "category": "experience",
-    "title": "Research Assistant",
-    "content": "Experience: Research Assistant. Organisasi: Universitas Gadjah Mada (UGM). Periode: Dec 2025 - Now. Deskripsi: Asisten Peneliti di Departemen Teknik Elektro dan Teknologi Informasi UGM (DTETI) dengan topik Smart Lab & Space Tags: Research, Assistant.",
-    "org": "Universitas Gadjah Mada (UGM)",
+    "title": "Research Assistant — Smart Lab & Smart Space",
+    "content": "Experience: Research Assistant — Smart Lab & Smart Space. Organisasi: DTETI, Universitas Gadjah Mada. Periode: Dec 2025 - Present. Deskripsi: Research on AI + IoT systems for Smart Lab & Smart Space. Developed NusaVoice, a fine-tuned on-device LLM for Indonesian intent detection, with a dual-response architecture that produces both a natural-language reply and a structured tool call in a single pass. Tags: PyTorch, Hugging Face, PEFT/LoRA, Home Assistant.",
+    "org": "DTETI, Universitas Gadjah Mada",
     "period": {
       "from": "Dec 2025",
-      "to": "Now"
+      "to": "Present"
     },
     "tags": [
-      "Research",
-      "Assistant"
+      "PyTorch",
+      "Hugging Face",
+      "PEFT/LoRA",
+      "Home Assistant"
     ],
     "source": "src/lib/data/honours.ts",
-    "content_hash": "13c4daddfad4d56b37e4937394832c30cda146069efa40339253927c68f662b9"
+    "content_hash": "3d6578b4341cb2d59516841474baf0c650afe275f156cc9445de359bbf9e2163"
   },
   {
     "id": "exp-bmkg-intern",
     "category": "experience",
     "title": "Machine Learning Intern",
-    "content": "Experience: Machine Learning Intern. Organisasi: BMKG. Periode: Dec 2025 - Now. Deskripsi: Internship di BMKG Stasiun Klimatologi Yogyakarta. Tags: Internship.",
-    "org": "BMKG",
+    "content": "Experience: Machine Learning Intern. Organisasi: BMKG — Badan Meteorologi, Klimatologi, dan Geofisika. Periode: Dec 2025 - Jan 2026. Deskripsi: Developed an end-to-end PM2.5 air quality forecasting system (Random Forest) deployed as a full-stack web app (bmkg-hirup.pradanayahya.com), rainfall forecasting models from climatology station data, and internal digitalization tools that streamlined administrative workflows for BMKG staff. Tags: scikit-learn, FastAPI, React, Docker, Time Series.",
+    "org": "BMKG — Badan Meteorologi, Klimatologi, dan Geofisika",
     "period": {
       "from": "Dec 2025",
-      "to": "Now"
+      "to": "Jan 2026"
     },
     "tags": [
-      "Internship"
+      "scikit-learn",
+      "FastAPI",
+      "React",
+      "Docker",
+      "Time Series"
     ],
     "source": "src/lib/data/honours.ts",
-    "content_hash": "6f53102e5c01a370bb0463482df6e638695785b1be60e26f6ca1e0d282ab3031"
+    "content_hash": "72d0ed84f033c94b446a6de177324734ab03ea34a9df1e248c6c0595cb65a6ab"
+  },
+  {
+    "id": "award-datathon-2024-ristek",
+    "category": "award",
+    "title": "Top 11 — DATATHON 2024",
+    "content": "Award: Top 11 — DATATHON 2024. Organisasi: RISTEK Fasilkom Universitas Indonesia. Periode: Jul 2024. Deskripsi: Ranked 11th out of 200+ teams. Built Graph Neural Network (GNN) models for fraud detection on a fintech transaction graph. Tags: GNN, PyTorch Geometric, Fraud Detection.",
+    "org": "RISTEK Fasilkom Universitas Indonesia",
+    "period": {
+      "from": "Jul 2024"
+    },
+    "tags": [
+      "GNN",
+      "PyTorch Geometric",
+      "Fraud Detection"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "e3aa4ce2f0642dbc42fd9df306d0dfb9cad07650520ff8e94adbfa6acf4adf19"
+  },
+  {
+    "id": "award-datavidia-arkavidia-2025",
+    "category": "award",
+    "title": "Top 11 — Datavidia 9, Arkavidia ITB",
+    "content": "Award: Top 11 — Datavidia 9, Arkavidia ITB. Organisasi: Institut Teknologi Bandung. Periode: Mar 2025. Deskripsi: Ranked 11th of 230 teams with a SARIMAX-based forecasting model for Indonesian food commodity prices; moved from rank 20 → 11 with domain-specific feature engineering and a submitted technical paper. Tags: Time Series, SARIMAX, Forecasting.",
+    "org": "Institut Teknologi Bandung",
+    "period": {
+      "from": "Mar 2025"
+    },
+    "tags": [
+      "Time Series",
+      "SARIMAX",
+      "Forecasting"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "f19aec242e51bfba021cd2ad42d26929d8b5d7f325f97505453df0ac216e017e"
+  },
+  {
+    "id": "award-datathon-2025-1st",
+    "category": "award",
+    "title": "Champion — DATATHON 2025",
+    "content": "Award: Champion — DATATHON 2025. Organisasi: RISTEK Fasilkom Universitas Indonesia. Periode: Sep 2025. Deskripsi: 1st Place with TRACKO, a multimodal retail analytics platform extracting customer behavior signals from standard CCTV footage. Tags: Computer Vision, Multimodal, TimeSformer.",
+    "org": "RISTEK Fasilkom Universitas Indonesia",
+    "period": {
+      "from": "Sep 2025"
+    },
+    "tags": [
+      "Computer Vision",
+      "Multimodal",
+      "TimeSformer"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "a2178426e871af8a2890130948b28108f9c659fb2ef5f6ef2f7b10858b3639eb"
+  },
+  {
+    "id": "award-action-unesa-3rd",
+    "category": "award",
+    "title": "3rd Place — Data Mining Competition, ACTION UNESA 2025",
+    "content": "Award: 3rd Place — Data Mining Competition, ACTION UNESA 2025. Organisasi: Universitas Negeri Surabaya. Periode: Nov 2025. Deskripsi: IndoBERT-based NER pipeline for Indonesian culinary text; Micro-F1 0.8411 on the Kaggle leaderboard. Tags: NLP, IndoBERT, NER.",
+    "org": "Universitas Negeri Surabaya",
+    "period": {
+      "from": "Nov 2025"
+    },
+    "tags": [
+      "NLP",
+      "IndoBERT",
+      "NER"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "a6e2f62a17213d9b359a9ac9bab9eb03863e5d3439f451d09444895de75674c0"
+  },
+  {
+    "id": "award-logika-ui-2025-2nd",
+    "category": "award",
+    "title": "2nd Place — DSC LOGIKA UI 2025",
+    "content": "Award: 2nd Place — DSC LOGIKA UI 2025. Organisasi: Universitas Indonesia. Periode: Nov 2025. Deskripsi: DINOv3 + pseudo-labeling pipeline for Indonesian traditional house classification; final test accuracy 97.21%. Tags: Computer Vision, DINOv3, Semi-supervised.",
+    "org": "Universitas Indonesia",
+    "period": {
+      "from": "Nov 2025"
+    },
+    "tags": [
+      "Computer Vision",
+      "DINOv3",
+      "Semi-supervised"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "9e7b9d246884cd7bda1486a9ecd7216ba6c68a2fde892a310b69109164dc6101"
   }
 ]

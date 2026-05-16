@@ -5,111 +5,107 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
     line-height: 1.6;
     font-size: 16px;
     font-weight: 400;
   }
 
-  /* Custom dark mode background */
-  .dark body {
-    background-color: #18181B;
+  ::selection {
+    background-color: theme('colors.accent.200');
+    color: theme('colors.accent.900');
   }
 
-  /* Consistent typography */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: 'Inter', system-ui, sans-serif;
-    line-height: 1.2;
-    font-weight: 700;
+  .dark ::selection {
+    background-color: theme('colors.accent.700');
+    color: theme('colors.accent.50');
   }
 
-  p {
+  h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', system-ui, sans-serif;
-    line-height: 1.7;
-    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
   }
 
-  /* Ensure all text elements use Inter font */
-  * {
-    font-family: 'Inter', system-ui, sans-serif;
+  /* Use Fraunces only when explicitly requested via font-display. */
+  .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-feature-settings: 'ss01', 'ss02';
+    letter-spacing: -0.025em;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.accent.500');
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 
 @layer components {
+  .surface {
+    @apply bg-surface-light-elev dark:bg-surface-dark-elev border border-ink-faint-light dark:border-ink-faint-dark;
+  }
+
+  .surface-muted {
+    @apply bg-surface-light-muted dark:bg-surface-dark-muted;
+  }
+
   .btn-primary {
-    @apply px-6 py-3 bg-gray-800 hover:bg-gray-700 dark:bg-gray-200 dark:hover:bg-gray-100 text-white dark:text-gray-900 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full
+           bg-ink-light text-surface-light dark:bg-ink-dark dark:text-surface-dark
+           font-medium text-sm tracking-tight transition-all duration-200
+           hover:opacity-90 hover:-translate-y-px active:translate-y-0;
   }
 
-  .btn-secondary {
-    @apply px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full
+           border border-ink-faint-light dark:border-ink-faint-dark
+           text-ink-light dark:text-ink-dark
+           font-medium text-sm tracking-tight transition-all duration-200
+           hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted;
   }
 
-  .dark .btn-secondary {
-    @apply bg-gray-800 hover:bg-gray-700 text-gray-100;
-    background-color: #27272a;
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full
+           bg-surface-light-muted dark:bg-surface-dark-muted
+           text-[11px] font-medium text-ink-muted-light dark:text-ink-muted-dark
+           border border-ink-faint-light/60 dark:border-ink-faint-dark/60;
   }
 
+  .chip-accent {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full
+           bg-accent-50 dark:bg-accent-900/30
+           text-[11px] font-medium text-accent-700 dark:text-accent-300
+           border border-accent-200/60 dark:border-accent-700/40;
+  }
+
+  .eyebrow {
+    @apply text-[11px] uppercase tracking-[0.22em] font-medium
+           text-ink-muted-light dark:text-ink-muted-dark;
+  }
+
+  .section-divider {
+    @apply h-px w-full bg-ink-faint-light dark:bg-ink-faint-dark;
+  }
+
+  /* Legacy class — kept so unmigrated views still render reasonably. */
   .card {
-    @apply bg-white rounded-xl shadow-lg border border-gray-200 p-6 transition-all duration-200 hover:shadow-xl;
+    @apply surface rounded-2xl p-6 transition-all duration-200;
   }
+}
 
-  .dark .card {
-    background-color: #27272a;
-    border-color: #3f3f46;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
-
-  .dark .card:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
-  }
-
-  .nav-link {
-    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100;
-  }
-
-  .dark .nav-link:hover {
-    background-color: #27272a;
-  }
-
-  .nav-link.active {
-    @apply bg-gray-100 text-gray-900;
-  }
-
-  .dark .nav-link.active {
-    background-color: #27272a;
-    color: #f4f4f5;
-  }
-
-  /* Typography utilities */
-  .text-heading-xl {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight;
-  }
-
-  .text-heading-lg {
-    @apply text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight;
-  }
-
-  .text-heading-md {
-    @apply text-xl sm:text-2xl lg:text-3xl font-semibold leading-tight;
-  }
-
-  .text-body-lg {
-    @apply text-lg lg:text-xl leading-relaxed;
-  }
-
-  .text-body-base {
-    @apply text-base lg:text-lg leading-relaxed;
-  }
-
-  .text-body-sm {
-    @apply text-sm lg:text-base leading-relaxed;
+  .text-pretty {
+    text-wrap: pretty;
   }
 }

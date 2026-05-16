@@ -1,104 +1,60 @@
 <script lang="ts">
   import { projects, categories } from '$lib/data/projects';
   import ProjectCard from '$lib/components/ProjectCard.svelte';
-  import { Filter } from 'lucide-svelte';
 
-  let selectedCategory = 'all';
-  let filteredProjects = projects;
+  let selectedCategory: string = 'all';
 
-  $: {
-    if (selectedCategory === 'all') {
-      filteredProjects = projects;
-    } else {
-      filteredProjects = projects.filter(project => project.category === selectedCategory);
-    }
-  }
-
-  const selectCategory = (categoryId: string) => {
-    selectedCategory = categoryId;
-  };
+  $: visibleCategories = categories.filter((c) => c.count > 0);
+  $: filtered =
+    selectedCategory === 'all'
+      ? projects
+      : projects.filter((p) => p.category === selectedCategory);
 </script>
 
 <svelte:head>
-  <title>Portfolio - Pradana Yahya</title>
-  <meta name="description" content="Portfolio of projects by Pradana Yahya - Machine Learning and Data Science" />
+  <title>Projects — Pradana Yahya</title>
+  <meta name="description" content="A catalog of AI, ML, and software projects by Pradana Yahya." />
 </svelte:head>
 
-<div class="max-w-6xl mx-auto px-4 py-12">
-  <!-- Header -->
-  <section class="text-center mb-6">
-    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-50 mb-4">
-      Portfolio
-    </h1>
-    <!-- <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-      A collection of projects showcasing my skills
-    </p> -->
-  </section>
+<section class="mx-auto max-w-6xl px-5 sm:px-8 pt-14 lg:pt-20 pb-10">
+  <p class="eyebrow">Projects</p>
+  <h1 class="font-display text-4xl lg:text-5xl mt-3 text-ink-light dark:text-ink-dark text-balance">
+    A catalog of what I’ve been building.
+  </h1>
+  <p class="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-muted-light dark:text-ink-muted-dark">
+    Research prototypes, hackathon winners, and production deployments — sorted
+    by recency. Click any tile to read more.
+  </p>
+</section>
 
-  <!-- Filter Section -->
-  <section class="mb-12">
-    <div class="flex items-center justify-center mb-6">
-      <Filter class="w-4 h-4 text-gray-500 dark:text-gray-500 mr-2" />
-      <span class="text-gray-600 dark:text-gray-400 font-medium text-xs">Filter by category:</span>
-    </div>
-    
-    <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
-      {#each categories as category}
-        <button
-          on:click={() => selectCategory(category.id)}
-          class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-medium transition-all duration-200 border text-xs sm:text-sm
-                 {selectedCategory === category.id
-                   ? 'bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-900 border-gray-800 dark:border-gray-200 shadow-lg'
-                   : 'bg-white dark:bg-[#272930] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700'
-                 }"
-        >
-          {category.label}
-          <span class="ml-1.5 sm:ml-2 px-1.5 py-0.5 sm:px-2 text-xs rounded-full
-                       {selectedCategory === category.id
-                         ? 'bg-white/20 text-white dark:bg-gray-900/20 dark:text-gray-900'
-                         : 'bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400'
-                       }">
-            {category.count}
-          </span>
-        </button>
-      {/each}
-    </div>
-  </section>
+<section class="mx-auto max-w-6xl px-5 sm:px-8 pb-6">
+  <div class="flex flex-wrap items-center gap-2">
+    {#each visibleCategories as category}
+      {@const active = selectedCategory === category.id}
+      <button
+        type="button"
+        on:click={() => (selectedCategory = category.id)}
+        class="inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all border {active ? 'bg-ink-light text-surface-light border-ink-light dark:bg-ink-dark dark:text-surface-dark dark:border-ink-dark' : 'border-ink-faint-light dark:border-ink-faint-dark text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark'}"
+      >
+        {category.label}
+        <span class="text-[10px] opacity-70">{category.count}</span>
+      </button>
+    {/each}
+  </div>
+</section>
 
-  <!-- Projects Grid -->
-  <section>
-    <div class="mb-6">
-      <p class="text-center text-gray-600 dark:text-gray-400">
-        Showing {filteredProjects.length} of {projects.length} projects
-        {#if selectedCategory !== 'all'}
-          in <span class="font-semibold text-gray-800 dark:text-gray-200">
-            {categories.find(c => c.id === selectedCategory)?.label}
-          </span>
-        {/if}
+<section class="mx-auto max-w-6xl px-5 sm:px-8 pb-24">
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {#each filtered as project (project.id)}
+      <ProjectCard {project} />
+    {/each}
+  </div>
+
+  {#if filtered.length === 0}
+    <div class="surface rounded-2xl py-20 text-center">
+      <p class="text-ink-muted-light dark:text-ink-muted-dark">
+        No projects in this category yet.
       </p>
     </div>
-
-    {#if filteredProjects.length > 0}
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {#each filteredProjects as project}
-          <ProjectCard {project} />
-        {/each}
-      </div>
-    {:else}
-      <div class="text-center py-16">
-        <div class="w-24 h-24 bg-gray-100 dark:bg-[#212328] rounded-full flex items-center justify-center mx-auto mb-6">
-          <Filter class="w-12 h-12 text-gray-400 dark:text-gray-600" />
-        </div>
-        <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">
-          No projects in this category
-        </p>
-        <button
-          on:click={() => selectCategory('all')}
-          class="px-6 py-3 bg-gray-800 hover:bg-gray-700 dark:bg-gray-200 dark:hover:bg-gray-100 text-white dark:text-gray-900 font-medium rounded-lg transition-colors"
-        >
-          View All Projects
-        </button>
-      </div>
-    {/if}
-  </section>
-</div>
+  {/if}
+</section>

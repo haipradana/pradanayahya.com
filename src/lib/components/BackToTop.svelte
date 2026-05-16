@@ -29,9 +29,9 @@
     <button
         on:click={scrollToTop}
         transition:fade={{ duration: 200 }}
-        class="fixed bottom-44 right-6 z-40 w-12 h-12 rounded-full bg-gray-700 dark:bg-gray-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:bg-gray-600 dark:hover:bg-gray-500 flex items-center justify-center"
+        class="fixed bottom-24 right-6 z-40 w-10 h-10 rounded-full bg-surface-light-elev dark:bg-surface-dark-elev text-ink-light dark:text-ink-dark border border-ink-faint-light dark:border-ink-faint-dark shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center"
         aria-label="Back to top"
     >
-        <ArrowUp class="w-5 h-5" />
+        <ArrowUp class="w-4 h-4" />
     </button>
 {/if}

@@ -136,7 +136,7 @@
 <!-- Floating Toggle Button -->
 <button
   on:click={toggleChat}
-  class="fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 dark:from-slate-700 dark:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center overflow-hidden"
+  class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-ink-light text-surface-light dark:bg-ink-dark dark:text-surface-dark shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center overflow-hidden ring-1 ring-ink-faint-light dark:ring-ink-faint-dark"
   aria-label="Toggle chat"
 >
   {#if isOpen}
@@ -162,11 +162,11 @@
 {#if isOpen}
   <div
     transition:fly={{ y: 20, duration: 300, easing: cubicOut }}
-    class="fixed bottom-40 right-6 z-50 w-[380px] sm:w-[480px] md:w-[550px] max-w-[calc(100vw-3rem)] h-[520px] sm:h-[600px] max-h-[calc(100vh-13rem)] bg-white dark:bg-gray-900 rounded-3xl shadow-xl dark:shadow-2xl flex flex-col overflow-hidden border border-gray-200 dark:border-gray-800"
+    class="fixed bottom-24 right-6 z-50 w-[380px] sm:w-[480px] md:w-[550px] max-w-[calc(100vw-3rem)] h-[520px] sm:h-[600px] max-h-[calc(100vh-8rem)] bg-surface-light-elev dark:bg-surface-dark-elev rounded-3xl shadow-xl dark:shadow-2xl flex flex-col overflow-hidden border border-ink-faint-light dark:border-ink-faint-dark"
   >
     <!-- Header - Clean & Minimal -->
     <div
-      class="px-5 py-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between"
+      class="px-5 py-4 border-b border-ink-faint-light dark:border-ink-faint-dark flex items-center justify-between"
     >
       <div class="flex items-center gap-3">
         <img
@@ -185,7 +185,7 @@
         <button
           type="button"
           on:click={clearUserChat}
-          class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500 dark:text-gray-400"
+          class="p-2 hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted rounded-full transition-colors text-ink-muted-light dark:text-ink-muted-dark"
           aria-label="Hapus chat di browser"
           title="Hapus chat"
         >
@@ -194,7 +194,7 @@
         <button
           type="button"
           on:click={toggleChat}
-          class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500 dark:text-gray-400"
+          class="p-2 hover:bg-surface-light-muted dark:hover:bg-surface-dark-muted rounded-full transition-colors text-ink-muted-light dark:text-ink-muted-dark"
           aria-label="Tutup chat"
         >
           <X class="w-5 h-5" />
@@ -209,7 +209,7 @@
     >
       {#if messages.length === 0}
         <!-- Welcome -->
-        <div class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+        <div class="text-ink-muted-light dark:text-ink-muted-dark text-sm leading-relaxed">
           Hai! 👋 Aku <span class="font-medium">Latent</span>, asisten AI. Apa
           yang ingin kamu ketahui tentang Pradana?
         </div>
@@ -220,7 +220,7 @@
             {#each quickActions as action}
               <button
                 on:click={() => sendMessage(action.message)}
-                class="px-3 py-2 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-xl transition-colors"
+                class="px-3 py-2 bg-surface-light-muted dark:bg-surface-dark-muted hover:border-accent-300 dark:hover:border-accent-700 border border-transparent text-ink-light dark:text-ink-dark text-sm rounded-xl transition-colors"
               >
                 {action.label}
               </button>
@@ -235,8 +235,8 @@
             <div
               class={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                 message.role === "user"
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 markdown-content"
+                  ? "bg-ink-light text-surface-light dark:bg-ink-dark dark:text-surface-dark"
+                  : "bg-surface-light-muted dark:bg-surface-dark-muted text-ink-light dark:text-ink-dark markdown-content"
               }`}
             >
               {#if message.role === "assistant"}
@@ -251,7 +251,7 @@
         {#if isLoading}
           <div class="flex justify-start">
             <div
-              class="bg-gray-100 dark:bg-gray-800 text-gray-400 rounded-2xl px-4 py-2.5 text-sm"
+              class="bg-surface-light-muted dark:bg-surface-dark-muted text-ink-muted-light dark:text-ink-muted-dark rounded-2xl px-4 py-2.5 text-sm"
             >
               <span class="inline-flex gap-1">
                 <span class="animate-bounce">•</span>
@@ -269,7 +269,7 @@
     </div>
 
     <!-- Input Area -->
-    <div class="px-4 py-4 border-t border-gray-100 dark:border-gray-800">
+    <div class="px-4 py-4 border-t border-ink-faint-light dark:border-ink-faint-dark">
       <div class="flex gap-2 items-center">
         <input
           type="text"
@@ -277,12 +277,12 @@
           on:keydown={handleKeyDown}
           placeholder="Tulis pesan..."
           disabled={isLoading}
-          class="flex-1 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 placeholder-gray-400 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 disabled:opacity-50"
+          class="flex-1 bg-surface-light-muted dark:bg-surface-dark-muted text-ink-light dark:text-ink-dark placeholder:text-ink-muted-light/60 dark:placeholder:text-ink-muted-dark/60 rounded-xl px-4 py-3 text-sm border border-transparent focus:outline-none focus:border-accent-500 disabled:opacity-50 transition-colors"
         />
         <button
           on:click={() => sendMessage()}
           disabled={!inputValue.trim() || isLoading}
-          class="w-11 h-11 rounded-xl bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          class="w-11 h-11 rounded-xl bg-ink-light hover:opacity-90 text-surface-light dark:bg-ink-dark dark:text-surface-dark flex items-center justify-center transition-all disabled:opacity-40 disabled:cursor-not-allowed"
         >
           <Send class="w-5 h-5" />
         </button>
@@ -302,11 +302,11 @@
     margin-bottom: 0;
   }
   :global(.markdown-content a) {
-    color: #3b82f6;
+    color: #059669;
     text-decoration: underline;
   }
   :global(.dark .markdown-content a) {
-    color: #60a5fa;
+    color: #34d399;
   }
   :global(.markdown-content ul) {
     list-style-type: disc;

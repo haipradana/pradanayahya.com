@@ -1,9 +1,142 @@
 [
   {
+    "id": "project-bmkg-hirup-pm25",
+    "category": "project",
+    "title": "BMKG-Hirup — PM2.5 Air Quality Forecasting",
+    "content": "Project: BMKG-Hirup — PM2.5 Air Quality Forecasting. Deskripsi: End-to-end PM2.5 air quality forecasting system (Random Forest Regressor) deployed as a full-stack web app for BMKG Yogyakarta, alongside rainfall forecasting from climatology station data. Kategori: data-science. Tahun: 2026. Tech stack: Python, scikit-learn, FastAPI, React, Time Series.",
+    "slug": "bmkg-hirup-pm25",
+    "year": 2026,
+    "project_category": "data-science",
+    "tech_stack": [
+      "Python",
+      "scikit-learn",
+      "FastAPI",
+      "React",
+      "Time Series"
+    ],
+    "demo_url": "https://bmkg-hirup.pradanayahya.com",
+    "github_url": null,
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "4c217527180a54ff837a0dc9307bcd0fbb72804a96a5160e1f914f8bc5c0cf5e"
+  },
+  {
+    "id": "project-nusavoice-on-device-llm",
+    "category": "project",
+    "title": "NusaVoice — On-device Indonesian Intent LLM",
+    "content": "Project: NusaVoice — On-device Indonesian Intent LLM. Deskripsi: Fine-tuned on-device LLM for Indonesian intent detection on CPU-only hardware — one pass returns both a reply and a Home Assistant tool call. Kategori: llm. Tahun: 2025. Tech stack: PyTorch, Hugging Face, PEFT/LoRA, Home Assistant.",
+    "slug": "nusavoice-on-device-llm",
+    "year": 2025,
+    "project_category": "llm",
+    "tech_stack": [
+      "PyTorch",
+      "Hugging Face",
+      "PEFT/LoRA",
+      "Home Assistant"
+    ],
+    "demo_url": null,
+    "github_url": null,
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "b33b36993333f7cb6ec652b5f5d8701643bd1bd7a629667637445f47c69614e7"
+  },
+  {
+    "id": "project-smart-space-jarvis",
+    "category": "project",
+    "title": "Smart Space (Jarvis) — Offline Voice Assistant",
+    "content": "Project: Smart Space (Jarvis) — Offline Voice Assistant. Deskripsi: Local-first voice pipeline for lab automation at DTETI UGM. Whisper (ASR) + Piper (TTS, fine-tuned voice) run fully offline on a Raspberry Pi, with an LLM for command understanding and N8N for IoT control of lights, HVAC, and projectors. Kategori: llm. Tahun: 2025. Tech stack: Whisper, Piper, LLM, N8N, Raspberry Pi.",
+    "slug": "smart-space-jarvis",
+    "year": 2025,
+    "project_category": "llm",
+    "tech_stack": [
+      "Whisper",
+      "Piper",
+      "LLM",
+      "N8N",
+      "Raspberry Pi"
+    ],
+    "demo_url": null,
+    "github_url": null,
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "8efe0ed211a52c7919379c92fe5787361bbb435d76843f0868d294881ea91fa2"
+  },
+  {
+    "id": "project-kawanisyarat-bisindo",
+    "category": "project",
+    "title": "KawanIsyarat — Offline BISINDO Translator",
+    "content": "Project: KawanIsyarat — Offline BISINDO Translator. Deskripsi: Android app for real-time BISINDO ↔ Indonesian translation. Runs fully on-device — built for Google’s Gemma 4 Good Hackathon. Kategori: computer-vision. Tahun: 2025. Tech stack: Android, TFLite, Sign Language, On-device AI.",
+    "slug": "kawanisyarat-bisindo",
+    "year": 2025,
+    "project_category": "computer-vision",
+    "tech_stack": [
+      "Android",
+      "TFLite",
+      "Sign Language",
+      "On-device AI"
+    ],
+    "demo_url": null,
+    "github_url": null,
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "12aaf9a8426f591e5e2d01161b488d3a9f0bae6891e54f9df461586055650499"
+  },
+  {
+    "id": "project-ask-docs-agentic-rag",
+    "category": "project",
+    "title": "ask-docs — Agentic RAG Assistant",
+    "content": "Project: ask-docs — Agentic RAG Assistant. Deskripsi: Production-deployed agentic RAG system live at ask.pradanayahya.com. Combines retrieval, citation, and tool-using agent loops for document-grounded Q&A. Kategori: llm. Tahun: 2025. Tech stack: RAG, LLM, Agents, Vector Search.",
+    "slug": "ask-docs-agentic-rag",
+    "year": 2025,
+    "project_category": "llm",
+    "tech_stack": [
+      "RAG",
+      "LLM",
+      "Agents",
+      "Vector Search"
+    ],
+    "demo_url": "https://ask.pradanayahya.com",
+    "github_url": null,
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "1f56971eafa5f9fbf922dd0fd2540e29e950ab019322441217a4d0064b9f2d98"
+  },
+  {
+    "id": "project-dinov3-traditional-houses",
+    "category": "project",
+    "title": "DINOv3 + Pseudo-labeling for Traditional Houses",
+    "content": "Project: DINOv3 + Pseudo-labeling for Traditional Houses. Deskripsi: 2nd Place at DSC LOGIKA UI 2025. Semi-supervised classification pipeline for Indonesian traditional house images using DINOv3 features and pseudo-labeling; 97.21% test accuracy. Kategori: computer-vision. Tahun: 2025. Tech stack: DINOv3, Semi-supervised, Image Classification.",
+    "slug": "dinov3-traditional-houses",
+    "year": 2025,
+    "project_category": "computer-vision",
+    "tech_stack": [
+      "DINOv3",
+      "Semi-supervised",
+      "Image Classification"
+    ],
+    "demo_url": null,
+    "github_url": null,
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "5c5630b7a9c0ded1c54115f29dc8ca362b958ccae355e0fe7f83394744ffe6c1"
+  },
+  {
+    "id": "project-indobert-culinary-ner",
+    "category": "project",
+    "title": "IndoBERT NER for Indonesian Culinary Text",
+    "content": "Project: IndoBERT NER for Indonesian Culinary Text. Deskripsi: 3rd Place at ACTION UNESA 2025 Data Mining Competition. Named Entity Recognition pipeline for Indonesian culinary text using IndoBERT; Micro-F1 0.8411 on the Kaggle leaderboard. Kategori: nlp. Tahun: 2025. Tech stack: NLP, IndoBERT, NER.",
+    "slug": "indobert-culinary-ner",
+    "year": 2025,
+    "project_category": "nlp",
+    "tech_stack": [
+      "NLP",
+      "IndoBERT",
+      "NER"
+    ],
+    "demo_url": null,
+    "github_url": null,
+    "source": "src/lib/data/projects.ts",
+    "content_hash": "c588ac7d37aedb0583c3127444302aea7358fb8ba3e68176cba6976089b294bd"
+  },
+  {
     "id": "project-sentimen-analisis-abolisi-tom-dan-hasto",
     "category": "project",
     "title": "Sentimen Analisis Abolisi Tom dan Hasto",
-    "content": "Project: Sentimen Analisis Abolisi Tom dan Hasto. Deskripsi: Sentimen analisis publik dan topic modeling pada keputusan Prabowo yang mengabulkan abolisi Tom dan amnesti Hasto. Kategori: nlp. Tahun: 2025. Tech stack: NLP, Sentiment Analysis, BERTopic.",
+    "content": "Project: Sentimen Analisis Abolisi Tom dan Hasto. Deskripsi: Sentiment analysis and topic modeling on public response to Prabowo’s decision granting abolition to Tom and amnesty to Hasto. Kategori: nlp. Tahun: 2025. Tech stack: NLP, Sentiment Analysis, BERTopic.",
     "slug": "sentimen-analisis-abolisi-tom-dan-hasto",
     "year": 2025,
     "project_category": "nlp",
@@ -15,13 +148,13 @@
     "demo_url": "https://x.com/haipradana/status/1951344945295663171?t=cn_0U9QgrNNQDYqveyJCYQ&s=19",
     "github_url": "https://github.com/haipradana/barengdata/tree/main/Abolisi%20Tom%20Lembong",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "0f37e25789431d59b15cda79d6595e05f93af70e9637845a578d9c3e25e8e07b"
+    "content_hash": "c83206e31eb104ffc7290d24962e8d9aa72647de605cda3392e81834109387a9"
   },
   {
     "id": "project-sentimen-analisis-vonis-tom-lembong",
     "category": "project",
     "title": "Sentimen Analisis Vonis Tom Lembong",
-    "content": "Project: Sentimen Analisis Vonis Tom Lembong. Deskripsi: Sentimen analisis dan topic modeling pada vonis Tom Lembong, BERT untuk klasifikasi sentimen dan BertTopic untuk topic modeling. Kategori: nlp. Tahun: 2025. Tech stack: NLP, Sentiment Analysis, BERTopic.",
+    "content": "Project: Sentimen Analisis Vonis Tom Lembong. Deskripsi: Sentiment analysis and topic modeling on the Tom Lembong verdict. BERT for sentiment classification and BERTopic for topic modeling. Kategori: nlp. Tahun: 2025. Tech stack: NLP, Sentiment Analysis, BERTopic.",
     "slug": "sentimen-analisis-vonis-tom-lembong",
     "year": 2025,
     "project_category": "nlp",
@@ -33,13 +166,13 @@
     "demo_url": "https://www.instagram.com/p/DM72xWmPTen",
     "github_url": "https://github.com/haipradana/barengdata/tree/main/Tom%20Lembong%201",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "e1832746cae101c7b3db3e7a23f8ad70b15396cb502cc220e2485552f9f7f680"
+    "content_hash": "569d011af8b5c872cb21c0288811f1b9e575f8c8f562f66c19762b5863e969eb"
   },
   {
     "id": "project-hate-speech-roberta",
     "category": "project",
-    "title": "Klasifikasi Hate Speech (RoBERTa)",
-    "content": "Project: Klasifikasi Hate Speech (RoBERTa). Deskripsi: Fine-tuned RoBERTa sentiment-based model untuk klasifikasi hate speech pada teks bahasa Indonesia. Kategori: nlp. Tahun: 2025. Tech stack: NLP, RoBERTa, Fine-Tuning.",
+    "title": "Hate Speech Classification (RoBERTa)",
+    "content": "Project: Hate Speech Classification (RoBERTa). Deskripsi: Fine-tuned sentiment-based RoBERTa for hate speech classification on Indonesian text. Kategori: nlp. Tahun: 2025. Tech stack: NLP, RoBERTa, Fine-Tuning.",
     "slug": "hate-speech-roberta",
     "year": 2025,
     "project_category": "nlp",
@@ -51,13 +184,13 @@
     "demo_url": "https://huggingface.co/haipradana/roberta-hate-classification-model",
     "github_url": "https://github.com/haipradana/RoBERTa-Indonesian-Hate-Tweet-Classification",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "7dc68892e78b89d2e9c31c64ee97cd3f0ea76675339dba244a772589c6c63eb8"
+    "content_hash": "a98bdb21488148de201c4562f6a931c82b761748e22dc6763c9cc2ebf08d7ca6"
   },
   {
     "id": "project-sarcasm-indobert",
     "category": "project",
-    "title": "Deteksi Sarkas (IndoBERT Fine-Tuning)",
-    "content": "Project: Deteksi Sarkas (IndoBERT Fine-Tuning). Deskripsi: Fine-tuned IndoBERT base untuk klasifikasi sarkas pada teks bahasa Indonesia, dengan dataset media sosial. Kategori: nlp. Tahun: 2025. Tech stack: NLP, IndoBERT, Fine-Tuning.",
+    "title": "Sarcasm Detection (IndoBERT Fine-Tuning)",
+    "content": "Project: Sarcasm Detection (IndoBERT Fine-Tuning). Deskripsi: Fine-tuned IndoBERT base for sarcasm classification on Indonesian social-media text. Kategori: nlp. Tahun: 2025. Tech stack: NLP, IndoBERT, Fine-Tuning.",
     "slug": "sarcasm-indobert",
     "year": 2025,
     "project_category": "nlp",
@@ -69,13 +202,13 @@
     "demo_url": "https://huggingface.co/haipradana/indobert-indonesia-satire-sarcastic-classification-model",
     "github_url": "https://github.com/haipradana/indobert-indonesia-sarcastic-satire-classification",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "2114a0e9c4811ce17a5c7fc06d980634d690433e246414bef8e07d380ae3fa2b"
+    "content_hash": "97747cbca6c925a6a9d868717bf026f3d9044cda90dfc5fe4c404eb332935d60"
   },
   {
     "id": "project-retail-behaviour-analysis-v1",
     "category": "project",
-    "title": "Retail Behaviour Analysis v1",
-    "content": "Project: Retail Behaviour Analysis v1. Deskripsi: Sistem analisis perilaku pelanggan dari rekaman CCTV. Menggunakan computer vision dan multimodal transformer untuk memberikan strategi bisnis. Kategori: computer-vision. Tahun: 2025. Tech stack: Computer Vision, TimeSformer, LLM. Detail: DATATHON 2025 - Retail Behaviour Analysis Overview Sistem analitik berbasis AI untuk optimalisasi strategi bisnis melalui analisis perilaku pelanggan dari rekaman CCTV. Menggunakan computer vision dan multimodal transformer untuk memberikan insights actionable bagi strategi bisnis retail. Key Features - **Segmentasi Rak**: YOLOv11-seg (94.73% precision, 73.37% recall) - **Pelacakan Multi-Person**: ByteTrack untuk tracking real-time - **Klasifikasi Aksi**: TimeSFormer dengan domain adaptation (75.0% accuracy) - **Analisis Behavior**: Heat-map, dwell-time, dan traffic analysis - **6 Action Classes**: Reach/Retract from Shelf, Hand in Shelf, Inspect Product/Shelf, Background Outputs - Heat-map visualisasi traffic pelanggan - Statistik interaksi per rak - Statistik dwell time setiap pelanggan - Rekomendasi optimasi layout toko dari keramaian rak - Comprehensive behavioral insights Datasets HuggingFace - MERL Dataset - CCTV-Like Dataset - Shelf Segmentation Models HuggingFace - Action Recognition Model - Domain Adaptation - Shelf Segmentation - YOLOv11 Model 🚀 Deployment This full pipeline has deployed on Huggingface Space 🤗 Demo Video dan Dokumentasi Lihat Demo Video",
+    "title": "TRACKO — Retail Behavior Analysis",
+    "content": "Project: TRACKO — Retail Behavior Analysis. Deskripsi: Champion at DATATHON 2025. Multimodal retail analytics platform turning ordinary CCTV footage into customer-behavior signals and strategy. Kategori: computer-vision. Tahun: 2025. Tech stack: Computer Vision, TimeSformer, LLM. Detail: DATATHON 2025 - Retail Behaviour Analysis Overview Sistem analitik berbasis AI untuk optimalisasi strategi bisnis melalui analisis perilaku pelanggan dari rekaman CCTV. Menggunakan computer vision dan multimodal transformer untuk memberikan insights actionable bagi strategi bisnis retail. Key Features - **Segmentasi Rak**: YOLOv11-seg (94.73% precision, 73.37% recall) - **Pelacakan Multi-Person**: ByteTrack untuk tracking real-time - **Klasifikasi Aksi**: TimeSFormer dengan domain adaptation (75.0% accuracy) - **Analisis Behavior**: Heat-map, dwell-time, dan traffic analysis - **6 Action Classes**: Reach/Retract from Shelf, Hand in Shelf, Inspect Product/Shelf, Background Outputs - Heat-map visualisasi traffic pelanggan - Statistik interaksi per rak - Statistik dwell time setiap pelanggan - Rekomendasi optimasi layout toko dari keramaian rak - Comprehensive behavioral insights Datasets HuggingFace - MERL Dataset - CCTV-Like Dataset - Shelf Segmentation Models HuggingFace - Action Recognition Model - Domain Adaptation - Shelf Segmentation - YOLOv11 Model 🚀 Deployment This full pipeline has deployed on Huggingface Space 🤗 Demo Video dan Dokumentasi Lihat Demo Video",
     "slug": "retail-behaviour-analysis-v1",
     "year": 2025,
     "project_category": "computer-vision",
@@ -87,13 +220,13 @@
     "demo_url": "https://huggingface.co/spaces/haipradana/retail-behavior-analysis",
     "github_url": "https://github.com/haipradana/DATATHON-2025-Retail-Behaviour-Analysis",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "cb6824870ffb4959f7905c763a8268385f9bafa25d437130a4bac4be9dae360f"
+    "content_hash": "6ea24ac3875da7f1463e20700872c218957d2010a076bf075abaaaad71a72842"
   },
   {
     "id": "project-mood2movie",
     "category": "project",
     "title": "Mood2Movie",
-    "content": "Project: Mood2Movie. Deskripsi: Generate movie recommendations based on your mood. Built with semantic search, sentiment analysis, and mood-based filtering. Kategori: llm. Tahun: 2025. Tech stack: Python, LLM, Transformers, NLP. Detail: Mood2Movie : Rekomendasi Film Berdasarkan Mood Kamu Overview Mood2Movie adalah aplikasi rekomendasi film cerdas yang memahami mood kamu dan memberikan saran film paling cocok untuk ditonton. Aplikasi ini dibangun dengan semantic search, analisis sentimen, dan filtering berbasis mood. Kamu bisa mengetikkan perasaan atau suasana hati yang sedang kamu rasakan, atau cukup masukkan kata kunci apapun terkait film yang ingin kamu tonton, tidak harus judul film, cukup tuliskan apa yang ada di pikiranmu. **Coba sekarang:** Mood2Movie Fitur Utama - **Rekomendasi Berdasarkan Mood**: Saran film berdasarkan mood atau ketertarikan yang kamu input - **Natural Language Understanding**: Jelaskan saja apa yang kamu rasakan atau ingin tonton, sistem akan mengerti - **Content Based Filtering**: Pencarian semantik untuk mencocokkan overview film dengan input menggunakan Sentence Transformer - **AI-Enhanced Query**: Query akan diproses dan dipahami lebih baik dengan bantuan LLM Langsung kunjungi mood2movie.streamlit.app untuk mencoba! Terima kasih!",
+    "content": "Project: Mood2Movie. Deskripsi: Movie recommendations based on your mood. Built with semantic search, sentiment analysis, and mood-based filtering. Kategori: llm. Tahun: 2025. Tech stack: Python, LLM, Transformers, NLP. Detail: Mood2Movie : Rekomendasi Film Berdasarkan Mood Kamu Overview Mood2Movie adalah aplikasi rekomendasi film cerdas yang memahami mood kamu dan memberikan saran film paling cocok untuk ditonton. Aplikasi ini dibangun dengan semantic search, analisis sentimen, dan filtering berbasis mood. Kamu bisa mengetikkan perasaan atau suasana hati yang sedang kamu rasakan, atau cukup masukkan kata kunci apapun terkait film yang ingin kamu tonton, tidak harus judul film, cukup tuliskan apa yang ada di pikiranmu. **Coba sekarang:** Mood2Movie Fitur Utama - **Rekomendasi Berdasarkan Mood**: Saran film berdasarkan mood atau ketertarikan yang kamu input - **Natural Language Understanding**: Jelaskan saja apa yang kamu rasakan atau ingin tonton, sistem akan mengerti - **Content Based Filtering**: Pencarian semantik untuk mencocokkan overview film dengan input menggunakan Sentence Transformer - **AI-Enhanced Query**: Query akan diproses dan dipahami lebih baik dengan bantuan LLM Langsung kunjungi mood2movie.streamlit.app untuk mencoba! Terima kasih!",
     "slug": "mood2movie",
     "year": 2025,
     "project_category": "llm",
@@ -106,7 +239,7 @@
     "demo_url": "https://mood2movie.streamlit.app/",
     "github_url": "https://github.com/haipradana/Mood2Movie",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "04f2338874e70164512a24c554dce7ff7b8f0aeb66a6f5f89046b085056d488b"
+    "content_hash": "b5eb17aa456f4fdcea3171cc8c621ebd0b719c7873646766fd7706f6386f5b0d"
   },
   {
     "id": "project-chatmydocs",
