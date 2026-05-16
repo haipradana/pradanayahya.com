@@ -105,7 +105,6 @@
     name="description"
     content="Pradana Yahya Abdillah (Dana) — AI engineer & data scientist at Universitas Gadjah Mada. Building things across NLP, computer vision, and on-device LLMs. Champion of DATATHON 2025."
   />
-  <link rel="canonical" href="https://pradanayahya.com/" />
   <!-- ProfilePage + Breadcrumb + ItemList for the home page. -->
   <script type="application/ld+json">
     {JSON.stringify({

@@ -49,10 +49,41 @@
 
 <svelte:head>
     {#if post}
-        <title>{post.title} - Pradana Yahya</title>
-        <meta name="description" content={post.content.slice(0, 160)} />
+        <title>{post.title} — Pradana Yahya</title>
+        <meta name="description" content={post.content.replace(/[#*`>_]/g, '').slice(0, 160).trim()} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${post.title} — Pradana Yahya`} />
+        <meta property="og:description" content={post.content.replace(/[#*`>_]/g, '').slice(0, 160).trim()} />
+        <meta property="article:published_time" content={post.date} />
+        <meta property="article:author" content="Pradana Yahya Abdillah" />
+        <meta property="article:section" content={post.category} />
+        <script type="application/ld+json">
+            {JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'BlogPosting',
+                headline: post.title,
+                datePublished: post.date,
+                dateModified: post.date,
+                articleSection: post.category,
+                url: `https://pradanayahya.com/blogs/${post.slug}`,
+                author: {
+                    '@type': 'Person',
+                    name: 'Pradana Yahya Abdillah',
+                    url: 'https://pradanayahya.com',
+                },
+                publisher: {
+                    '@type': 'Person',
+                    name: 'Pradana Yahya Abdillah',
+                },
+                mainEntityOfPage: {
+                    '@type': 'WebPage',
+                    '@id': `https://pradanayahya.com/blogs/${post.slug}`,
+                },
+            })}
+        </script>
     {:else}
-        <title>Post Not Found - Pradana Yahya</title>
+        <title>Post Not Found — Pradana Yahya</title>
+        <meta name="robots" content="noindex, follow" />
     {/if}
 </svelte:head>
 

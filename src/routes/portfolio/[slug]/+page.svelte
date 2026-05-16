@@ -39,8 +39,36 @@
 </script>
 
 <svelte:head>
-  <title>{project ? project.title : 'Project Not Found'} - Portfolio</title>
+  <title>{project ? `${project.title} — Pradana Yahya` : 'Project Not Found — Pradana Yahya'}</title>
   <meta name="description" content={project ? project.description : 'Project not found'} />
+  {#if project}
+    <meta property="og:title" content={`${project.title} — Pradana Yahya`} />
+    <meta property="og:description" content={project.description} />
+    <meta property="og:image" content={project.image} />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:title" content={`${project.title} — Pradana Yahya`} />
+    <meta name="twitter:description" content={project.description} />
+    <meta name="twitter:image" content={project.image} />
+    <script type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        name: project.title,
+        description: project.description,
+        url: `https://pradanayahya.com/portfolio/${project.slug}`,
+        image: project.image,
+        dateCreated: String(project.year),
+        keywords: project.tags.join(', '),
+        author: {
+          '@type': 'Person',
+          name: 'Pradana Yahya Abdillah',
+          url: 'https://pradanayahya.com',
+        },
+      })}
+    </script>
+  {:else}
+    <meta name="robots" content="noindex, follow" />
+  {/if}
 </svelte:head>
 
 <div class="max-w-4xl mx-auto px-4 py-12">

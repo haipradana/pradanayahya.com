@@ -54,9 +54,11 @@
       <p class="text-xs text-ink-muted-light dark:text-ink-muted-dark">
         © {year} Pradana Yahya Abdillah.
       </p>
-      <p class="text-xs text-ink-muted-light dark:text-ink-muted-dark">
-        Yogyakarta, Indonesia
-      </p>
+      <div class="flex items-center gap-4 text-xs text-ink-muted-light dark:text-ink-muted-dark">
+        <a href="/privacy" class="hover:text-ink-light dark:hover:text-ink-dark transition-colors">Privacy</a>
+        <span aria-hidden="true">·</span>
+        <span>Yogyakarta, Indonesia</span>
+      </div>
     </div>
   </div>
 </footer>
