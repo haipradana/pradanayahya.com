@@ -1,41 +1,66 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { projects } from '$lib/data/projects';
-  import { ArrowLeft, ExternalLink, Github, Calendar, Tag } from 'lucide-svelte';
+  import { ArrowLeft, ArrowUpRight, ExternalLink, Github, Calendar, MapPin } from 'lucide-svelte';
   import { onMount } from 'svelte';
+  import { marked } from 'marked';
+  import DOMPurify from 'dompurify';
+  import JsonLd from '$lib/components/JsonLd.svelte';
 
   $: slug = $page.params.slug;
-  $: project = projects.find(p => p.slug === slug);
+  $: project = projects.find((p) => p.slug === slug);
 
-  let markdownContent = '';
+  // Related projects in the same category, excluding self.
+  $: related = project
+    ? projects
+        .filter((p) => p.category === project!.category && p.slug !== project!.slug)
+        .slice(0, 3)
+    : [];
 
-  onMount(async () => {
-    if (project) {
-      try {
-        const response = await fetch(`/projects/${project.slug}.md`);
-        if (response.ok) {
-          markdownContent = await response.text();
-        } else {
-          markdownContent = `# ${project.title}\n\n${project.description}\n\nDetailed content coming soon...`;
-        }
-      } catch (error) {
-        markdownContent = `# ${project.title}\n\n${project.description}\n\nDetailed content coming soon...`;
+  $: projectJsonLd = project
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        name: project.title,
+        description: project.description,
+        url: 'https://pradanayahya.com/portfolio/' + project.slug,
+        image: project.image,
+        dateCreated: String(project.year),
+        keywords: project.tags.join(', '),
+        author: {
+          '@type': 'Person',
+          name: 'Pradana Yahya Abdillah',
+          url: 'https://pradanayahya.com',
+        },
       }
+    : null;
+
+  // Try to fetch a long-form markdown writeup if one exists; fall back to
+  // the structured data we already have. This loads client-side, but the
+  // server-rendered page already ships substantive content (description,
+  // tags, year, links, related) so Google never sees a thin page.
+  let markdownHtml = '';
+  onMount(async () => {
+    if (!project) return;
+    try {
+      const res = await fetch(`/projects/${project.slug}.md`);
+      if (res.ok) {
+        const md = await res.text();
+        markdownHtml = DOMPurify.sanitize(marked.parse(md) as string);
+      }
+    } catch {
+      /* leave markdownHtml empty; the structured fallback handles it */
     }
   });
 
-  // Simple markdown to HTML converter for basic formatting
-  function parseMarkdown(text: string): string {
-    return text
-      .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">$1</h1>')
-      .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">$1</h2>')
-      .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100">$1</h3>')
-      .replace(/\*\*(.*)\*\*/gim, '<strong class="font-semibold">$1</strong>')
-      .replace(/\*(.*)\*/gim, '<em class="italic">$1</em>')
-      .replace(/\n\n/gim, '</p><p class="mb-4 text-gray-600 dark:text-gray-300 leading-relaxed">')
-      .replace(/^(?!<h|<p)/gm, '<p class="mb-4 text-gray-600 dark:text-gray-300 leading-relaxed">')
-      .replace(/$(?!<\/h|<\/p)/gm, '</p>');
-  }
+  const categoryLabel: Record<string, string> = {
+    llm: 'LLM & Agents',
+    'computer-vision': 'Computer Vision',
+    nlp: 'NLP',
+    'data-science': 'Data Science',
+    'web-dev': 'Web',
+    all: 'Project',
+  };
 </script>
 
 <svelte:head>
@@ -49,124 +74,175 @@
     <meta name="twitter:title" content={`${project.title} — Pradana Yahya`} />
     <meta name="twitter:description" content={project.description} />
     <meta name="twitter:image" content={project.image} />
-    <script type="application/ld+json">
-      {JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'CreativeWork',
-        name: project.title,
-        description: project.description,
-        url: `https://pradanayahya.com/portfolio/${project.slug}`,
-        image: project.image,
-        dateCreated: String(project.year),
-        keywords: project.tags.join(', '),
-        author: {
-          '@type': 'Person',
-          name: 'Pradana Yahya Abdillah',
-          url: 'https://pradanayahya.com',
-        },
-      })}
-    </script>
   {:else}
     <meta name="robots" content="noindex, follow" />
   {/if}
 </svelte:head>
 
-<div class="max-w-4xl mx-auto px-4 py-12">
-  {#if project}
-    <!-- Back Button -->
-    <div class="mb-8">
-      <a 
-        href="/portfolio" 
-        class="inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-      >
-        <ArrowLeft class="w-4 h-4 mr-2" />
-        Back to Portfolio
-      </a>
-    </div>
+{#if projectJsonLd}
+  <JsonLd data={projectJsonLd} />
+{/if}
 
-    <!-- Project Header -->
-    <header class="mb-12">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-        <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 md:mb-0">
-          {project.title}
-        </h1>
-        <div class="flex items-center text-gray-500 dark:text-gray-500">
-          <Calendar class="w-4 h-4 mr-2" />
-          {project.year}
-        </div>
+{#if project}
+  <article class="mx-auto max-w-3xl px-5 sm:px-8 pt-10 lg:pt-14 pb-20">
+    <a
+      href="/portfolio"
+      class="inline-flex items-center gap-1.5 text-sm text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark transition-colors"
+    >
+      <ArrowLeft class="h-4 w-4" /> All projects
+    </a>
+
+    <header class="mt-6">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="chip-accent">{categoryLabel[project.category] ?? 'Project'}</span>
+        <span class="inline-flex items-center gap-1 text-[12px] text-ink-muted-light dark:text-ink-muted-dark">
+          <Calendar class="h-3 w-3" /> {project.year}
+        </span>
       </div>
 
-      <!-- Project Image -->
-      <div class="relative rounded-lg overflow-hidden mb-6">
-        <img
-          src={project.image}
-          alt={project.title}
-          class="w-full h-64 md:h-80 object-cover"
-        />
-      </div>
+      <h1 class="font-display text-4xl lg:text-5xl text-ink-light dark:text-ink-dark text-balance">
+        {project.title}
+      </h1>
 
-      <!-- Project Meta -->
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div class="flex flex-wrap gap-2">
-          {#each project.tags as tag}
-            <span class="inline-flex items-center px-3 py-1 text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full">
-              <Tag class="w-3 h-3 mr-1" />
-              {tag}
-            </span>
-          {/each}
-        </div>
+      <p class="mt-4 text-[17px] leading-relaxed text-ink-muted-light dark:text-ink-muted-dark text-pretty">
+        {project.description}
+      </p>
 
-        <div class="flex space-x-3">
-          {#if project.demoUrl}
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 dark:bg-gray-200 dark:hover:bg-gray-100 text-white dark:text-gray-900 font-medium rounded-lg transition-colors"
-            >
-              <ExternalLink class="w-4 h-4 mr-2" />
-              Live Demo
-            </a>
-          {/if}
-          {#if project.githubUrl}
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 font-medium rounded-lg transition-colors"
-            >
-              <Github class="w-4 h-4 mr-2" />
-              Source Code
-            </a>
-          {/if}
-        </div>
+      <div class="mt-6 flex flex-wrap gap-2">
+        {#if project.demoUrl}
+          <a
+            href={project.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            <ExternalLink class="h-4 w-4" /> Live demo
+          </a>
+        {/if}
+        {#if project.githubUrl}
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-ghost"
+          >
+            <Github class="h-4 w-4" /> Source
+          </a>
+        {/if}
       </div>
     </header>
 
-    <!-- Project Content -->
-    <article class="prose prose-lg dark:prose-invert max-w-none">
-      {#if markdownContent}
-        {@html parseMarkdown(markdownContent)}
-      {:else}
-        <p class="text-gray-600 dark:text-gray-100">Loading content...</p>
-      {/if}
-    </article>
-  {:else}
-    <!-- Project Not Found -->
-    <div class="text-center py-16">
-      <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-200 mb-4">
-        Project Not Found
-      </h1>
-      <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
-        The project you're looking for doesn't exist.
+    <figure class="mt-10">
+      <div class="relative overflow-hidden rounded-2xl border border-ink-faint-light dark:border-ink-faint-dark bg-surface-light-muted dark:bg-surface-dark-muted">
+        <img
+          src={project.image}
+          alt={project.title}
+          class="w-full h-auto object-cover"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </figure>
+
+    <!-- Overview block — always rendered server-side so the page is never thin. -->
+    <section class="mt-12">
+      <h2 class="font-display text-2xl text-ink-light dark:text-ink-dark">Overview</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-ink-light/85 dark:text-ink-dark/85 text-pretty">
+        <strong>{project.title}</strong> is a {categoryLabel[project.category]?.toLowerCase() ?? 'project'}
+        project by Pradana Yahya Abdillah, built in {project.year}. {project.description}
       </p>
-      <a 
-        href="/portfolio" 
-        class="inline-flex items-center px-6 py-3 bg-gray-800 hover:bg-gray-700 dark:bg-gray-200 dark:hover:bg-gray-100 text-white dark:text-gray-900 font-medium rounded-lg transition-colors"
-      >
-        <ArrowLeft class="w-4 h-4 mr-2" />
-        Back to Portfolio
-      </a>
-    </div>
-  {/if}
-</div>
+    </section>
+
+    <section class="mt-10 grid gap-8 sm:grid-cols-2">
+      <div>
+        <h3 class="text-[12px] uppercase tracking-[0.18em] text-ink-muted-light dark:text-ink-muted-dark mb-3">
+          Tech stack
+        </h3>
+        <div class="flex flex-wrap gap-1.5">
+          {#each project.tags as t}
+            <span class="chip">{t}</span>
+          {/each}
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-[12px] uppercase tracking-[0.18em] text-ink-muted-light dark:text-ink-muted-dark mb-3">
+          Links
+        </h3>
+        <ul class="space-y-1.5 text-sm">
+          {#if project.demoUrl}
+            <li>
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-ink-light dark:text-ink-dark hover:text-accent-600 dark:hover:text-accent-400"
+              >
+                <ExternalLink class="h-3.5 w-3.5" /> Live demo
+              </a>
+            </li>
+          {/if}
+          {#if project.githubUrl}
+            <li>
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-ink-light dark:text-ink-dark hover:text-accent-600 dark:hover:text-accent-400"
+              >
+                <Github class="h-3.5 w-3.5" /> {project.githubUrl.replace(/^https?:\/\/(www\.)?/, '')}
+              </a>
+            </li>
+          {/if}
+          {#if !project.demoUrl && !project.githubUrl}
+            <li class="text-ink-muted-light dark:text-ink-muted-dark">No public links yet.</li>
+          {/if}
+        </ul>
+      </div>
+    </section>
+
+    {#if markdownHtml}
+      <section class="mt-12 prose dark:prose-invert max-w-none prose-headings:font-display">
+        {@html markdownHtml}
+      </section>
+    {/if}
+
+    {#if related.length}
+      <section class="mt-16 pt-10 border-t border-ink-faint-light dark:border-ink-faint-dark">
+        <h2 class="font-display text-2xl text-ink-light dark:text-ink-dark mb-6">
+          Related projects
+        </h2>
+        <ul class="grid gap-3 sm:grid-cols-2">
+          {#each related as r}
+            <li>
+              <a
+                href={`/portfolio/${r.slug}`}
+                class="block surface rounded-xl p-4 hover:border-accent-300 dark:hover:border-accent-700 transition-colors"
+              >
+                <p class="text-[11px] uppercase tracking-[0.18em] text-ink-muted-light dark:text-ink-muted-dark">
+                  {r.year}
+                </p>
+                <h3 class="font-display text-base mt-1 text-ink-light dark:text-ink-dark group-hover:text-accent-600 leading-tight">
+                  {r.title}
+                </h3>
+                <span class="mt-2 inline-flex items-center gap-1 text-xs text-ink-muted-light dark:text-ink-muted-dark">
+                  Read <ArrowUpRight class="h-3 w-3" />
+                </span>
+              </a>
+            </li>
+          {/each}
+        </ul>
+      </section>
+    {/if}
+  </article>
+{:else}
+  <section class="mx-auto max-w-2xl px-5 sm:px-8 py-24 text-center">
+    <h1 class="font-display text-4xl text-ink-light dark:text-ink-dark">Project not found</h1>
+    <p class="mt-3 text-ink-muted-light dark:text-ink-muted-dark">
+      The project you’re looking for doesn’t exist or was renamed.
+    </p>
+    <a href="/portfolio" class="btn-primary mt-6">
+      <ArrowLeft class="h-4 w-4" /> Back to all projects
+    </a>
+  </section>
+{/if}

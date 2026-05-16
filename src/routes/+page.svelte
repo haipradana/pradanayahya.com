@@ -9,6 +9,7 @@
   } from 'lucide-svelte';
   import HeroCarousel from '$lib/components/HeroCarousel.svelte';
   import ProjectCard from '$lib/components/ProjectCard.svelte';
+  import JsonLd from '$lib/components/JsonLd.svelte';
   import { projects } from '$lib/data/projects';
   import { honours, sortAwardsByBest } from '$lib/data/honours';
 
@@ -97,6 +98,48 @@
     { label: 'Competition podiums', value: '3' },
     { label: 'Years building AI', value: '3' },
   ];
+
+  const homeJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'ProfilePage',
+        '@id': 'https://pradanayahya.com/#profile',
+        url: 'https://pradanayahya.com/',
+        name: 'Pradana Yahya Abdillah — AI Engineer & Data Scientist',
+        mainEntity: { '@id': 'https://pradanayahya.com/#person' },
+        inLanguage: 'en',
+      },
+      {
+        '@type': 'Person',
+        '@id': 'https://pradanayahya.com/#person',
+        name: 'Pradana Yahya Abdillah',
+        alternateName: ['Dana', 'haipradana'],
+        url: 'https://pradanayahya.com',
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pradanayahya.com/' },
+          { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://pradanayahya.com/portfolio' },
+          { '@type': 'ListItem', position: 3, name: 'Experience', item: 'https://pradanayahya.com/experience' },
+          { '@type': 'ListItem', position: 4, name: 'Awards', item: 'https://pradanayahya.com/awards' },
+          { '@type': 'ListItem', position: 5, name: 'Writings', item: 'https://pradanayahya.com/blogs' },
+          { '@type': 'ListItem', position: 6, name: 'Contact', item: 'https://pradanayahya.com/contact' },
+        ],
+      },
+      {
+        '@type': 'ItemList',
+        name: 'Featured projects',
+        itemListElement: featured.map((p, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          url: 'https://pradanayahya.com/portfolio/' + p.slug,
+          name: p.title,
+        })),
+      },
+    ],
+  };
 </script>
 
 <svelte:head>
@@ -105,51 +148,9 @@
     name="description"
     content="Pradana Yahya Abdillah (Dana) — AI engineer & data scientist at Universitas Gadjah Mada. Building things across NLP, computer vision, and on-device LLMs. Champion of DATATHON 2025."
   />
-  <!-- ProfilePage + Breadcrumb + ItemList for the home page. -->
-  <script type="application/ld+json">
-    {JSON.stringify({
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'ProfilePage',
-          '@id': 'https://pradanayahya.com/#profile',
-          url: 'https://pradanayahya.com/',
-          name: 'Pradana Yahya Abdillah — AI Engineer & Data Scientist',
-          mainEntity: { '@id': 'https://pradanayahya.com/#person' },
-          inLanguage: 'en',
-        },
-        {
-          '@type': 'Person',
-          '@id': 'https://pradanayahya.com/#person',
-          name: 'Pradana Yahya Abdillah',
-          alternateName: ['Dana', 'haipradana'],
-          url: 'https://pradanayahya.com',
-        },
-        {
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pradanayahya.com/' },
-            { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://pradanayahya.com/portfolio' },
-            { '@type': 'ListItem', position: 3, name: 'Experience', item: 'https://pradanayahya.com/experience' },
-            { '@type': 'ListItem', position: 4, name: 'Awards', item: 'https://pradanayahya.com/awards' },
-            { '@type': 'ListItem', position: 5, name: 'Writings', item: 'https://pradanayahya.com/blogs' },
-            { '@type': 'ListItem', position: 6, name: 'Contact', item: 'https://pradanayahya.com/contact' },
-          ],
-        },
-        {
-          '@type': 'ItemList',
-          name: 'Featured projects',
-          itemListElement: featured.map((p, i) => ({
-            '@type': 'ListItem',
-            position: i + 1,
-            url: `https://pradanayahya.com/portfolio/${p.slug}`,
-            name: p.title,
-          })),
-        },
-      ],
-    })}
-  </script>
 </svelte:head>
+
+<JsonLd data={homeJsonLd} />
 
 <!-- ─── Hero ─────────────────────────────────────────────────────────────── -->
 <section class="relative">
