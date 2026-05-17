@@ -7,3 +7,6 @@ http://www.pradanayahya.me/* https://pradanayahya.com/:splat 301!
 # Redirect www to non-www for main domain
 https://www.pradanayahya.com/* https://pradanayahya.com/:splat 301!
 http://www.pradanayahya.com/* https://pradanayahya.com/:splat 301!
+
+# Project slug redirects
+/portfolio/nusavoice-on-device-llm  /portfolio/nusavoice-indonesian-tts  301
