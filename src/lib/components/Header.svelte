@@ -30,28 +30,9 @@
   $: currentPath = $page.url.pathname;
 </script>
 
-<header
-  class="sticky top-0 z-50 transition-all duration-300"
-  class:scrolled
->
-  <div
-    class="mx-auto transition-[max-width,padding] duration-300 ease-out"
-    class:max-w-6xl={!scrolled}
-    class:max-w-3xl={scrolled}
-    class:px-5={!scrolled}
-    class:sm:px-8={!scrolled}
-    class:px-3={scrolled}
-    class:sm:px-4={scrolled}
-  >
-    <div
-      class="mt-3 flex items-center justify-between transition-all duration-300 ease-out"
-      class:h-16={!scrolled}
-      class:h-14={scrolled}
-      class:rounded-full={scrolled}
-      class:px-4={scrolled}
-      class:sm:px-5={scrolled}
-      class:pill={scrolled}
-    >
+<header class="sticky top-0 z-50">
+  <div class="nav-outer mx-auto" class:is-scrolled={scrolled}>
+    <div class="nav-pill mt-3 flex items-center justify-between" class:is-scrolled={scrolled}>
       <a href="/" class="group flex items-center pl-1" aria-label="Home">
         <span class="font-display text-[22px] font-medium tracking-tight text-ink-light dark:text-ink-dark">
           Pradana
@@ -120,17 +101,65 @@
 </header>
 
 <style>
-  /* Floating rounded pill when scrolled. */
-  .pill {
+  /* ── Outer wrapper: max-width + horizontal padding ──────────────── */
+  .nav-outer {
+    max-width: 72rem; /* max-w-6xl */
+    padding-left: 1.25rem;   /* px-5 */
+    padding-right: 1.25rem;
+    transition:
+      max-width 300ms ease-out,
+      padding-left 300ms ease-out,
+      padding-right 300ms ease-out;
+  }
+  @media (min-width: 640px) {
+    .nav-outer { padding-left: 2rem; padding-right: 2rem; } /* sm:px-8 */
+    .nav-outer.is-scrolled { padding-left: 1rem; padding-right: 1rem; }
+  }
+  .nav-outer.is-scrolled {
+    max-width: 48rem; /* max-w-3xl */
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* ── Inner pill: height, radius, bg, border, shadow, blur ───────── */
+  .nav-pill {
+    height: 4rem;              /* h-16 */
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border: 1px solid transparent;
+    box-shadow: none;
+    transition:
+      height 300ms ease-out,
+      border-radius 300ms ease-out,
+      padding-left 300ms ease-out,
+      padding-right 300ms ease-out,
+      background-color 300ms ease-out,
+      backdrop-filter 300ms ease-out,
+      -webkit-backdrop-filter 300ms ease-out,
+      border-color 300ms ease-out,
+      box-shadow 300ms ease-out;
+  }
+  .nav-pill.is-scrolled {
+    height: 3.5rem;            /* h-14 */
+    border-radius: 9999px;
+    padding-left: 1rem;        /* px-4 */
+    padding-right: 1rem;
     background-color: color-mix(in oklab, theme('colors.surface.light') 78%, transparent);
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
-    border: 1px solid theme('colors.ink.faint-light');
+    border-color: theme('colors.ink.faint-light');
     box-shadow:
       0 1px 0 rgba(255, 255, 255, 0.6) inset,
       0 10px 30px -10px rgba(0, 0, 0, 0.12);
   }
-  :global(.dark) .pill {
+  @media (min-width: 640px) {
+    .nav-pill.is-scrolled { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+  :global(.dark) .nav-pill.is-scrolled {
     background-color: color-mix(in oklab, theme('colors.surface.dark') 70%, transparent);
     border-color: theme('colors.ink.faint-dark');
     box-shadow:
