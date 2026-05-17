@@ -4,7 +4,7 @@
 
 ## Overview
 
-Hirup adalah aplikasi web end-to-end untuk memprediksi kualitas udara PM2.5. Project ini dikembangkan saat magang di Stasiun Klimatologi Yogyakarta sebagai sistem machine learning yang mengubah data cuaca dan histori PM2.5 menjadi prediksi yang bisa dipakai lewat aplikasi web.
+Hirup adalah aplikasi web untuk memprediksi kualitas udara PM2.5. Project ini dikembangkan saat magang di Stasiun Klimatologi Yogyakarta sebagai sistem machine learning yang mengubah data cuaca dan histori PM2.5 menjadi prediksi yang bisa dipakai lewat aplikasi web.
 
 PM2.5 adalah partikel polusi udara berukuran lebih kecil dari 2.5 mikrometer. Karena ukurannya sangat kecil, PM2.5 bisa masuk jauh ke paru-paru dan berdampak pada kesehatan. Hirup dibuat untuk membantu kalkulasi, estimasi, dan prediksi PM2.5 secara lebih cepat.
 

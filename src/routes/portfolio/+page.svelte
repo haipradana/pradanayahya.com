@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-  <title>Projects — Pradana Yahya</title>
+  <title>Projects - Pradana Yahya</title>
   <meta name="description" content="A catalog of AI, ML, and software projects by Pradana Yahya." />
 </svelte:head>
 
@@ -22,7 +22,7 @@
     A catalog of what I’ve been building.
   </h1>
   <p class="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-muted-light dark:text-ink-muted-dark">
-    Research prototypes, hackathon winners, and production deployments — sorted
+    Research prototypes, hackathon winners, and deployed products, sorted
     by recency. Click any tile to read more.
   </p>
 </section>

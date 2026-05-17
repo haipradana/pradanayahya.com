@@ -4,7 +4,7 @@
 
 ## Overview
 
-ChatMyDocs memungkinkan Anda melakukan chat secara real-time dengan file PDF Anda. Berbeda dengan LLM biasa yang cenderung kehilangan konteks pada dokumen panjang yang berakibat jawaban "HALU", ChatMyDocs menggunakan ModernBERT untuk membuat embedding dari setiap potongan teks PDF dan menyimpannya dalam VectorStoreIndex. Saat Anda bertanya, sistem akan mencari potongan teks yang paling relevan menggunakan embedding, kemudian melakukan reranking dengan cross-encoder agar hasilnya semakin akurat. Jawaban yang diberikan akan disertai dengan sumber (cite) dari bagian PDF terkait, sehingga lebih relevan dan dapat dipertanggungjawabkan.
+ChatMyDocs memungkinkan Anda bertanya langsung ke file PDF. Berbeda dengan LLM biasa yang bisa kehilangan konteks pada dokumen panjang, ChatMyDocs menggunakan ModernBERT untuk membuat embedding dari setiap potongan teks PDF dan menyimpannya dalam VectorStoreIndex. Saat Anda bertanya, sistem mencari potongan teks yang paling relevan, melakukan reranking dengan cross-encoder, lalu memberi jawaban dengan sumber dari bagian PDF terkait.
 
 <center>
 <a href="https://youtu.be/lETbVuimVCg" target="_blank">
@@ -21,14 +21,14 @@ Saat Anda mengajukan pertanyaan, sistem akan:
 - Melakukan reranking hasil pencarian dengan cross-encoder agar hasil semakin presisi
 - Memberikan jawaban yang dirangkum oleh LLM, lengkap dengan sumber (cite) dari bagian PDF terkait
 
-Dengan cara ini, jawaban yang diberikan sangat relevan, dapat dipertanggungjawabkan, dan meminimalisir risiko “halu” yang sering terjadi jika hanya mengandalkan LLM tanpa retrieval.
+Dengan cara ini, jawaban yang diberikan lebih relevan, dapat dicek sumbernya, dan mengurangi risiko jawaban yang tidak sesuai konteks dokumen.
 
 ## Fitur Utama
 
 - **ModernBERT Embeddings**: Menggunakan `nomic-ai/modernbert-embed-base` untuk pencarian semantik
 - **Smart Reranking**: Reranking dengan cross-encoder `cross-encoder/ms-marco-MiniLM-L-6-v2`
 - **Dukungan OCR**: Ekstraksi teks otomatis dengan fallback EasyOCR
-- **Streaming Responses**: Chat real-time dengan Gemini 2.5-flash
+- **Streaming Responses**: respons chat bertahap dengan Gemini 2.5-flash
 - **Sumber Jawaban**: Menampilkan sumber dokumen untuk setiap jawaban
 
 ## Stack

@@ -17,8 +17,8 @@
   // and append them here to extend the slideshow.
   const heroPhotos = [
     { src: '/images/profile.webp', alt: 'Pradana Yahya', caption: 'Yogyakarta, ID' },
-    // { src: '/images/hero/hackathon.webp', alt: 'DATATHON 2025', caption: 'DATATHON 2025 — Champion' },
-    // { src: '/images/hero/fukuro.webp',    alt: 'GMRT FUKURO', caption: 'FUKURO — RoboCup 2026' },
+    // { src: '/images/hero/hackathon.webp', alt: 'DATATHON 2025', caption: 'DATATHON 2025 Champion' },
+    // { src: '/images/hero/fukuro.webp',    alt: 'GMRT FUKURO', caption: 'FUKURO RoboCup 2026' },
     // { src: '/images/hero/bmkg.webp',      alt: 'BMKG intern', caption: 'BMKG Yogyakarta' },
   ];
 
@@ -106,7 +106,7 @@
         '@type': 'ProfilePage',
         '@id': 'https://pradanayahya.com/#profile',
         url: 'https://pradanayahya.com/',
-        name: 'Pradana Yahya Abdillah — AI Engineer & Data Scientist',
+        name: 'Pradana Yahya Abdillah - AI Engineer & Data Scientist',
         mainEntity: { '@id': 'https://pradanayahya.com/#person' },
         inLanguage: 'en',
       },
@@ -143,10 +143,10 @@
 </script>
 
 <svelte:head>
-  <title>Pradana Yahya Abdillah — AI Engineer & Data Scientist</title>
+  <title>Pradana Yahya Abdillah - AI Engineer & Data Scientist</title>
   <meta
     name="description"
-    content="Pradana Yahya Abdillah (Dana) — AI engineer & data scientist at Universitas Gadjah Mada. Building things across NLP, computer vision, and on-device LLMs. Champion of DATATHON 2025."
+    content="Pradana Yahya Abdillah (Dana) is an AI engineer and data scientist at Universitas Gadjah Mada, building projects across NLP, computer vision, RAG, and on-device AI. Champion of DATATHON 2025."
   />
 </svelte:head>
 
@@ -183,7 +183,7 @@
           Third-year <strong class="font-semibold">Information Technology</strong>
           student at <strong class="font-semibold">Universitas Gadjah Mada</strong>,
           passionate about <em>computer vision</em>, <em>NLP</em>, and
-          <em>on-device LLMs</em>.
+          <em>on-device AI</em>.
         </p>
 
         <div class="mt-6 flex flex-wrap items-center gap-2">
@@ -237,20 +237,19 @@
 <section class="mx-auto max-w-5xl px-5 sm:px-8 py-14">
   <div class="grid gap-10 lg:grid-cols-12">
     <div class="lg:col-span-4">
-      <p class="eyebrow">01 — About</p>
+      <p class="eyebrow">01 - About</p>
       <h2 class="font-display text-3xl lg:text-4xl mt-3 text-ink-light dark:text-ink-dark">
         Curious by default, shipping by habit.
       </h2>
     </div>
     <div class="lg:col-span-8 space-y-5 text-[15px] leading-relaxed text-ink-light/85 dark:text-ink-dark/85">
       <p>
-        I gravitate toward problems that sit at the seam between <strong>research</strong>
-        and <strong>production</strong>: fine-tuning small models that need to run on a
-        Raspberry Pi, building RAG pipelines that have to answer correctly the first
-        time, training vision systems that play soccer in real time.
+        I like building AI systems that move from experiments into real use:
+        fine-tuning small models that run on a Raspberry Pi, building RAG pipelines
+        that need reliable answers, and training vision systems for robot soccer.
       </p>
       <p>
-        Recent work spans an offline BISINDO translator for the Deaf community
+        Recent work includes an offline BISINDO translator for the Tuli community
         (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/kawanisyarat-bisindo">KawanIsyarat</a>),
         a multimodal retail-analytics platform that won DATATHON 2025
         (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/retail-behaviour-analysis-v1">TRACKO</a>),
@@ -259,7 +258,7 @@
       </p>
       <p>
         Outside the terminal, I hike, play football, and lead
-        <strong>Gadjah Mada Robotic Team — FUKURO</strong>, which qualified for
+        <strong>Gadjah Mada Robotic Team - FUKURO</strong>, which qualified for
         RoboCup 2026 in Incheon, South Korea.
       </p>
     </div>
@@ -270,7 +269,7 @@
 <section class="mx-auto max-w-5xl px-5 sm:px-8 py-12">
   <div class="flex items-end justify-between mb-8 gap-4">
     <div>
-      <p class="eyebrow">02 — Selected work</p>
+      <p class="eyebrow">02 - Selected work</p>
       <h2 class="font-display text-3xl lg:text-4xl mt-3 text-ink-light dark:text-ink-dark">
         Featured projects.
       </h2>
@@ -297,7 +296,7 @@
 <section class="mx-auto max-w-5xl px-5 sm:px-8 py-12">
   <div class="flex items-end justify-between mb-8 gap-4">
     <div>
-      <p class="eyebrow">03 — Experience</p>
+      <p class="eyebrow">03 - Experience</p>
       <h2 class="font-display text-3xl lg:text-4xl mt-3 text-ink-light dark:text-ink-dark">
         Where I’ve been.
       </h2>
@@ -321,7 +320,7 @@
         <div class="col-span-12 sm:col-span-3 pl-6">
           {#if item.period}
             <p class="text-[11px] uppercase tracking-[0.18em] text-ink-muted-light dark:text-ink-muted-dark">
-              {item.period.from}{#if item.period.to && item.period.to !== item.period.from} — {item.period.to}{/if}
+              {item.period.from}{#if item.period.to && item.period.to !== item.period.from} - {item.period.to}{/if}
             </p>
           {/if}
           {#if item.location}
@@ -383,7 +382,7 @@
   <div class="grid gap-12 lg:grid-cols-12">
     <!-- Technical Skills -->
     <div class="lg:col-span-8">
-      <p class="eyebrow">04 — Toolbox</p>
+      <p class="eyebrow">04 - Toolbox</p>
       <h2 class="font-display text-3xl lg:text-4xl mt-3 text-ink-light dark:text-ink-dark">
         Technical Skills.
       </h2>
@@ -408,7 +407,7 @@
     <aside class="lg:col-span-4">
       <div class="flex items-end justify-between gap-3">
         <div>
-          <p class="eyebrow">05 — Recognition</p>
+          <p class="eyebrow">05 - Recognition</p>
           <h2 class="font-display text-3xl lg:text-4xl mt-3 text-ink-light dark:text-ink-dark">
             Latest Awards.
           </h2>
@@ -450,8 +449,7 @@
 </section>
 
 <style>
-  /* Fade the ambient hero wash to transparent at the bottom so it doesn’t
-     leave a hard seam where the section ends. */
+  /* Fade the ambient hero wash to transparent at the bottom. */
   .hero-wash {
     -webkit-mask-image: linear-gradient(
       to bottom,

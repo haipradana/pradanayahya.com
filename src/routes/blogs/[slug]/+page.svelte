@@ -78,16 +78,16 @@
 
 <svelte:head>
     {#if post}
-        <title>{post.title} — Pradana Yahya</title>
+        <title>{post.title} - Pradana Yahya</title>
         <meta name="description" content={postDescription} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${post.title} — Pradana Yahya`} />
+        <meta property="og:title" content={`${post.title} - Pradana Yahya`} />
         <meta property="og:description" content={postDescription} />
         <meta property="article:published_time" content={post.date} />
         <meta property="article:author" content="Pradana Yahya Abdillah" />
         <meta property="article:section" content={post.category} />
     {:else}
-        <title>Post Not Found — Pradana Yahya</title>
+        <title>Post Not Found - Pradana Yahya</title>
         <meta name="robots" content="noindex, follow" />
     {/if}
 </svelte:head>
@@ -114,7 +114,7 @@
                             class="flex items-center text-sm text-gray-500 dark:text-gray-400"
                         >
                             <time>{formatDate(post.date)}</time>
-                            <span class="mx-2">—</span>
+                            <span class="mx-2">-</span>
                             <span class="text-blue-600 dark:text-blue-400"
                                 >{post.category}</span
                             >
@@ -134,7 +134,7 @@
                             href="/blogs"
                             class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                         >
-                            ← Back to all posts
+                            Back to all posts
                         </a>
                     </div>
                 </article>
@@ -180,7 +180,7 @@
                 href="/blogs"
                 class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
-                ← Back to all posts
+                Back to all posts
             </a>
         </div>
     </div>

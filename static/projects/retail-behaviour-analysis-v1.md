@@ -15,7 +15,7 @@ Sistem analitik berbasis AI untuk optimalisasi strategi bisnis melalui analisis 
 ## Key Features
 
 - **Segmentasi Rak**: YOLOv11-seg (94.73% precision, 73.37% recall)
-- **Pelacakan Multi-Person**: ByteTrack untuk tracking real-time
+- **Pelacakan Multi-Person**: ByteTrack untuk tracking video
 - **Klasifikasi Aksi**: TimeSFormer dengan domain adaptation (75.0% accuracy)
 - **Analisis Behavior**: Heat-map, dwell-time, dan traffic analysis
 - **6 Action Classes**: Reach/Retract from Shelf, Hand in Shelf, Inspect Product/Shelf, Background
@@ -40,9 +40,9 @@ Sistem analitik berbasis AI untuk optimalisasi strategi bisnis melalui analisis 
 - <a href="https://huggingface.co/cheesecz/shelf-segmentation" target="_blank">Shelf Segmentation</a>
 - <a href="https://huggingface.co/cheesecz/object-tracking" target="_blank">YOLOv11 Model</a>
 
-## 🚀 Deployment
+## Deployment
 
-This full pipeline has deployed on <a href="https://huggingface.co/spaces/haipradana/retail-behavior-analysis" target="_blank">Huggingface Space 🤗</a>
+Pipeline ini sudah dideploy di <a href="https://huggingface.co/spaces/haipradana/retail-behavior-analysis" target="_blank">Hugging Face Space</a>
 
 ### Demo Video dan Dokumentasi
 

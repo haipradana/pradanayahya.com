@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-  <title>Experience — Pradana Yahya</title>
+  <title>Experience - Pradana Yahya</title>
   <meta name="description" content="Professional experience and education of Pradana Yahya Abdillah." />
 </svelte:head>
 
@@ -18,7 +18,7 @@
     Where I’ve worked, and what I’ve worked on.
   </h1>
   <p class="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-muted-light dark:text-ink-muted-dark">
-    A chronological view of the roles I’ve held — from research and internships
+    A chronological view of the roles I’ve held, from research and internships
     to leading robotics teams.
   </p>
 </section>
@@ -43,7 +43,7 @@
             </span>
             {#if item.period}
               <span class="text-[12px] text-ink-muted-light dark:text-ink-muted-dark">
-                {item.period.from}{#if item.period.to && item.period.to !== item.period.from} — {item.period.to}{/if}
+                {item.period.from}{#if item.period.to && item.period.to !== item.period.from} - {item.period.to}{/if}
               </span>
             {/if}
             {#if item.location}

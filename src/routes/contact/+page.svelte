@@ -64,17 +64,17 @@
 </script>
 
 <svelte:head>
-  <title>Contact — Pradana Yahya</title>
+  <title>Contact - Pradana Yahya</title>
   <meta name="description" content="Get in touch with Pradana Yahya Abdillah." />
 </svelte:head>
 
 <section class="mx-auto max-w-5xl px-5 sm:px-8 pt-14 lg:pt-20 pb-10">
   <p class="eyebrow">Contact</p>
   <h1 class="font-display text-4xl lg:text-5xl mt-3 text-ink-light dark:text-ink-dark text-balance">
-    Say hello — I read everything.
+    Say hello. I read everything.
   </h1>
   <p class="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-muted-light dark:text-ink-muted-dark">
-    Whether it’s a collaboration, a research idea, or just a friendly note —
+    Whether it’s a collaboration, a research idea, or just a friendly note,
     reach out through any of these channels, or drop a message below.
   </p>
 </section>
@@ -167,7 +167,7 @@
       {#if submitStatus === 'success'}
         <div class="flex items-start gap-2 p-3 rounded-lg bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-200 text-sm">
           <CheckCircle class="h-4 w-4 mt-0.5 flex-shrink-0" />
-          <p>Message sent — thank you for reaching out!</p>
+          <p>Message sent. Thank you for reaching out!</p>
         </div>
       {/if}
 

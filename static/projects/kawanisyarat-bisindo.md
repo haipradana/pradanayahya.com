@@ -1,6 +1,6 @@
 <div class="dark:text-white">
 
-# KawanIsyarat - Connected by Sign
+# KawanIsyarat - Komunikasi lewat BISINDO
 
 ## Overview
 
@@ -8,30 +8,30 @@ KawanIsyarat adalah aplikasi komunikasi dua arah antara pengguna Tuli BISINDO da
 
 Project ini dibuat untuk Gemma 4 Good Hackathon. Tujuannya bukan menggantikan bahasa isyarat, tetapi membantu lebih banyak orang memahami dan merespons pengguna BISINDO dengan lebih baik.
 
-## How It Works
+## Cara Kerja
 
-**Deaf to Hearing**
+**Tuli ke dengar**
 
-Camera -> MediaPipe pose/hand landmarks -> 1D CNN -> BISINDO gloss -> Gemma 4 -> kalimat Bahasa Indonesia natural + empathy tips -> TTS
+Kamera, MediaPipe pose/hand landmarks, 1D CNN, gloss BISINDO, Gemma 4, kalimat Bahasa Indonesia natural, tips empati, lalu TTS.
 
-**Hearing to Deaf**
+**Dengar ke Tuli**
 
-Mic -> WAV/PCM -> Gemma 4 audio encoder -> transcript -> Gemma 4 simplification -> teks singkat yang lebih mudah dibaca
+Mikrofon, WAV/PCM, Gemma 4 audio encoder, transcript, penyederhanaan oleh Gemma 4, lalu teks singkat yang lebih mudah dibaca.
 
-## Features
+## Fitur
 
-- **Sign-to-text**: 1D CNN mengenali 16 kata BISINDO dari sequence 30 frame.
-- **Speech-to-simplified-text**: Gemma 4 audio transcription dan simplification.
-- **Alphabet practice**: SIBI dan BISINDO alphabet practice dengan feedback visual.
-- **Vocabulary helper**: penjelasan kata sulit dalam Bahasa Indonesia sederhana.
-- **Articulation practice**: latihan pengucapan untuk pengguna dengar.
+- **Isyarat ke teks**: 1D CNN mengenali 16 kata BISINDO dari sequence 30 frame.
+- **Suara ke teks sederhana**: Gemma 4 melakukan transkripsi audio dan menyederhanakan hasilnya.
+- **Latihan alfabet**: latihan alfabet SIBI dan BISINDO dengan feedback visual.
+- **Bantuan kosakata**: penjelasan kata sulit dalam Bahasa Indonesia sederhana.
+- **Latihan artikulasi**: latihan pengucapan untuk pengguna dengar.
 - **Emergency SOS**: TTS cepat untuk frasa penting seperti "Saya Tuli" dan "Saya butuh bantuan".
 - **History**: log sesi dengan timestamp.
 
 ## Tech Stack
 
 - **Framework**: Flutter, Riverpod, GoRouter
-- **On-device LLM**: Gemma 4 E2B INT4 via Cactus SDK
+- **On-device AI**: Gemma 4 E2B INT4 via Cactus SDK
 - **Gesture recognition**: MediaPipe + 1D Causal Depthwise CNN
 - **STT**: Gemma 4 Audio Encoder, Whisper fallback
 - **Local storage**: Hive

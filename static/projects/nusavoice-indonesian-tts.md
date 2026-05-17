@@ -4,9 +4,9 @@
 
 ## Overview
 
-NusaVoice adalah model Text-to-Speech Bahasa Indonesia yang ringan dan bisa berjalan di CPU-only hardware. Project ini berfokus pada fine-tuning Piper TTS untuk menghasilkan suara Bahasa Indonesia yang natural, cepat, dan mudah di-deploy.
+NusaVoice adalah model text to speech Bahasa Indonesia yang ringan dan bisa berjalan di CPU-only hardware. Project ini berfokus pada fine-tuning Piper TTS untuk menghasilkan suara Bahasa Indonesia yang natural, cepat, dan mudah di-deploy.
 
-Berbeda dari pendekatan LLM on-device, NusaVoice adalah sistem TTS berbasis Piper/VITS. Modelnya dilatih untuk pola pengucapan Bahasa Indonesia, lalu disajikan melalui backend FastAPI dan frontend web.
+NusaVoice bukan LLM. Sistem ini berbasis Piper/VITS dan dilatih untuk pola pengucapan Bahasa Indonesia, lalu disajikan melalui backend FastAPI dan frontend web.
 
 ## Model Details
 
@@ -15,7 +15,7 @@ Berbeda dari pendekatan LLM on-device, NusaVoice adalah sistem TTS berbasis Pipe
 | Male | Audiobook dan podcast recordings | Piper VITS |
 | Female | Audiobook recordings | Piper VITS |
 
-Kedua model dibuat dari arsitektur Piper dan dioptimalkan untuk inference real-time yang ringan.
+Kedua model dibuat dari arsitektur Piper dan dioptimalkan untuk inference cepat di CPU.
 
 ## Tech Stack
 

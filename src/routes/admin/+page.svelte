@@ -157,7 +157,7 @@
                 class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6"
             >
                 <a href="/" class="text-blue-500 hover:text-blue-600"
-                    >← Kembali ke beranda</a
+                    >Kembali ke beranda</a
                 >
             </p>
         </div>

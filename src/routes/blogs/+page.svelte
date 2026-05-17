@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-  <title>Writings — Pradana Yahya</title>
+  <title>Writings - Pradana Yahya</title>
   <meta
     name="description"
     content="Notes and essays on machine learning, AI engineering, and the craft of building things."

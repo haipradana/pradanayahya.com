@@ -23,15 +23,15 @@ const PROJECT_IMAGE_BASE =
   'https://raw.githubusercontent.com/haipradana/pradanayahya.com/refs/heads/main/static/images/projects';
 
 /**
- * Project list — newest first. Schema is consumed by
+ * Project list - newest first. Schema is consumed by
  * `scripts/generate_rag_data.py` (RAG ingestion). Keep field names stable.
  */
 export const projects: Project[] = [
   {
     id: '14',
-    title: 'BMKG-Hirup — PM2.5 Air Quality Forecasting',
+    title: 'BMKG-Hirup - PM2.5 Air Quality Forecasting',
     description:
-      'End-to-end PM2.5 air quality forecasting system (Random Forest Regressor) deployed as a full-stack web app for BMKG Yogyakarta, alongside rainfall forecasting from climatology station data.',
+      'PM2.5 air quality forecasting system using Random Forest Regressor, deployed as a full-stack web app for BMKG Yogyakarta alongside rainfall forecasting from climatology station data.',
     image: `${PROJECT_IMAGE_BASE}/hirup_bmkg/hirup_bmkg.webp`,
     tags: ['Python', 'scikit-learn', 'FastAPI', 'React', 'Time Series'],
     category: 'data-science',
@@ -42,9 +42,9 @@ export const projects: Project[] = [
   },
   {
     id: '13',
-    title: 'NusaVoice — Lightweight Indonesian Text-to-Speech',
+    title: 'NusaVoice - Lightweight Indonesian Text-to-Speech',
     description:
-      'Lightweight Bahasa Indonesia text-to-speech model fine-tuned from Piper/VITS, with male and female voices optimized for CPU-only real-time inference.',
+      'Lightweight Bahasa Indonesia text-to-speech system based on fine-tuned Piper/VITS models, with male and female voices optimized for CPU-only inference.',
     image: `${PROJECT_IMAGE_BASE}/nusavoice/nusavoice.webp`,
     tags: ['Piper', 'VITS', 'TTS', 'FastAPI', 'React'],
     category: 'nlp',
@@ -56,9 +56,9 @@ export const projects: Project[] = [
   },
   {
     id: '12',
-    title: 'Smart Space (Jarvis) — Offline Voice Assistant',
+    title: 'Smart Space (Jarvis) - Offline Voice Assistant',
     description:
-      'Local-first voice pipeline for lab automation at DTETI UGM. Whisper (ASR) + Piper (TTS, fine-tuned voice) run fully offline on a Raspberry Pi, with an LLM for command understanding and N8N for IoT control of lights, HVAC, and projectors.',
+      'Voice assistant for lab automation at DTETI UGM. Whisper and a fine-tuned Piper voice run locally on a Raspberry Pi, with LLM command understanding and N8N workflows for lights, HVAC, and projectors.',
     image: `${PROJECT_IMAGE_BASE}/smartlab_jarvis/smartlab.webp`,
     tags: ['Whisper', 'Piper', 'LLM', 'N8N', 'Raspberry Pi'],
     category: 'llm',
@@ -70,9 +70,9 @@ export const projects: Project[] = [
   },
   {
     id: '11',
-    title: 'KawanIsyarat — Offline BISINDO Translator',
+    title: 'KawanIsyarat - Offline BISINDO Translator',
     description:
-      'Android app for real-time BISINDO ↔ Indonesian translation. Runs fully on-device — built for Google’s Gemma 4 Good Hackathon.',
+      'Android app for real-time BISINDO and Indonesian translation. It runs fully on-device and was built for Google Gemma 4 Good Hackathon.',
     image: `${PROJECT_IMAGE_BASE}/kawan_isyarat/kawan-isyarat.webp`,
     tags: ['Flutter', 'MediaPipe', 'Gemma 4', 'Sign Language', 'On-device AI'],
     category: 'computer-vision',
@@ -84,9 +84,9 @@ export const projects: Project[] = [
   },
   {
     id: '10',
-    title: 'ask-docs — Agentic RAG Assistant',
+    title: 'ask-docs - Agentic RAG Assistant',
     description:
-      'Production-deployed agentic RAG system live at ask.pradanayahya.com. Combines retrieval, citation, and tool-using agent loops for document-grounded Q&A.',
+      'Agentic RAG system live at ask.pradanayahya.com. It combines hybrid retrieval, citations, and agent workflows for document-grounded question answering.',
     image: `${PROJECT_IMAGE_BASE}/ask-docs/ask-docs.webp`,
     tags: ['RAG', 'LLM', 'Agents', 'Vector Search'],
     category: 'llm',
@@ -178,7 +178,7 @@ export const projects: Project[] = [
   },
   {
     id: '3',
-    title: 'TRACKO — Retail Behavior Analysis',
+    title: 'TRACKO - Retail Behavior Analysis',
     description:
       'Champion at DATATHON 2025. Multimodal retail analytics platform turning ordinary CCTV footage into customer-behavior signals and strategy.',
     image: `${PROJECT_IMAGE_BASE}/datathon_2025-1/retail-behaviour-1.webp`,

@@ -6,8 +6,8 @@
 </script>
 
 <svelte:head>
-  <title>Awards — Pradana Yahya</title>
-  <meta name="description" content="Awards and competition results — Pradana Yahya Abdillah." />
+  <title>Awards - Pradana Yahya</title>
+  <meta name="description" content="Awards and competition results for Pradana Yahya Abdillah." />
 </svelte:head>
 
 <section class="mx-auto max-w-5xl px-5 sm:px-8 pt-14 lg:pt-20 pb-10">

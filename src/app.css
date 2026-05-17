@@ -95,7 +95,7 @@
     @apply h-px w-full bg-ink-faint-light dark:bg-ink-faint-dark;
   }
 
-  /* Legacy class — kept so unmigrated views still render reasonably. */
+  /* Legacy class. Kept so unmigrated views still render reasonably. */
   .card {
     @apply surface rounded-2xl p-6 transition-all duration-200;
   }

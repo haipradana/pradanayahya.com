@@ -64,14 +64,14 @@
 </script>
 
 <svelte:head>
-  <title>{project ? `${project.title} — Pradana Yahya` : 'Project Not Found — Pradana Yahya'}</title>
+  <title>{project ? `${project.title} - Pradana Yahya` : 'Project Not Found - Pradana Yahya'}</title>
   <meta name="description" content={project ? project.description : 'Project not found'} />
   {#if project}
-    <meta property="og:title" content={`${project.title} — Pradana Yahya`} />
+    <meta property="og:title" content={`${project.title} - Pradana Yahya`} />
     <meta property="og:description" content={project.description} />
     <meta property="og:image" content={project.image} />
     <meta property="og:type" content="article" />
-    <meta name="twitter:title" content={`${project.title} — Pradana Yahya`} />
+    <meta name="twitter:title" content={`${project.title} - Pradana Yahya`} />
     <meta name="twitter:description" content={project.description} />
     <meta name="twitter:image" content={project.image} />
   {:else}
@@ -144,7 +144,7 @@
       </div>
     </figure>
 
-    <!-- Overview block — always rendered server-side so the page is never thin. -->
+    <!-- Overview block. Rendered server-side so the page always has useful content. -->
     <section class="mt-12">
       <h2 class="font-display text-2xl text-ink-light dark:text-ink-dark">Overview</h2>
       <p class="mt-3 text-[15px] leading-relaxed text-ink-light/85 dark:text-ink-dark/85 text-pretty">

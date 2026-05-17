@@ -4,9 +4,9 @@
 
 ## Overview
 
-Smart Space, atau Jarvis, adalah pipeline voice assistant lokal untuk otomasi ruang/lab di DTETI UGM. Sistem ini dirancang agar perintah suara bisa diproses secara lokal di perangkat edge, lalu diteruskan ke workflow otomasi untuk mengontrol perangkat seperti lampu, AC, dan proyektor.
+Smart Space, atau Jarvis, adalah voice assistant lokal untuk otomasi ruang/lab di DTETI UGM. Sistem ini dirancang agar perintah suara bisa diproses di perangkat edge, lalu diteruskan ke workflow otomasi untuk mengontrol perangkat seperti lampu, AC, dan proyektor.
 
-Project ini menggabungkan ASR, TTS, LLM command understanding, dan otomasi N8N agar pengguna bisa berinteraksi dengan ruangan lewat bahasa natural.
+Project ini menggabungkan ASR, TTS, pemahaman perintah dengan LLM, dan otomasi N8N agar pengguna bisa berinteraksi dengan ruangan lewat bahasa natural.
 
 ## Pipeline
 
@@ -14,7 +14,7 @@ Project ini menggabungkan ASR, TTS, LLM command understanding, dan otomasi N8N a
 - **Command understanding**: LLM untuk memahami intent dan parameter perintah.
 - **Automation**: N8N untuk menghubungkan hasil intent ke perangkat IoT.
 - **TTS**: Piper voice untuk memberi respons suara.
-- **Edge deployment**: Raspberry Pi sebagai target local-first deployment.
+- **Edge deployment**: Raspberry Pi sebagai target deployment lokal.
 
 ## Why It Matters
 

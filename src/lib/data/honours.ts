@@ -41,13 +41,13 @@ export function sortAwardsByBest(items: HonourItem[]): HonourItem[] {
 }
 
 /**
- * Timeline items — chronological (oldest → newest).
+ * Timeline items - chronological (oldest to newest).
  * Schema is consumed by `scripts/generate_rag_data.py` (RAG ingestion),
  * so keep field names (`id`, `type`, `title`, `org`, `period.from/to`,
  * `description`, `tags`) intact.
  */
 export const honours: HonourItem[] = [
-  // ── Education ───────────────────────────────────────────────────────────
+  // Education
   {
     id: 'edu-ugm-information-technology',
     type: 'education',
@@ -60,12 +60,12 @@ export const honours: HonourItem[] = [
     tags: ['Education'],
   },
 
-  // ── Experience (oldest → newest) ────────────────────────────────────────
+  // Experience (oldest to newest)
   {
     id: 'exp-night-login-community',
     type: 'experience',
     title: 'Data Science Member',
-    org: 'Night Login Community (NDSC) — UGM',
+    org: 'Night Login Community (NDSC) - UGM',
     location: 'Yogyakarta, Indonesia',
     period: { from: 'Mar 2024', to: 'Mar 2025' },
     description:
@@ -75,18 +75,18 @@ export const honours: HonourItem[] = [
   {
     id: 'exp-fukuro-cv-programmer',
     type: 'experience',
-    title: 'Computer Vision Programmer — FUKURO',
+    title: 'Computer Vision Programmer - FUKURO',
     org: 'Gadjah Mada Robotic Team (GMRT)',
     location: 'Yogyakarta, Indonesia',
     period: { from: 'Oct 2024', to: 'Present' },
     description:
-      'Develop image processing algorithms for an omnidirectional 360° vision system used in wheeled soccer robots, plus real-time object detection and tracking for in-match decision making.',
+      'Develop image processing algorithms for an omnidirectional 360° vision system used in wheeled soccer robots, plus real-time object detection and tracking for in-match decisions.',
     tags: ['Computer Vision', 'OpenCV', 'ROS2', 'C++'],
   },
   {
     id: 'exp-fukuro-captain',
     type: 'experience',
-    title: 'Team Captain — FUKURO (KRSBI Wheeled)',
+    title: 'Team Captain - FUKURO (KRSBI Wheeled)',
     org: 'Gadjah Mada Robotic Team (GMRT)',
     location: 'Yogyakarta, Indonesia',
     period: { from: 'Sep 2025', to: 'Present' },
@@ -98,42 +98,42 @@ export const honours: HonourItem[] = [
     id: 'exp-datains-ai-engineer-intern',
     type: 'experience',
     title: 'AI Engineer Intern',
-    org: 'DataIns — PT Global Data Inspirasi',
+    org: 'DataIns - PT Global Data Inspirasi',
     location: 'Yogyakarta, Indonesia',
     period: { from: 'Oct 2025', to: 'Dec 2025' },
     description:
-      'Built the “Smart Space” (Jarvis) voice assistant for laboratory automation at DTETI UGM: local-first ASR/TTS pipeline (Whisper + Piper) running fully offline on Raspberry Pi, with a fine-tuned custom Piper voice, integrated with an LLM and N8N for IoT workflow control over lab devices.',
+      'Built Smart Space (Jarvis), a voice assistant for laboratory automation at DTETI UGM. The system runs ASR and TTS locally on a Raspberry Pi with Whisper and a fine-tuned Piper voice, then connects LLM command understanding to N8N workflows for lab device control.',
     tags: ['Whisper', 'Piper', 'LLM', 'N8N', 'Raspberry Pi'],
   },
   {
     id: 'exp-research-assistant',
     type: 'experience',
-    title: 'Research Assistant — Smart Lab & Smart Space',
+    title: 'Research Assistant - Smart Lab & Smart Space',
     org: 'DTETI, Universitas Gadjah Mada',
     location: 'Yogyakarta, Indonesia',
     period: { from: 'Dec 2025', to: 'Present' },
     description:
-      'Research on AI + IoT systems for Smart Lab & Smart Space. Developed NusaVoice, a fine-tuned on-device LLM for Indonesian intent detection, with a dual-response architecture that produces both a natural-language reply and a structured tool call in a single pass.',
-    tags: ['PyTorch', 'Hugging Face', 'PEFT/LoRA', 'Home Assistant'],
+      'Research on AI and IoT systems for Smart Lab and Smart Space. Developed NusaVoice, a lightweight Indonesian text-to-speech system based on fine-tuned Piper/VITS models for CPU-only inference.',
+    tags: ['Piper', 'VITS', 'FastAPI', 'React', 'IoT'],
   },
   {
     id: 'exp-bmkg-intern',
     type: 'experience',
     title: 'Machine Learning Intern',
-    org: 'BMKG — Badan Meteorologi, Klimatologi, dan Geofisika',
+    org: 'BMKG - Badan Meteorologi, Klimatologi, dan Geofisika',
     location: 'Yogyakarta, Indonesia',
     period: { from: 'Dec 2025', to: 'Jan 2026' },
     description:
-      'Developed an end-to-end PM2.5 air quality forecasting system (Random Forest) deployed as a full-stack web app (bmkg-hirup.pradanayahya.com), rainfall forecasting models from climatology station data, and internal digitalization tools that streamlined administrative workflows for BMKG staff.',
+      'Developed a PM2.5 air quality forecasting system with Random Forest and deployed it as a full-stack web app at bmkg-hirup.pradanayahya.com. Also built rainfall forecasting models from climatology station data and internal tools for BMKG workflows.',
     tags: ['scikit-learn', 'FastAPI', 'React', 'Docker', 'Time Series'],
   },
 
-  // ── Awards (oldest → newest) ────────────────────────────────────────────
+  // Awards (oldest to newest)
   {
     id: 'award-datathon-2024-ristek',
     type: 'award',
     rank: 11,
-    title: 'Top 11 — DATATHON 2024',
+    title: 'Top 11 - DATATHON 2024',
     org: 'RISTEK Fasilkom Universitas Indonesia',
     location: 'Jakarta, Indonesia',
     period: { from: 'Jul 2024' },
@@ -145,19 +145,19 @@ export const honours: HonourItem[] = [
     id: 'award-datavidia-arkavidia-2025',
     type: 'award',
     rank: 11,
-    title: 'Top 11 — Datavidia 9, Arkavidia ITB',
+    title: 'Top 11 - Datavidia 9, Arkavidia ITB',
     org: 'Institut Teknologi Bandung',
     location: 'Bandung, Indonesia',
     period: { from: 'Mar 2025' },
     description:
-      'Ranked 11th of 230 teams with a SARIMAX-based forecasting model for Indonesian food commodity prices; moved from rank 20 → 11 with domain-specific feature engineering and a submitted technical paper.',
+      'Ranked 11th of 230 teams with a SARIMAX-based forecasting model for Indonesian food commodity prices. Improved from rank 20 to 11 with domain-specific feature engineering and a submitted technical paper.',
     tags: ['Time Series', 'SARIMAX', 'Forecasting'],
   },
   {
     id: 'award-datathon-2025-1st',
     type: 'award',
     rank: 1,
-    title: 'Champion — DATATHON 2025',
+    title: 'Champion - DATATHON 2025',
     org: 'RISTEK Fasilkom Universitas Indonesia',
     location: 'Jakarta, Indonesia',
     period: { from: 'Sep 2025' },
@@ -169,7 +169,7 @@ export const honours: HonourItem[] = [
     id: 'award-action-unesa-3rd',
     type: 'award',
     rank: 3,
-    title: '3rd Place — Data Mining Competition, ACTION UNESA 2025',
+    title: '3rd Place - Data Mining Competition, ACTION UNESA 2025',
     org: 'Universitas Negeri Surabaya',
     location: 'Surabaya, Indonesia',
     period: { from: 'Nov 2025' },
@@ -181,7 +181,7 @@ export const honours: HonourItem[] = [
     id: 'award-logika-ui-2025-2nd',
     type: 'award',
     rank: 2,
-    title: '2nd Place — DSC LOGIKA UI 2025',
+    title: '2nd Place - DSC LOGIKA UI 2025',
     org: 'Universitas Indonesia',
     location: 'Jakarta, Indonesia',
     period: { from: 'Nov 2025' },

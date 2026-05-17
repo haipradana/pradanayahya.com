@@ -4,10 +4,10 @@
 </script>
 
 <svelte:head>
-  <title>Privacy Policy — Pradana Yahya</title>
+  <title>Privacy Policy - Pradana Yahya</title>
   <meta
     name="description"
-    content="Privacy policy for pradanayahya.com — what data is collected, how it is used, and how to opt out."
+    content="Privacy policy for pradanayahya.com: what data is collected, how it is used, and how to opt out."
   />
 </svelte:head>
 
@@ -56,8 +56,8 @@
       </li>
       <li>
         <strong>Server logs.</strong> Our hosting providers (Netlify and
-        our backend host) automatically log standard request data — IP
-        address, user agent, referrer, and timestamp — to operate the
+        our backend host) automatically log standard request data: IP
+        address, user agent, referrer, and timestamp. We use this to operate the
         service and prevent abuse.
       </li>
       <li>
@@ -96,7 +96,7 @@
       The site itself does not set first-party tracking cookies. It uses
       <code>localStorage</code> only for the items above (theme,
       <code>chat_session_id</code>). Third-party services (e.g. Google
-      AdSense, Google Analytics) may set their own cookies if enabled —
+      AdSense, Google Analytics) may set their own cookies if enabled.
       please refer to their policies.
     </p>
   </div>
