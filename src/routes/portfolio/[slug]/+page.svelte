@@ -9,6 +9,7 @@
 
   $: slug = $page.params.slug;
   $: project = projects.find((p) => p.slug === slug);
+  $: videoEmbedUrl = project?.videoUrl ? getVideoEmbedUrl(project.videoUrl) : '';
 
   // Related projects in the same category, excluding self.
   $: related = project
@@ -46,6 +47,20 @@
     template.innerHTML = html;
     template.content.querySelector('h1')?.remove();
     return template.innerHTML;
+  }
+
+  function getVideoEmbedUrl(url: string) {
+    const youtubeMatch = url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([^&?/]+)/);
+    if (youtubeMatch?.[1]) {
+      return `https://www.youtube.com/embed/${youtubeMatch[1]}`;
+    }
+
+    const driveMatch = url.match(/drive\.google\.com\/file\/(?:u\/\d+\/)?d\/([^/]+)/);
+    if (driveMatch?.[1]) {
+      return `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
+    }
+
+    return '';
   }
 
   onMount(async () => {
@@ -160,6 +175,21 @@
         project by Pradana Yahya Abdillah, built in {project.year}. {project.description}
       </p>
     </section>
+
+    {#if videoEmbedUrl}
+      <section class="mt-8">
+        <div class="overflow-hidden rounded-2xl border border-ink-faint-light bg-surface-light-muted shadow-sm dark:border-ink-faint-dark dark:bg-surface-dark-muted">
+          <iframe
+            src={videoEmbedUrl}
+            title={`${project.title} demo video`}
+            class="aspect-video w-full"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+    {/if}
 
     <section class="mt-10 grid gap-8 sm:grid-cols-2">
       <div>

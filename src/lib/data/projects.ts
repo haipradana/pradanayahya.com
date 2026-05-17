@@ -13,6 +13,7 @@ export interface Project {
     | 'all';
   demoUrl?: string;
   demoLabel?: string;
+  videoUrl?: string;
   githubUrl?: string;
   year: number;
   slug: string;
@@ -63,6 +64,8 @@ export const projects: Project[] = [
     demoUrl:
       'https://drive.google.com/file/u/1/d/15LTr5WR-MJreDqNmjXJ5QOjcOOM1l6Ez/view',
     demoLabel: 'Demo video',
+    videoUrl:
+      'https://drive.google.com/file/u/1/d/15LTr5WR-MJreDqNmjXJ5QOjcOOM1l6Ez/view',
     year: 2025,
     slug: 'smart-space-jarvis',
     featured: true,
@@ -76,6 +79,7 @@ export const projects: Project[] = [
     tags: ['Flutter', 'MediaPipe', 'Gemma 4', 'Sign Language', 'On-device AI'],
     category: 'computer-vision',
     demoUrl: 'https://kawanisyarat.pradanayahya.com',
+    videoUrl: 'https://youtu.be/eiXdkpwouBY',
     githubUrl: 'https://github.com/haipradana/KawanIsyarat',
     year: 2026,
     slug: 'kawanisyarat-bisindo',
@@ -185,6 +189,7 @@ export const projects: Project[] = [
     category: 'computer-vision',
     demoUrl:
       'https://huggingface.co/spaces/haipradana/retail-behavior-analysis',
+    videoUrl: 'https://youtu.be/ZtWqnMJQmu0',
     githubUrl:
       'https://github.com/haipradana/DATATHON-2025-Retail-Behaviour-Analysis',
     year: 2025,
@@ -200,6 +205,7 @@ export const projects: Project[] = [
     tags: ['Python', 'LLM', 'Transformers', 'NLP'],
     category: 'llm',
     demoUrl: 'https://mood2movie.streamlit.app/',
+    videoUrl: 'https://youtu.be/_Q6pRmcKGks',
     githubUrl: 'https://github.com/haipradana/Mood2Movie',
     year: 2025,
     slug: 'mood2movie',
@@ -213,6 +219,7 @@ export const projects: Project[] = [
     tags: ['RAG', 'Python', 'ModernBERT'],
     category: 'llm',
     demoUrl: 'https://github.com/haipradana/ChatMyDocs',
+    videoUrl: 'https://youtu.be/lETbVuimVCg',
     githubUrl: 'https://github.com/haipradana/ChatMyDocs',
     year: 2025,
     slug: 'chatmydocs',
