@@ -77,6 +77,15 @@
     return null;
   }
 
+  function getShortUrlLabel(url: string) {
+    try {
+      const parsed = new URL(url);
+      return parsed.hostname.replace(/^www\./, '');
+    } catch {
+      return url;
+    }
+  }
+
   onMount(async () => {
     if (!project) return;
     try {
@@ -262,9 +271,11 @@
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 text-ink-light dark:text-ink-dark hover:text-accent-600 dark:hover:text-accent-400"
+                class="inline-flex min-w-0 max-w-full items-center gap-1.5 text-ink-light hover:text-accent-600 dark:text-ink-dark dark:hover:text-accent-400"
+                title={project.githubUrl}
               >
-                <Github class="h-3.5 w-3.5" /> {project.githubUrl.replace(/^https?:\/\/(www\.)?/, '')}
+                <Github class="h-3.5 w-3.5 shrink-0" />
+                <span class="min-w-0 truncate">{getShortUrlLabel(project.githubUrl)}</span>
               </a>
             </li>
           {/if}
