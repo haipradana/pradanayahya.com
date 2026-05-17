@@ -10,6 +10,7 @@
   $: slug = $page.params.slug;
   $: project = projects.find((p) => p.slug === slug);
   $: videoEmbedUrl = project?.videoUrl ? getVideoEmbedUrl(project.videoUrl) : '';
+  $: socialEmbed = project?.demoUrl ? getSocialEmbed(project.demoUrl) : null;
 
   // Related projects in the same category, excluding self.
   $: related = project
@@ -61,6 +62,19 @@
     }
 
     return '';
+  }
+
+  function getSocialEmbed(url: string) {
+    const instagramMatch = url.match(/instagram\.com\/(p|reel)\/([^/?#]+)/);
+    if (instagramMatch?.[1] && instagramMatch?.[2]) {
+      return {
+        platform: 'Instagram',
+        url: `https://www.instagram.com/${instagramMatch[1]}/${instagramMatch[2]}/embed`,
+        sourceUrl: url,
+      };
+    }
+
+    return null;
   }
 
   onMount(async () => {
@@ -188,6 +202,28 @@
             allowfullscreen
           ></iframe>
         </div>
+      </section>
+    {/if}
+
+    {#if socialEmbed}
+      <section class="mt-8">
+        <div class="overflow-hidden rounded-2xl border border-ink-faint-light bg-surface-light-elev shadow-sm dark:border-ink-faint-dark dark:bg-surface-dark-elev">
+          <iframe
+            src={socialEmbed.url}
+            title={`${project.title} ${socialEmbed.platform} post`}
+            class="mx-auto block min-h-[620px] w-full max-w-[540px]"
+            loading="lazy"
+            allowtransparency
+          ></iframe>
+        </div>
+        <a
+          href={socialEmbed.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-ink-muted-light transition-colors hover:text-ink-light dark:text-ink-muted-dark dark:hover:text-ink-dark"
+        >
+          Open post on {socialEmbed.platform} <ArrowUpRight class="h-3.5 w-3.5" />
+        </a>
       </section>
     {/if}
 
