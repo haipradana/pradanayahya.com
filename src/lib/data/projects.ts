@@ -32,7 +32,7 @@ export const projects: Project[] = [
     title: 'BMKG-Hirup — PM2.5 Air Quality Forecasting',
     description:
       'End-to-end PM2.5 air quality forecasting system (Random Forest Regressor) deployed as a full-stack web app for BMKG Yogyakarta, alongside rainfall forecasting from climatology station data.',
-    image: `${PROJECT_IMAGE_BASE}/hirup_bmkg/hirup_bmkg.png`,
+    image: `${PROJECT_IMAGE_BASE}/hirup_bmkg/hirup_bmkg.webp`,
     tags: ['Python', 'scikit-learn', 'FastAPI', 'React', 'Time Series'],
     category: 'data-science',
     demoUrl: 'https://bmkg-hirup.pradanayahya.com',
@@ -45,12 +45,12 @@ export const projects: Project[] = [
     title: 'NusaVoice — Lightweight Indonesian Text-to-Speech',
     description:
       'Lightweight Bahasa Indonesia text-to-speech model fine-tuned from Piper/VITS, with male and female voices optimized for CPU-only real-time inference.',
-    image: `${PROJECT_IMAGE_BASE}/nusavoice/nusavoice.png`,
+    image: `${PROJECT_IMAGE_BASE}/nusavoice/nusavoice.webp`,
     tags: ['Piper', 'VITS', 'TTS', 'FastAPI', 'React'],
     category: 'nlp',
     demoUrl: 'https://nusavoice.pradanayahya.com',
     githubUrl: 'https://github.com/haipradana/NusaVoice',
-    year: 2025,
+    year: 2026,
     slug: 'nusavoice-indonesian-tts',
     featured: true,
   },
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     title: 'Smart Space (Jarvis) — Offline Voice Assistant',
     description:
       'Local-first voice pipeline for lab automation at DTETI UGM. Whisper (ASR) + Piper (TTS, fine-tuned voice) run fully offline on a Raspberry Pi, with an LLM for command understanding and N8N for IoT control of lights, HVAC, and projectors.',
-    image: `${PROJECT_IMAGE_BASE}/smartlab_jarvis/smartlab.png`,
+    image: `${PROJECT_IMAGE_BASE}/smartlab_jarvis/smartlab.webp`,
     tags: ['Whisper', 'Piper', 'LLM', 'N8N', 'Raspberry Pi'],
     category: 'llm',
     demoUrl:
@@ -73,12 +73,12 @@ export const projects: Project[] = [
     title: 'KawanIsyarat — Offline BISINDO Translator',
     description:
       'Android app for real-time BISINDO ↔ Indonesian translation. Runs fully on-device — built for Google’s Gemma 4 Good Hackathon.',
-    image: `${PROJECT_IMAGE_BASE}/kawan_isyarat/kawan-isyarat.png`,
+    image: `${PROJECT_IMAGE_BASE}/kawan_isyarat/kawan-isyarat.webp`,
     tags: ['Flutter', 'MediaPipe', 'Gemma 4', 'Sign Language', 'On-device AI'],
     category: 'computer-vision',
     demoUrl: 'https://kawanisyarat.pradanayahya.com',
     githubUrl: 'https://github.com/haipradana/KawanIsyarat',
-    year: 2025,
+    year: 2026,
     slug: 'kawanisyarat-bisindo',
     featured: true,
   },
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     title: 'ask-docs — Agentic RAG Assistant',
     description:
       'Production-deployed agentic RAG system live at ask.pradanayahya.com. Combines retrieval, citation, and tool-using agent loops for document-grounded Q&A.',
-    image: `${PROJECT_IMAGE_BASE}/ask-docs/ask-docs.png`,
+    image: `${PROJECT_IMAGE_BASE}/ask-docs/ask-docs.webp`,
     tags: ['RAG', 'LLM', 'Agents', 'Vector Search'],
     category: 'llm',
     demoUrl: 'https://ask.pradanayahya.com',
@@ -100,7 +100,7 @@ export const projects: Project[] = [
     title: 'DINOv3 + Pseudo-labeling for Traditional Houses',
     description:
       '2nd Place at DSC LOGIKA UI 2025. Semi-supervised classification pipeline for Indonesian traditional house images using DINOv3 features and pseudo-labeling; 97.21% test accuracy.',
-    image: `${PROJECT_IMAGE_BASE}/dino_logika_ui/dinov3-logika.png`,
+    image: `${PROJECT_IMAGE_BASE}/dino_logika_ui/dinov3-logika.webp`,
     tags: ['DINOv3', 'Semi-supervised', 'Image Classification'],
     category: 'computer-vision',
     year: 2025,
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     title: 'IndoBERT NER for Indonesian Culinary Text',
     description:
       '3rd Place at ACTION UNESA 2025 Data Mining Competition. Named Entity Recognition pipeline for Indonesian culinary text using IndoBERT; Micro-F1 0.8411 on the Kaggle leaderboard.',
-    image: `${PROJECT_IMAGE_BASE}/sarcasm_indobert_1/sarcasm_indobert.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/sarcasm_indobert_1/sarcasm_indobert.webp`,
     tags: ['NLP', 'IndoBERT', 'NER'],
     category: 'nlp',
     year: 2025,
@@ -122,7 +122,7 @@ export const projects: Project[] = [
     title: 'Sentimen Analisis Abolisi Tom dan Hasto',
     description:
       'Sentiment analysis and topic modeling on public response to Prabowo’s decision granting abolition to Tom and amnesty to Hasto.',
-    image: `${PROJECT_IMAGE_BASE}/abolisi_tom_hasto/tom2.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/abolisi_tom_hasto/tom2.webp`,
     tags: ['NLP', 'Sentiment Analysis', 'BERTopic'],
     category: 'nlp',
     demoUrl:
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     title: 'Sentimen Analisis Vonis Tom Lembong',
     description:
       'Sentiment analysis and topic modeling on the Tom Lembong verdict. BERT for sentiment classification and BERTopic for topic modeling.',
-    image: `${PROJECT_IMAGE_BASE}/vonis_tom_lembong/thumbnailTom1.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/vonis_tom_lembong/thumbnailTom1.webp`,
     tags: ['NLP', 'Sentiment Analysis', 'BERTopic'],
     category: 'nlp',
     demoUrl: 'https://www.instagram.com/p/DM72xWmPTen',
@@ -151,7 +151,7 @@ export const projects: Project[] = [
     title: 'Hate Speech Classification (RoBERTa)',
     description:
       'Fine-tuned sentiment-based RoBERTa for hate speech classification on Indonesian text.',
-    image: `${PROJECT_IMAGE_BASE}/hate_classification_roberta/hate_roberta.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/hate_classification_roberta/hate_roberta.webp`,
     tags: ['NLP', 'RoBERTa', 'Fine-Tuning'],
     category: 'nlp',
     demoUrl:
@@ -166,7 +166,7 @@ export const projects: Project[] = [
     title: 'Sarcasm Detection (IndoBERT Fine-Tuning)',
     description:
       'Fine-tuned IndoBERT base for sarcasm classification on Indonesian social-media text.',
-    image: `${PROJECT_IMAGE_BASE}/sarcasm_indobert_1/sarcasm_indobert.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/sarcasm_indobert_1/sarcasm_indobert.webp`,
     tags: ['NLP', 'IndoBERT', 'Fine-Tuning'],
     category: 'nlp',
     demoUrl:
@@ -181,7 +181,7 @@ export const projects: Project[] = [
     title: 'TRACKO — Retail Behavior Analysis',
     description:
       'Champion at DATATHON 2025. Multimodal retail analytics platform turning ordinary CCTV footage into customer-behavior signals and strategy.',
-    image: `${PROJECT_IMAGE_BASE}/datathon_2025-1/retail-behaviour-1.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/datathon_2025-1/retail-behaviour-1.webp`,
     tags: ['Computer Vision', 'TimeSformer', 'LLM'],
     category: 'computer-vision',
     demoUrl:
@@ -197,7 +197,7 @@ export const projects: Project[] = [
     title: 'Mood2Movie',
     description:
       'Movie recommendations based on your mood. Built with semantic search, sentiment analysis, and mood-based filtering.',
-    image: `${PROJECT_IMAGE_BASE}/mood2movie/mood2movie.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/mood2movie/mood2movie.webp`,
     tags: ['Python', 'LLM', 'Transformers', 'NLP'],
     category: 'llm',
     demoUrl: 'https://mood2movie.streamlit.app/',
@@ -210,7 +210,7 @@ export const projects: Project[] = [
     title: 'ChatMyDocs',
     description:
       'RAG-based assistant that uses ModernBERT for semantic retrieval. Upload your PDFs and get precise, citation-backed answers.',
-    image: `${PROJECT_IMAGE_BASE}/chatmydocs/modernbert.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/chatmydocs/modernbert.webp`,
     tags: ['RAG', 'Python', 'ModernBERT'],
     category: 'llm',
     demoUrl: 'https://github.com/haipradana/ChatMyDocs',
