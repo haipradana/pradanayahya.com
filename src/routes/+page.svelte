@@ -22,11 +22,11 @@
     // { src: '/images/hero/bmkg.webp',      alt: 'BMKG intern', caption: 'BMKG Yogyakarta' },
   ];
 
-  // Featured: TRACKO, KawanIsyarat, NusaVoice
+  // Featured: KawanIsyarat, Smart Space Jarvis, TRACKO
   const featuredSlugs = [
-    'retail-behaviour-analysis-v1',
     'kawanisyarat-bisindo',
-    'nusavoice-indonesian-tts',
+    'smart-space-jarvis',
+    'retail-behaviour-analysis-v1',
   ];
   const featured = featuredSlugs
     .map((s) => projects.find((p) => p.slug === s))

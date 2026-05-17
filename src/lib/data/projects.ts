@@ -51,7 +51,6 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/haipradana/NusaVoice',
     year: 2026,
     slug: 'nusavoice-indonesian-tts',
-    featured: true,
   },
   {
     id: '12',
@@ -66,6 +65,7 @@ export const projects: Project[] = [
     demoLabel: 'Demo video',
     year: 2025,
     slug: 'smart-space-jarvis',
+    featured: true,
   },
   {
     id: '11',
