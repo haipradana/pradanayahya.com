@@ -8,7 +8,7 @@ Sistem analitik berbasis AI untuk optimalisasi strategi bisnis melalui analisis 
 
 <center>
 <a href="https://youtu.be/ZtWqnMJQmu0" target="_blank">
-<img src="https://github.com/haipradana/DATATHON-2025-Retail-Behaviour-Analysis/blob/main/demo-screenshot-half.png?raw=true" width="55%">
+<img src="/images/projects/datathon_2025-1/retail-behaviour-1.webp" width="55%">
 </a>
 </center>
 
@@ -47,10 +47,10 @@ Pipeline ini sudah dideploy di <a href="https://huggingface.co/spaces/haipradana
 ### Demo Video dan Dokumentasi
 
 <center>
-<a href="https://github.com/haipradana/DATATHON-2025-Retail-Behaviour-Analysis/blob/main/demo.mp4" target="_blank" style="color:#2563eb; text-decoration:underline;">Lihat Demo Video</a>
+<a href="https://youtu.be/ZtWqnMJQmu0" target="_blank" style="color:#2563eb; text-decoration:underline;">Lihat Demo Video</a>
 
 <a href="https://youtu.be/ZtWqnMJQmu0" target="_blank">
-<img src="https://github.com/haipradana/DATATHON-2025-Retail-Behaviour-Analysis/blob/main/demo-screenshot-full.png?raw=true" width="100%">
+<img src="/images/projects/datathon_2025-1/retail-behaviour-1.webp" width="100%">
 </a>
 </center>
 

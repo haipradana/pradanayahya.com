@@ -19,8 +19,7 @@ export interface Project {
   featured?: boolean;
 }
 
-const PROJECT_IMAGE_BASE =
-  'https://raw.githubusercontent.com/haipradana/pradanayahya.com/refs/heads/main/static/images/projects';
+const PROJECT_IMAGE_BASE = '/images/projects';
 
 /**
  * Project list - newest first. Schema is consumed by

@@ -9,7 +9,7 @@ Kamu bisa mengetikkan perasaan atau suasana hati yang sedang kamu rasakan, atau 
 
 <center>
 <a href="https://youtu.be/_Q6pRmcKGks" target="_blank">
-  <img src="https://raw.githubusercontent.com/haipradana/Mood2Movie/refs/heads/main/screenshot.png" width="50%">
+  <img src="/images/projects/mood2movie/mood2movie.webp" width="50%">
 </a>
 **Coba sekarang:**  
 <a href="https://mood2movie.streamlit.app/" target="_blank" style="color:#2563eb;"><b>Mood2Movie</b></a>  

@@ -8,7 +8,7 @@ ChatMyDocs memungkinkan Anda bertanya langsung ke file PDF. Berbeda dengan LLM b
 
 <center>
 <a href="https://youtu.be/lETbVuimVCg" target="_blank">
-<img src="https://github.com/haipradana/ChatMyDocs/blob/main/screenshot.png?raw=true" width="90%">
+<img src="/images/projects/chatmydocs/modernbert.webp" width="90%">
 </a>
 </center>
 
