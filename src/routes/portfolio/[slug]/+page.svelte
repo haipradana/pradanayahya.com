@@ -41,13 +41,45 @@
   // the structured data we already have. This loads client-side, but the
   // server-rendered page already ships substantive content (description,
   // tags, year, links, related) so Google never sees a thin page.
-  let markdownHtml = '';
+  let markdownOverviewHtml = '';
+  let markdownBodyHtml = '';
   function renderProjectMarkdown(md: string) {
     const html = DOMPurify.sanitize(marked.parse(md) as string);
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    template.content.querySelector('h1')?.remove();
-    return template.innerHTML;
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = html;
+    wrapper.querySelector('h1')?.remove();
+
+    const overviewHeading = Array.from(wrapper.querySelectorAll('h2')).find(
+      (heading) => heading.textContent?.trim().toLowerCase() === 'overview'
+    );
+    const contentRoot = overviewHeading?.parentElement ?? wrapper;
+
+    if (!overviewHeading) {
+      return {
+        overviewHtml: '',
+        bodyHtml: contentRoot.innerHTML,
+      };
+    }
+
+    const overview = document.createElement('div');
+    let node: ChildNode | null = overviewHeading;
+    while (node) {
+      const next: ChildNode | null = node.nextSibling;
+      const isNextSection =
+        node !== overviewHeading &&
+        node.nodeType === Node.ELEMENT_NODE &&
+        (node as Element).tagName === 'H2';
+
+      if (isNextSection) break;
+
+      overview.appendChild(node);
+      node = next;
+    }
+
+    return {
+      overviewHtml: overview.innerHTML,
+      bodyHtml: contentRoot.innerHTML,
+    };
   }
 
   function getVideoEmbedUrl(url: string) {
@@ -92,7 +124,9 @@
       const res = await fetch(`/projects/${project.slug}.md`);
       if (res.ok) {
         const md = await res.text();
-        markdownHtml = renderProjectMarkdown(md);
+        const markdown = renderProjectMarkdown(md);
+        markdownOverviewHtml = markdown.overviewHtml;
+        markdownBodyHtml = markdown.bodyHtml;
       }
     } catch {
       /* leave markdownHtml empty; the structured fallback handles it */
@@ -190,14 +224,20 @@
       </div>
     </figure>
 
-    <!-- Overview block. Rendered server-side so the page always has useful content. -->
-    <section class="mt-12">
-      <h2 class="font-display text-2xl text-ink-light dark:text-ink-dark">Overview</h2>
-      <p class="mt-3 text-[15px] leading-relaxed text-ink-light/85 dark:text-ink-dark/85 text-pretty">
-        <strong>{project.title}</strong> is a {categoryLabel[project.category]?.toLowerCase() ?? 'project'}
-        project by Pradana Yahya Abdillah, built in {project.year}. {project.description}
-      </p>
-    </section>
+    {#if markdownOverviewHtml}
+      <section class="project-markdown mt-12">
+        {@html markdownOverviewHtml}
+      </section>
+    {:else}
+      <!-- Overview block. Rendered server-side so the page always has useful content. -->
+      <section class="mt-12">
+        <h2 class="font-display text-2xl text-ink-light dark:text-ink-dark">Overview</h2>
+        <p class="mt-3 text-[15px] leading-relaxed text-ink-light/85 dark:text-ink-dark/85 text-pretty">
+          <strong>{project.title}</strong> is a {categoryLabel[project.category]?.toLowerCase() ?? 'project'}
+          project by Pradana Yahya Abdillah, built in {project.year}. {project.description}
+        </p>
+      </section>
+    {/if}
 
     {#if videoEmbedUrl}
       <section class="mt-8">
@@ -286,9 +326,9 @@
       </div>
     </section>
 
-    {#if markdownHtml}
+    {#if markdownBodyHtml}
       <section class="project-markdown mt-12">
-        {@html markdownHtml}
+        {@html markdownBodyHtml}
       </section>
     {/if}
 
