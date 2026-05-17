@@ -12,6 +12,7 @@ export interface Project {
     | 'web-dev'
     | 'all';
   demoUrl?: string;
+  demoLabel?: string;
   githubUrl?: string;
   year: number;
   slug: string;
@@ -31,23 +32,26 @@ export const projects: Project[] = [
     title: 'BMKG-Hirup — PM2.5 Air Quality Forecasting',
     description:
       'End-to-end PM2.5 air quality forecasting system (Random Forest Regressor) deployed as a full-stack web app for BMKG Yogyakarta, alongside rainfall forecasting from climatology station data.',
-    image: `${PROJECT_IMAGE_BASE}/chatmydocs/modernbert.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/hirup_bmkg/hirup_bmkg.png`,
     tags: ['Python', 'scikit-learn', 'FastAPI', 'React', 'Time Series'],
     category: 'data-science',
     demoUrl: 'https://bmkg-hirup.pradanayahya.com',
+    githubUrl: 'https://github.com/haipradana/hirup',
     year: 2026,
     slug: 'bmkg-hirup-pm25',
   },
   {
     id: '13',
-    title: 'NusaVoice — On-device Indonesian Intent LLM',
+    title: 'NusaVoice — Lightweight Indonesian Text-to-Speech',
     description:
-      'Fine-tuned on-device LLM for Indonesian intent detection on CPU-only hardware — one pass returns both a reply and a Home Assistant tool call.',
-    image: `${PROJECT_IMAGE_BASE}/chatmydocs/modernbert.jpg`,
-    tags: ['PyTorch', 'Hugging Face', 'PEFT/LoRA', 'Home Assistant'],
-    category: 'llm',
+      'Lightweight Bahasa Indonesia text-to-speech model fine-tuned from Piper/VITS, with male and female voices optimized for CPU-only real-time inference.',
+    image: `${PROJECT_IMAGE_BASE}/nusavoice/nusavoice.png`,
+    tags: ['Piper', 'VITS', 'TTS', 'FastAPI', 'React'],
+    category: 'nlp',
+    demoUrl: 'https://nusavoice.pradanayahya.com',
+    githubUrl: 'https://github.com/haipradana/NusaVoice',
     year: 2025,
-    slug: 'nusavoice-on-device-llm',
+    slug: 'nusavoice-indonesian-tts',
     featured: true,
   },
   {
@@ -55,9 +59,12 @@ export const projects: Project[] = [
     title: 'Smart Space (Jarvis) — Offline Voice Assistant',
     description:
       'Local-first voice pipeline for lab automation at DTETI UGM. Whisper (ASR) + Piper (TTS, fine-tuned voice) run fully offline on a Raspberry Pi, with an LLM for command understanding and N8N for IoT control of lights, HVAC, and projectors.',
-    image: `${PROJECT_IMAGE_BASE}/chatmydocs/modernbert.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/smartlab_jarvis/smartlab.png`,
     tags: ['Whisper', 'Piper', 'LLM', 'N8N', 'Raspberry Pi'],
     category: 'llm',
+    demoUrl:
+      'https://drive.google.com/file/u/1/d/15LTr5WR-MJreDqNmjXJ5QOjcOOM1l6Ez/view',
+    demoLabel: 'Demo video',
     year: 2025,
     slug: 'smart-space-jarvis',
   },
@@ -66,9 +73,11 @@ export const projects: Project[] = [
     title: 'KawanIsyarat — Offline BISINDO Translator',
     description:
       'Android app for real-time BISINDO ↔ Indonesian translation. Runs fully on-device — built for Google’s Gemma 4 Good Hackathon.',
-    image: `${PROJECT_IMAGE_BASE}/chatmydocs/modernbert.jpg`,
-    tags: ['Android', 'TFLite', 'Sign Language', 'On-device AI'],
+    image: `${PROJECT_IMAGE_BASE}/kawan_isyarat/kawan-isyarat.png`,
+    tags: ['Flutter', 'MediaPipe', 'Gemma 4', 'Sign Language', 'On-device AI'],
     category: 'computer-vision',
+    demoUrl: 'https://kawanisyarat.pradanayahya.com',
+    githubUrl: 'https://github.com/haipradana/KawanIsyarat',
     year: 2025,
     slug: 'kawanisyarat-bisindo',
     featured: true,
@@ -78,10 +87,11 @@ export const projects: Project[] = [
     title: 'ask-docs — Agentic RAG Assistant',
     description:
       'Production-deployed agentic RAG system live at ask.pradanayahya.com. Combines retrieval, citation, and tool-using agent loops for document-grounded Q&A.',
-    image: `${PROJECT_IMAGE_BASE}/chatmydocs/modernbert.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/ask-docs/ask-docs.png`,
     tags: ['RAG', 'LLM', 'Agents', 'Vector Search'],
     category: 'llm',
     demoUrl: 'https://ask.pradanayahya.com',
+    githubUrl: 'https://github.com/haipradana/ask-docs',
     year: 2025,
     slug: 'ask-docs-agentic-rag',
   },
@@ -90,7 +100,7 @@ export const projects: Project[] = [
     title: 'DINOv3 + Pseudo-labeling for Traditional Houses',
     description:
       '2nd Place at DSC LOGIKA UI 2025. Semi-supervised classification pipeline for Indonesian traditional house images using DINOv3 features and pseudo-labeling; 97.21% test accuracy.',
-    image: `${PROJECT_IMAGE_BASE}/datathon_2025-1/retail-behaviour-1.jpg`,
+    image: `${PROJECT_IMAGE_BASE}/dino_logika_ui/dinov3-logika.png`,
     tags: ['DINOv3', 'Semi-supervised', 'Image Classification'],
     category: 'computer-vision',
     year: 2025,

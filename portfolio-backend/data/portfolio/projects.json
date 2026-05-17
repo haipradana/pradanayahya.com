@@ -3,7 +3,7 @@
     "id": "project-bmkg-hirup-pm25",
     "category": "project",
     "title": "BMKG-Hirup — PM2.5 Air Quality Forecasting",
-    "content": "Project: BMKG-Hirup — PM2.5 Air Quality Forecasting. Deskripsi: End-to-end PM2.5 air quality forecasting system (Random Forest Regressor) deployed as a full-stack web app for BMKG Yogyakarta, alongside rainfall forecasting from climatology station data. Kategori: data-science. Tahun: 2026. Tech stack: Python, scikit-learn, FastAPI, React, Time Series.",
+    "content": "Project: BMKG-Hirup — PM2.5 Air Quality Forecasting. Deskripsi: End-to-end PM2.5 air quality forecasting system (Random Forest Regressor) deployed as a full-stack web app for BMKG Yogyakarta, alongside rainfall forecasting from climatology station data. Kategori: data-science. Tahun: 2026. Tech stack: Python, scikit-learn, FastAPI, React, Time Series. Detail: BMKG-Hirup - PM2.5 Air Quality Forecasting Overview Hirup adalah aplikasi web end-to-end untuk memprediksi kualitas udara PM2.5. Project ini dikembangkan saat magang di Stasiun Klimatologi Yogyakarta sebagai sistem machine learning yang mengubah data cuaca dan histori PM2.5 menjadi prediksi yang bisa dipakai lewat aplikasi web. PM2.5 adalah partikel polusi udara berukuran lebih kecil dari 2.5 mikrometer. Karena ukurannya sangat kecil, PM2.5 bisa masuk jauh ke paru-paru dan berdampak pada kesehatan. Hirup dibuat untuk membantu kalkulasi, estimasi, dan prediksi PM2.5 secara lebih cepat. What I Built - Model prediksi PM2.5 berbasis Random Forest Regressor. - Backend FastAPI untuk melayani prediksi model. - Frontend React + Vite untuk input data dan visualisasi hasil. - Pipeline preprocessing dan training di Python. - Deployment berbasis Docker di VPS. Tech Stack - **Frontend**: React, Vite, TypeScript - **Backend**: FastAPI, Python - **Machine Learning**: Random Forest Regressor, scikit-learn - **Deployment**: Docker, VPS Links - Live demo - GitHub repository Data Note Dataset mentah dari alat AWS dan dokumen EDA tidak dipublikasikan karena bersifat internal dan confidential milik BMKG. Repositori publik berisi kode implementasi sistem, arsitektur model, dan struktur aplikasi.",
     "slug": "bmkg-hirup-pm25",
     "year": 2026,
     "project_category": "data-science",
@@ -15,34 +15,35 @@
       "Time Series"
     ],
     "demo_url": "https://bmkg-hirup.pradanayahya.com",
-    "github_url": null,
+    "github_url": "https://github.com/haipradana/hirup",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "4c217527180a54ff837a0dc9307bcd0fbb72804a96a5160e1f914f8bc5c0cf5e"
+    "content_hash": "241a9daa7bd4320f1d39972c7e7f7df75c00568acfaf0c11a210b23d2b72e32d"
   },
   {
-    "id": "project-nusavoice-on-device-llm",
+    "id": "project-nusavoice-indonesian-tts",
     "category": "project",
-    "title": "NusaVoice — On-device Indonesian Intent LLM",
-    "content": "Project: NusaVoice — On-device Indonesian Intent LLM. Deskripsi: Fine-tuned on-device LLM for Indonesian intent detection on CPU-only hardware — one pass returns both a reply and a Home Assistant tool call. Kategori: llm. Tahun: 2025. Tech stack: PyTorch, Hugging Face, PEFT/LoRA, Home Assistant.",
-    "slug": "nusavoice-on-device-llm",
+    "title": "NusaVoice — Lightweight Indonesian Text-to-Speech",
+    "content": "Project: NusaVoice — Lightweight Indonesian Text-to-Speech. Deskripsi: Lightweight Bahasa Indonesia text-to-speech model fine-tuned from Piper/VITS, with male and female voices optimized for CPU-only real-time inference. Kategori: nlp. Tahun: 2025. Tech stack: Piper, VITS, TTS, FastAPI, React. Detail: NusaVoice - Lightweight Indonesian Text-to-Speech Overview NusaVoice adalah model Text-to-Speech Bahasa Indonesia yang ringan dan bisa berjalan di CPU-only hardware. Project ini berfokus pada fine-tuning Piper TTS untuk menghasilkan suara Bahasa Indonesia yang natural, cepat, dan mudah di-deploy. Berbeda dari pendekatan LLM on-device, NusaVoice adalah sistem TTS berbasis Piper/VITS. Modelnya dilatih untuk pola pengucapan Bahasa Indonesia, lalu disajikan melalui backend FastAPI dan frontend web. Model Details | Voice | Training Data | Architecture | |---|---|---| | Male | Audiobook dan podcast recordings | Piper VITS | | Female | Audiobook recordings | Piper VITS | Kedua model dibuat dari arsitektur Piper dan dioptimalkan untuk inference real-time yang ringan. Tech Stack - **TTS engine**: Piper - **Architecture**: VITS - **Backend**: FastAPI - **Frontend**: React, Vite, Tailwind CSS - **Runtime target**: CPU-only inference Project Structure ```text NusaVoice/ ├── nusavoice-frontend/ React + Vite + Tailwind └── nusavoice-backend/ FastAPI + Piper TTS ``` Links - Live demo - GitHub repository",
+    "slug": "nusavoice-indonesian-tts",
     "year": 2025,
-    "project_category": "llm",
+    "project_category": "nlp",
     "tech_stack": [
-      "PyTorch",
-      "Hugging Face",
-      "PEFT/LoRA",
-      "Home Assistant"
+      "Piper",
+      "VITS",
+      "TTS",
+      "FastAPI",
+      "React"
     ],
-    "demo_url": null,
-    "github_url": null,
+    "demo_url": "https://nusavoice.pradanayahya.com",
+    "github_url": "https://github.com/haipradana/NusaVoice",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "b33b36993333f7cb6ec652b5f5d8701643bd1bd7a629667637445f47c69614e7"
+    "content_hash": "51a00a57c9829aafe71c6fb970b4d31a69b002264cb6d77369e32084e28cfa86"
   },
   {
     "id": "project-smart-space-jarvis",
     "category": "project",
     "title": "Smart Space (Jarvis) — Offline Voice Assistant",
-    "content": "Project: Smart Space (Jarvis) — Offline Voice Assistant. Deskripsi: Local-first voice pipeline for lab automation at DTETI UGM. Whisper (ASR) + Piper (TTS, fine-tuned voice) run fully offline on a Raspberry Pi, with an LLM for command understanding and N8N for IoT control of lights, HVAC, and projectors. Kategori: llm. Tahun: 2025. Tech stack: Whisper, Piper, LLM, N8N, Raspberry Pi.",
+    "content": "Project: Smart Space (Jarvis) — Offline Voice Assistant. Deskripsi: Local-first voice pipeline for lab automation at DTETI UGM. Whisper (ASR) + Piper (TTS, fine-tuned voice) run fully offline on a Raspberry Pi, with an LLM for command understanding and N8N for IoT control of lights, HVAC, and projectors. Kategori: llm. Tahun: 2025. Tech stack: Whisper, Piper, LLM, N8N, Raspberry Pi. Detail: Smart Space (Jarvis) - Offline Voice Assistant Overview Smart Space, atau Jarvis, adalah pipeline voice assistant lokal untuk otomasi ruang/lab di DTETI UGM. Sistem ini dirancang agar perintah suara bisa diproses secara lokal di perangkat edge, lalu diteruskan ke workflow otomasi untuk mengontrol perangkat seperti lampu, AC, dan proyektor. Project ini menggabungkan ASR, TTS, LLM command understanding, dan otomasi N8N agar pengguna bisa berinteraksi dengan ruangan lewat bahasa natural. Pipeline - **ASR**: Whisper untuk mengubah suara menjadi teks. - **Command understanding**: LLM untuk memahami intent dan parameter perintah. - **Automation**: N8N untuk menghubungkan hasil intent ke perangkat IoT. - **TTS**: Piper voice untuk memberi respons suara. - **Edge deployment**: Raspberry Pi sebagai target local-first deployment. Why It Matters SmartLab/Jarvis dibuat untuk membuat ruang belajar atau laboratorium lebih mudah dikendalikan tanpa dashboard manual. Dengan pipeline lokal, sistem tetap bisa responsif dan lebih aman karena tidak semua interaksi perlu bergantung pada layanan cloud. Demo - Demo video",
     "slug": "smart-space-jarvis",
     "year": 2025,
     "project_category": "llm",
@@ -53,35 +54,36 @@
       "N8N",
       "Raspberry Pi"
     ],
-    "demo_url": null,
+    "demo_url": "https://drive.google.com/file/u/1/d/15LTr5WR-MJreDqNmjXJ5QOjcOOM1l6Ez/view",
     "github_url": null,
     "source": "src/lib/data/projects.ts",
-    "content_hash": "8efe0ed211a52c7919379c92fe5787361bbb435d76843f0868d294881ea91fa2"
+    "content_hash": "4a08c4667ee9c5de1d204204095ead757ededddeeceb951a1d89ab55e4da9e40"
   },
   {
     "id": "project-kawanisyarat-bisindo",
     "category": "project",
     "title": "KawanIsyarat — Offline BISINDO Translator",
-    "content": "Project: KawanIsyarat — Offline BISINDO Translator. Deskripsi: Android app for real-time BISINDO ↔ Indonesian translation. Runs fully on-device — built for Google’s Gemma 4 Good Hackathon. Kategori: computer-vision. Tahun: 2025. Tech stack: Android, TFLite, Sign Language, On-device AI.",
+    "content": "Project: KawanIsyarat — Offline BISINDO Translator. Deskripsi: Android app for real-time BISINDO ↔ Indonesian translation. Runs fully on-device — built for Google’s Gemma 4 Good Hackathon. Kategori: computer-vision. Tahun: 2025. Tech stack: Flutter, MediaPipe, Gemma 4, Sign Language, On-device AI. Detail: KawanIsyarat - Connected by Sign Overview KawanIsyarat adalah aplikasi komunikasi dua arah antara pengguna Tuli BISINDO dan masyarakat dengar di Indonesia. Aplikasi ini berjalan offline setelah model awal diunduh, sehingga tidak membutuhkan server dan data pengguna tidak keluar dari perangkat. Project ini dibuat untuk Gemma 4 Good Hackathon. Tujuannya bukan menggantikan bahasa isyarat, tetapi membantu lebih banyak orang memahami dan merespons pengguna BISINDO dengan lebih baik. How It Works **Deaf to Hearing** Camera -> MediaPipe pose/hand landmarks -> 1D CNN -> BISINDO gloss -> Gemma 4 -> kalimat Bahasa Indonesia natural + empathy tips -> TTS **Hearing to Deaf** Mic -> WAV/PCM -> Gemma 4 audio encoder -> transcript -> Gemma 4 simplification -> teks singkat yang lebih mudah dibaca Features - **Sign-to-text**: 1D CNN mengenali 16 kata BISINDO dari sequence 30 frame. - **Speech-to-simplified-text**: Gemma 4 audio transcription dan simplification. - **Alphabet practice**: SIBI dan BISINDO alphabet practice dengan feedback visual. - **Vocabulary helper**: penjelasan kata sulit dalam Bahasa Indonesia sederhana. - **Articulation practice**: latihan pengucapan untuk pengguna dengar. - **Emergency SOS**: TTS cepat untuk frasa penting seperti \"Saya Tuli\" dan \"Saya butuh bantuan\". - **History**: log sesi dengan timestamp. Tech Stack - **Framework**: Flutter, Riverpod, GoRouter - **On-device LLM**: Gemma 4 E2B INT4 via Cactus SDK - **Gesture recognition**: MediaPipe + 1D Causal Depthwise CNN - **STT**: Gemma 4 Audio Encoder, Whisper fallback - **Local storage**: Hive - **TTS**: flutter_tts Model Notes - BISINDO gesture model memakai input 30 frames x 100 floats. - 16 kelas kata: TULI, SAYA, KAMU, NAMA, TOLONG, APA, TERIMA_KASIH, BAIK, SAKIT, LAPAR, HAUS, MINTA, PAGI, MALAM, SEKOLAH, NOISE. - Evaluasi LOSO mencapai 86.2% test accuracy. Links - Live demo - GitHub repository - Demo video",
     "slug": "kawanisyarat-bisindo",
     "year": 2025,
     "project_category": "computer-vision",
     "tech_stack": [
-      "Android",
-      "TFLite",
+      "Flutter",
+      "MediaPipe",
+      "Gemma 4",
       "Sign Language",
       "On-device AI"
     ],
-    "demo_url": null,
-    "github_url": null,
+    "demo_url": "https://kawanisyarat.pradanayahya.com",
+    "github_url": "https://github.com/haipradana/KawanIsyarat",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "12aaf9a8426f591e5e2d01161b488d3a9f0bae6891e54f9df461586055650499"
+    "content_hash": "6ed16dca83cca8f1d82452358ce4736df2544b2164705dd1b924406f5defaad6"
   },
   {
     "id": "project-ask-docs-agentic-rag",
     "category": "project",
     "title": "ask-docs — Agentic RAG Assistant",
-    "content": "Project: ask-docs — Agentic RAG Assistant. Deskripsi: Production-deployed agentic RAG system live at ask.pradanayahya.com. Combines retrieval, citation, and tool-using agent loops for document-grounded Q&A. Kategori: llm. Tahun: 2025. Tech stack: RAG, LLM, Agents, Vector Search.",
+    "content": "Project: ask-docs — Agentic RAG Assistant. Deskripsi: Production-deployed agentic RAG system live at ask.pradanayahya.com. Combines retrieval, citation, and tool-using agent loops for document-grounded Q&A. Kategori: llm. Tahun: 2025. Tech stack: RAG, LLM, Agents, Vector Search. Detail: ask-docs - Agentic RAG Assistant Overview ask-docs adalah implementasi Hybrid Search dan Agentic RAG dengan FastAPI backend dan React frontend. Sistem ini menggabungkan pencarian semantic berbasis dense vector embedding dengan pencarian exact keyword berbasis BM25, lalu menggabungkan hasilnya menggunakan Reciprocal Rank Fusion (RRF). Pendekatan hybrid ini membuat jawaban lebih stabil: dense retrieval menangkap makna, BM25 menangkap kata kunci spesifik, dan RRF menyatukan ranking keduanya. Core Architecture - **Hybrid Search**: dense vector search + BM25 sparse search. - **Fusion**: Reciprocal Rank Fusion untuk ranking akhir. - **Embedding model**: all-MiniLM-L6-v2 dengan 384 dimensi. - **Vector database**: Qdrant. - **Object storage**: MinIO. - **LLM**: BytePlus. - **Rooms**: knowledge base bisa dipisah per room seperti `kampus`, `umum`, `internal`, atau `dokumentasi`. Stack Backend - FastAPI - Qdrant - MinIO - all-MiniLM-L6-v2 - BytePlus LLM Frontend - React 18 - TypeScript - Vite - Tailwind CSS - Bun API Surface - `POST /chat`: chat dengan AI menggunakan RAG. - `POST /search`: search dokumen tanpa LLM. - `POST /ingest`: ingest text manual. - `POST /ingest/minio`: ingest PDF dari MinIO. Links - Live demo - GitHub repository",
     "slug": "ask-docs-agentic-rag",
     "year": 2025,
     "project_category": "llm",
@@ -92,15 +94,15 @@
       "Vector Search"
     ],
     "demo_url": "https://ask.pradanayahya.com",
-    "github_url": null,
+    "github_url": "https://github.com/haipradana/ask-docs",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "1f56971eafa5f9fbf922dd0fd2540e29e950ab019322441217a4d0064b9f2d98"
+    "content_hash": "79fb13e81e827d2c95702318146c89bb44dc93511585d711ada22ec49d5bf2b2"
   },
   {
     "id": "project-dinov3-traditional-houses",
     "category": "project",
     "title": "DINOv3 + Pseudo-labeling for Traditional Houses",
-    "content": "Project: DINOv3 + Pseudo-labeling for Traditional Houses. Deskripsi: 2nd Place at DSC LOGIKA UI 2025. Semi-supervised classification pipeline for Indonesian traditional house images using DINOv3 features and pseudo-labeling; 97.21% test accuracy. Kategori: computer-vision. Tahun: 2025. Tech stack: DINOv3, Semi-supervised, Image Classification.",
+    "content": "Project: DINOv3 + Pseudo-labeling for Traditional Houses. Deskripsi: 2nd Place at DSC LOGIKA UI 2025. Semi-supervised classification pipeline for Indonesian traditional house images using DINOv3 features and pseudo-labeling; 97.21% test accuracy. Kategori: computer-vision. Tahun: 2025. Tech stack: DINOv3, Semi-supervised, Image Classification. Detail: DINOv3 + Pseudo-labeling for Indonesian Traditional Houses Overview Project ini adalah pipeline klasifikasi gambar rumah adat Indonesia untuk DSC LOGIKA UI 2025. Sistem menggunakan DINOv3 sebagai feature extractor dan pseudo-labeling untuk memanfaatkan data tidak berlabel secara semi-supervised. Hasil akhirnya meraih 2nd Place dengan test accuracy 97.21%. Approach - Menggunakan DINOv3 untuk mengekstrak representasi visual dari gambar rumah adat. - Melatih classifier di atas embedding visual. - Memakai pseudo-labeling untuk memperluas sinyal training dari data unlabeled. - Melakukan iterasi thresholding agar pseudo-label yang dipakai tetap cukup confident. - Mengevaluasi pipeline pada data test kompetisi. Why DINOv3 DINOv3 cocok untuk skenario data terbatas karena representasi visualnya kuat tanpa harus melatih CNN dari awal. Untuk dataset rumah adat yang memiliki variasi sudut, material, dan bentuk arsitektur, feature extractor yang sudah kuat membantu model fokus pada pola visual penting. Result - **Competition**: DSC LOGIKA UI 2025 - **Placement**: 2nd Place - **Task**: Indonesian traditional house image classification - **Method**: DINOv3 features + pseudo-labeling - **Accuracy**: 97.21% test accuracy",
     "slug": "dinov3-traditional-houses",
     "year": 2025,
     "project_category": "computer-vision",
@@ -112,13 +114,13 @@
     "demo_url": null,
     "github_url": null,
     "source": "src/lib/data/projects.ts",
-    "content_hash": "5c5630b7a9c0ded1c54115f29dc8ca362b958ccae355e0fe7f83394744ffe6c1"
+    "content_hash": "aad3dae99556dbd35417ae08b05a69399215be3530b6f2847e75e2d2ff26b5b2"
   },
   {
     "id": "project-indobert-culinary-ner",
     "category": "project",
     "title": "IndoBERT NER for Indonesian Culinary Text",
-    "content": "Project: IndoBERT NER for Indonesian Culinary Text. Deskripsi: 3rd Place at ACTION UNESA 2025 Data Mining Competition. Named Entity Recognition pipeline for Indonesian culinary text using IndoBERT; Micro-F1 0.8411 on the Kaggle leaderboard. Kategori: nlp. Tahun: 2025. Tech stack: NLP, IndoBERT, NER.",
+    "content": "Project: IndoBERT NER for Indonesian Culinary Text. Deskripsi: 3rd Place at ACTION UNESA 2025 Data Mining Competition. Named Entity Recognition pipeline for Indonesian culinary text using IndoBERT; Micro-F1 0.8411 on the Kaggle leaderboard. Kategori: nlp. Tahun: 2025. Tech stack: NLP, IndoBERT, NER. Detail: IndoBERT NER for Indonesian Culinary Text Overview Project ini adalah pipeline Named Entity Recognition untuk teks kuliner Bahasa Indonesia. Sistem dibuat untuk ACTION UNESA 2025 Data Mining Competition dan meraih 3rd Place dengan Micro-F1 0.8411 pada leaderboard Kaggle. Tujuannya adalah mengenali entitas penting dari teks kuliner, seperti nama makanan, bahan, lokasi, atau atribut lain yang relevan dengan domain kuliner Indonesia. Approach - Fine-tuning IndoBERT untuk token classification. - Preprocessing teks Bahasa Indonesia agar format token dan label konsisten. - Evaluasi menggunakan Micro-F1, metrik yang umum dipakai untuk sequence labeling. - Iterasi eksperimen pada cleaning, token alignment, dan training configuration. Why IndoBERT IndoBERT dipilih karena sudah dilatih pada korpus Bahasa Indonesia, sehingga lebih cocok untuk menangkap konteks lokal, variasi kata, dan struktur kalimat Indonesia dibanding model multilingual umum. Result - **Competition**: ACTION UNESA 2025 Data Mining Competition - **Placement**: 3rd Place - **Task**: Indonesian culinary Named Entity Recognition - **Model**: IndoBERT token classification - **Leaderboard score**: Micro-F1 0.8411",
     "slug": "indobert-culinary-ner",
     "year": 2025,
     "project_category": "nlp",
@@ -130,13 +132,13 @@
     "demo_url": null,
     "github_url": null,
     "source": "src/lib/data/projects.ts",
-    "content_hash": "c588ac7d37aedb0583c3127444302aea7358fb8ba3e68176cba6976089b294bd"
+    "content_hash": "65da616a58660f87f4b00d17f0acac4361c6ce0a6248f50aad99dea09c1ad2ce"
   },
   {
     "id": "project-sentimen-analisis-abolisi-tom-dan-hasto",
     "category": "project",
     "title": "Sentimen Analisis Abolisi Tom dan Hasto",
-    "content": "Project: Sentimen Analisis Abolisi Tom dan Hasto. Deskripsi: Sentiment analysis and topic modeling on public response to Prabowo’s decision granting abolition to Tom and amnesty to Hasto. Kategori: nlp. Tahun: 2025. Tech stack: NLP, Sentiment Analysis, BERTopic.",
+    "content": "Project: Sentimen Analisis Abolisi Tom dan Hasto. Deskripsi: Sentiment analysis and topic modeling on public response to Prabowo’s decision granting abolition to Tom and amnesty to Hasto. Kategori: nlp. Tahun: 2025. Tech stack: NLP, Sentiment Analysis, BERTopic. Detail: Sentimen Analisis Abolisi Tom dan Hasto Overview Project ini menganalisis respons publik terhadap keputusan Presiden Prabowo yang memberikan abolisi kepada Tom Lembong dan amnesti kepada Hasto. Analisis dilakukan pada percakapan media sosial untuk melihat sentimen, pola narasi, dan topik yang paling sering dibicarakan. Analysis Pipeline - Mengumpulkan dan membersihkan data percakapan publik. - Melakukan sentiment analysis untuk memetakan kecenderungan respons. - Menggunakan topic modeling untuk menemukan cluster isu utama. - Membuat visualisasi word cloud dan peta topik. - Merangkum insight dari distribusi sentimen dan topik. Outputs Folder hasil di repository berisi visualisasi: - `topic.png` - `topic2.png` - `wc.png` Tech Stack - Python - NLP preprocessing - Sentiment analysis - BERTopic/topic modeling - Data visualization Links - Public post - GitHub folder",
     "slug": "sentimen-analisis-abolisi-tom-dan-hasto",
     "year": 2025,
     "project_category": "nlp",
@@ -148,13 +150,13 @@
     "demo_url": "https://x.com/haipradana/status/1951344945295663171?t=cn_0U9QgrNNQDYqveyJCYQ&s=19",
     "github_url": "https://github.com/haipradana/barengdata/tree/main/Abolisi%20Tom%20Lembong",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "c83206e31eb104ffc7290d24962e8d9aa72647de605cda3392e81834109387a9"
+    "content_hash": "c70d4b67a330069f1053408649b4bedca32cd05af357cd327992486eb58a4436"
   },
   {
     "id": "project-sentimen-analisis-vonis-tom-lembong",
     "category": "project",
     "title": "Sentimen Analisis Vonis Tom Lembong",
-    "content": "Project: Sentimen Analisis Vonis Tom Lembong. Deskripsi: Sentiment analysis and topic modeling on the Tom Lembong verdict. BERT for sentiment classification and BERTopic for topic modeling. Kategori: nlp. Tahun: 2025. Tech stack: NLP, Sentiment Analysis, BERTopic.",
+    "content": "Project: Sentimen Analisis Vonis Tom Lembong. Deskripsi: Sentiment analysis and topic modeling on the Tom Lembong verdict. BERT for sentiment classification and BERTopic for topic modeling. Kategori: nlp. Tahun: 2025. Tech stack: NLP, Sentiment Analysis, BERTopic. Detail: Sentimen Analisis Vonis Tom Lembong Overview Project ini menganalisis respons publik terhadap vonis Tom Lembong. Fokusnya adalah memetakan sentimen, emosi, kata kunci dominan, dan topik pembicaraan yang muncul di media sosial. Analisis ini menggabungkan klasifikasi sentimen berbasis BERT dan topic modeling untuk memahami bagaimana opini publik terbentuk di sekitar isu politik dan hukum. Analysis Pipeline - Data cleaning dan normalisasi teks. - Klasifikasi sentimen menggunakan model berbasis BERT. - Analisis emosi untuk menangkap nuansa respons publik. - Topic modeling untuk menemukan tema pembicaraan utama. - Visualisasi word cloud, distribusi sentimen, distribusi emosi, dan topic map. Outputs Folder hasil di repository berisi: - `sentiment.png` - `emosi.png` - `topics.png` - `wc.png` - `sudah-sentiment.csv` Tech Stack - Python - BERT sentiment classification - BERTopic/topic modeling - NLP preprocessing - Data visualization Links - Public post - GitHub folder",
     "slug": "sentimen-analisis-vonis-tom-lembong",
     "year": 2025,
     "project_category": "nlp",
@@ -166,13 +168,13 @@
     "demo_url": "https://www.instagram.com/p/DM72xWmPTen",
     "github_url": "https://github.com/haipradana/barengdata/tree/main/Tom%20Lembong%201",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "569d011af8b5c872cb21c0288811f1b9e575f8c8f562f66c19762b5863e969eb"
+    "content_hash": "0542a2984c33f15a0cf7d2cd9b85f83d86a063bc5a9d512b42f90ee3399eae7c"
   },
   {
     "id": "project-hate-speech-roberta",
     "category": "project",
     "title": "Hate Speech Classification (RoBERTa)",
-    "content": "Project: Hate Speech Classification (RoBERTa). Deskripsi: Fine-tuned sentiment-based RoBERTa for hate speech classification on Indonesian text. Kategori: nlp. Tahun: 2025. Tech stack: NLP, RoBERTa, Fine-Tuning.",
+    "content": "Project: Hate Speech Classification (RoBERTa). Deskripsi: Fine-tuned sentiment-based RoBERTa for hate speech classification on Indonesian text. Kategori: nlp. Tahun: 2025. Tech stack: NLP, RoBERTa, Fine-Tuning. Detail: Hate Speech Classification with RoBERTa Overview Project ini melakukan fine-tuning RoBERTa untuk klasifikasi hate speech pada tweet Bahasa Indonesia. Model mengklasifikasikan teks menjadi dua label: neutral dan hate. Dataset dibuat dari gabungan data scraping Twitter dan beberapa dataset publik dari GitHub, lalu dibersihkan dan dipreprocess sebelum training. Dataset Dataset yang sudah dibersihkan tersedia di Hugging Face: - haipradana/indonesian-twitter-hate-speech-cleaned Model - Base model: `cardiffnlp/twitter-roberta-base-sentiment-latest` - Task: binary sequence classification - Labels: - `0`: neutral - `1`: hate Performance | Metric | Value | |---|---:| | Accuracy | 82.01% | | Precision | 82.68% | | Recall | 81.72% | | F1-Score | 82.19% | Usage Model bisa digunakan dengan `transformers` untuk inference teks tunggal, atau lewat script `scripts/predict.py` yang tersedia di repository. Links - Hugging Face model - GitHub repository",
     "slug": "hate-speech-roberta",
     "year": 2025,
     "project_category": "nlp",
@@ -184,13 +186,13 @@
     "demo_url": "https://huggingface.co/haipradana/roberta-hate-classification-model",
     "github_url": "https://github.com/haipradana/RoBERTa-Indonesian-Hate-Tweet-Classification",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "a98bdb21488148de201c4562f6a931c82b761748e22dc6763c9cc2ebf08d7ca6"
+    "content_hash": "a27ac63bcf3b0dc7b639e0599f3d337f7e0447bfcd423ebc67f909eba5d7576a"
   },
   {
     "id": "project-sarcasm-indobert",
     "category": "project",
     "title": "Sarcasm Detection (IndoBERT Fine-Tuning)",
-    "content": "Project: Sarcasm Detection (IndoBERT Fine-Tuning). Deskripsi: Fine-tuned IndoBERT base for sarcasm classification on Indonesian social-media text. Kategori: nlp. Tahun: 2025. Tech stack: NLP, IndoBERT, Fine-Tuning.",
+    "content": "Project: Sarcasm Detection (IndoBERT Fine-Tuning). Deskripsi: Fine-tuned IndoBERT base for sarcasm classification on Indonesian social-media text. Kategori: nlp. Tahun: 2025. Tech stack: NLP, IndoBERT, Fine-Tuning. Detail: Sarcasm Detection with IndoBERT Overview Project ini melakukan fine-tuning IndoBERT untuk klasifikasi sarkasme pada teks Bahasa Indonesia. Model mengklasifikasikan teks menjadi `sarcasm` atau `not sarcasm`. Sarkasme sering sulit dikenali karena makna literal dan maksud sebenarnya bisa bertolak belakang. Karena itu, model berbasis transformer seperti IndoBERT dipakai untuk menangkap konteks kalimat secara lebih baik. Model - Base model: IndoBERT - Task: binary sequence classification - Labels: - `0`: not sarcasm - `1`: sarcasm Evaluation | Metric | Value | |---|---:| | Accuracy | 0.8378 | | Precision | 0.8405 | | Recall | 0.8286 | | F1-Score | 0.8345 | Training Notes Training dilakukan selama beberapa epoch dan dievaluasi pada test set. Model terbaik menjaga keseimbangan precision dan recall agar tidak terlalu mudah memberi label sarkasme pada kalimat biasa. Links - Hugging Face model - GitHub repository",
     "slug": "sarcasm-indobert",
     "year": 2025,
     "project_category": "nlp",
@@ -202,7 +204,7 @@
     "demo_url": "https://huggingface.co/haipradana/indobert-indonesia-satire-sarcastic-classification-model",
     "github_url": "https://github.com/haipradana/indobert-indonesia-sarcastic-satire-classification",
     "source": "src/lib/data/projects.ts",
-    "content_hash": "97747cbca6c925a6a9d868717bf026f3d9044cda90dfc5fe4c404eb332935d60"
+    "content_hash": "fbb30ac643c490cf7e3e6ac1e58f6d2ccec3062d7ba03b843823a34f6594d3bc"
   },
   {
     "id": "project-retail-behaviour-analysis-v1",

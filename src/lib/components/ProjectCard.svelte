@@ -75,7 +75,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="text-ink-muted-light dark:text-ink-muted-dark hover:text-ink-light dark:hover:text-ink-dark transition-colors"
-            aria-label="Live demo"
+            aria-label={project.demoLabel ?? 'Live demo'}
           >
             <ArrowUpRight class="h-4 w-4" />
           </a>

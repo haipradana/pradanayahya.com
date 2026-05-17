@@ -26,7 +26,7 @@
   const featuredSlugs = [
     'retail-behaviour-analysis-v1',
     'kawanisyarat-bisindo',
-    'nusavoice-on-device-llm',
+    'nusavoice-indonesian-tts',
   ];
   const featured = featuredSlugs
     .map((s) => projects.find((p) => p.slug === s))
@@ -254,8 +254,8 @@
         (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/kawanisyarat-bisindo">KawanIsyarat</a>),
         a multimodal retail-analytics platform that won DATATHON 2025
         (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/retail-behaviour-analysis-v1">TRACKO</a>),
-        and an on-device Indonesian intent LLM for IoT control
-        (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/nusavoice-on-device-llm">NusaVoice</a>).
+        and a lightweight Indonesian text-to-speech model
+        (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/nusavoice-indonesian-tts">NusaVoice</a>).
       </p>
       <p>
         Outside the terminal, I hike, play football, and lead

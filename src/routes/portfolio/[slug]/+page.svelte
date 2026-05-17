@@ -116,7 +116,7 @@
             rel="noopener noreferrer"
             class="btn-primary"
           >
-            <ExternalLink class="h-4 w-4" /> Live demo
+            <ExternalLink class="h-4 w-4" /> {project.demoLabel ?? 'Live demo'}
           </a>
         {/if}
         {#if project.githubUrl}
@@ -178,7 +178,7 @@
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-1.5 text-ink-light dark:text-ink-dark hover:text-accent-600 dark:hover:text-accent-400"
               >
-                <ExternalLink class="h-3.5 w-3.5" /> Live demo
+                <ExternalLink class="h-3.5 w-3.5" /> {project.demoLabel ?? 'Live demo'}
               </a>
             </li>
           {/if}
