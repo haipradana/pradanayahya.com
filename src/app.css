@@ -164,6 +164,26 @@
     @apply my-8 text-center;
   }
 
+  .project-markdown table {
+    @apply my-6 w-full border-collapse overflow-hidden rounded-xl text-left text-sm;
+  }
+
+  .project-markdown thead {
+    @apply bg-surface-light-muted dark:bg-surface-dark-muted;
+  }
+
+  .project-markdown th {
+    @apply border border-ink-faint-light px-4 py-3 font-semibold text-ink-light dark:border-ink-faint-dark dark:text-ink-dark;
+  }
+
+  .project-markdown td {
+    @apply border border-ink-faint-light px-4 py-3 align-top text-ink-light/85 dark:border-ink-faint-dark dark:text-ink-dark/85;
+  }
+
+  .project-markdown tbody tr:nth-child(even) {
+    @apply bg-surface-light-muted/45 dark:bg-surface-dark-muted/45;
+  }
+
   .project-markdown code {
     @apply rounded bg-surface-light-muted px-1.5 py-0.5 text-[0.9em] text-ink-light dark:bg-surface-dark-muted dark:text-ink-dark;
   }
