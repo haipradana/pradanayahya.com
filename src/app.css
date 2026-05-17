@@ -99,6 +99,82 @@
   .card {
     @apply surface rounded-2xl p-6 transition-all duration-200;
   }
+
+  .project-markdown {
+    @apply text-[16px] leading-7 text-ink-light/85 dark:text-ink-dark/85;
+  }
+
+  .project-markdown > * + * {
+    @apply mt-5;
+  }
+
+  .project-markdown h1,
+  .project-markdown h2,
+  .project-markdown h3,
+  .project-markdown h4 {
+    @apply font-display text-ink-light dark:text-ink-dark;
+  }
+
+  .project-markdown h2 {
+    @apply mt-10 text-2xl;
+  }
+
+  .project-markdown h3 {
+    @apply mt-8 text-xl;
+  }
+
+  .project-markdown h4 {
+    @apply mt-6 text-lg;
+  }
+
+  .project-markdown p {
+    @apply text-pretty;
+  }
+
+  .project-markdown ul,
+  .project-markdown ol {
+    @apply my-5 pl-6 space-y-2;
+  }
+
+  .project-markdown ul {
+    @apply list-disc;
+  }
+
+  .project-markdown ol {
+    @apply list-decimal;
+  }
+
+  .project-markdown li {
+    @apply pl-1;
+  }
+
+  .project-markdown strong {
+    @apply font-semibold text-ink-light dark:text-ink-dark;
+  }
+
+  .project-markdown a {
+    @apply font-medium text-accent-700 underline underline-offset-4 hover:text-accent-800 dark:text-accent-300 dark:hover:text-accent-200;
+  }
+
+  .project-markdown img {
+    @apply mx-auto rounded-xl border border-ink-faint-light dark:border-ink-faint-dark;
+  }
+
+  .project-markdown center {
+    @apply my-8 text-center;
+  }
+
+  .project-markdown code {
+    @apply rounded bg-surface-light-muted px-1.5 py-0.5 text-[0.9em] text-ink-light dark:bg-surface-dark-muted dark:text-ink-dark;
+  }
+
+  .project-markdown pre {
+    @apply overflow-x-auto rounded-xl bg-surface-light-muted p-4 dark:bg-surface-dark-muted;
+  }
+
+  .project-markdown pre code {
+    @apply bg-transparent p-0;
+  }
 }
 
 @layer utilities {

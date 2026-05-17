@@ -40,13 +40,21 @@
   // server-rendered page already ships substantive content (description,
   // tags, year, links, related) so Google never sees a thin page.
   let markdownHtml = '';
+  function renderProjectMarkdown(md: string) {
+    const html = DOMPurify.sanitize(marked.parse(md) as string);
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    template.content.querySelector('h1')?.remove();
+    return template.innerHTML;
+  }
+
   onMount(async () => {
     if (!project) return;
     try {
       const res = await fetch(`/projects/${project.slug}.md`);
       if (res.ok) {
         const md = await res.text();
-        markdownHtml = DOMPurify.sanitize(marked.parse(md) as string);
+        markdownHtml = renderProjectMarkdown(md);
       }
     } catch {
       /* leave markdownHtml empty; the structured fallback handles it */
@@ -202,7 +210,7 @@
     </section>
 
     {#if markdownHtml}
-      <section class="mt-12 prose dark:prose-invert max-w-none prose-headings:font-display">
+      <section class="project-markdown mt-12">
         {@html markdownHtml}
       </section>
     {/if}
