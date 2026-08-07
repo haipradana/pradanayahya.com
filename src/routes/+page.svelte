@@ -13,13 +13,13 @@
   import { projects } from '$lib/data/projects';
   import { honours, sortAwardsByBest } from '$lib/data/honours';
 
-  // Hero photo carousel. Drop additional files into /static/images/hero/
-  // and append them here to extend the slideshow.
+  // Hero photo carousel featuring profile and achievement photos
   const heroPhotos = [
     { src: '/images/profile.webp', alt: 'Pradana Yahya', caption: 'Yogyakarta, ID' },
-    // { src: '/images/hero/hackathon.webp', alt: 'DATATHON 2025', caption: 'DATATHON 2025 Champion' },
-    // { src: '/images/hero/fukuro.webp',    alt: 'GMRT FUKURO', caption: 'FUKURO RoboCup 2026' },
-    // { src: '/images/hero/bmkg.webp',      alt: 'BMKG intern', caption: 'BMKG Yogyakarta' },
+    { src: '/images/datathon.webp', alt: '1st Place DATATHON 2025', caption: '1st Place - DATATHON 2025' },
+    { src: '/images/action1.webp', alt: '3rd Winner Hackathon 2025', caption: '3rd Winner - Hackathon 2025' },
+    { src: '/images/action2.webp', alt: '3rd Place ACTION UNESA 2025', caption: '3rd Place - ACTION UNESA 2025' },
+    { src: '/images/logika.webp', alt: '2nd Place DSC LOGIKA UI 2025', caption: '2nd Place - DSC LOGIKA UI 2025' },
   ];
 
   // Featured: KawanIsyarat, Smart Space Jarvis, TRACKO
@@ -161,7 +161,7 @@
 
   <div class="mx-auto max-w-5xl px-5 sm:px-8 pt-8 md:pt-12 pb-12 md:pb-16">
     <div class="grid gap-8 md:grid-cols-12 md:gap-8 lg:gap-10 items-center">
-      <div class="md:col-span-7 lg:col-span-8 animate-fade-up">
+      <div class="md:col-span-7 lg:col-span-7 animate-fade-up">
         <div class="inline-flex flex-wrap items-center gap-2 mb-4">
           <span class="inline-flex items-center gap-1.5 text-ink-muted-light dark:text-ink-muted-dark">
             <MapPin class="h-3.5 w-3.5" />
@@ -224,7 +224,7 @@
       </div>
 
       <div
-        class="md:col-span-5 lg:col-span-4 animate-fade-up w-full max-w-[11rem] sm:max-w-[14rem] mx-auto md:max-w-none md:ml-auto"
+        class="md:col-span-5 lg:col-span-5 animate-fade-up w-full max-w-[20rem] sm:max-w-[25rem] md:max-w-none mx-auto md:ml-auto"
         style="animation-delay:120ms"
       >
         <HeroCarousel images={heroPhotos} interval={5500} />

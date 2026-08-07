@@ -44,3 +44,5 @@ Thumbs.db
 !.env.example
 
 example/
+src/lib/components/HeroCarousel.svelte
+bun.lock
