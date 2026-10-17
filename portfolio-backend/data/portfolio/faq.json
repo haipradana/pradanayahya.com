@@ -2,7 +2,7 @@
     {
         "category": "faq",
         "title": "Siapa Dana/Pradana?",
-        "content": "Pradana Yahya Abdillah (Dana) adalah mahasiswa Teknologi Informasi di Universitas Gadjah Mada yang aktif mengeksplorasi NLP, LLMs, dan Computer Vision. Bersama tim KawanIsyarat, dia meraih Cactus Prize pada The Gemma 4 Good Challenge 2026 dari Google DeepMind dengan hadiah tim US$10.000. Dia juga telah menyelesaikan magang di Divistant sebagai Data & AI, Power Platform Engineer pada Juni–Oktober 2026."
+        "content": "Pradana Yahya Abdillah (Dana) adalah AI Engineer dan Data Scientist serta mahasiswa Teknologi Informasi di Universitas Gadjah Mada, dengan fokus pada computer vision, NLP, LLM, dan on-device AI. Pada 2026, tim KawanIsyarat meraih Cactus Prize pada The Gemma 4 Good Challenge dari Google DeepMind dengan hadiah tim US$10.000. Pengalaman kerja terbarunya adalah magang sebagai Data & AI, Power Platform Engineer di Divistant, Juni–Oktober 2026, yang sudah selesai. Dia juga memiliki pengalaman sebagai Research Assistant di DTETI UGM, Data Scientist di BMKG, dan Team Captain FUKURO."
     },
     {
         "category": "faq",
@@ -12,7 +12,7 @@
     {
         "category": "faq",
         "title": "Apa project Pradana?",
-        "content": "Pradana telah mengerjakan berbagai project seperti Sentimen Analisis dengan BERT dan BERTopic, Klasifikasi Hate Speech dengan RoBERTa, Deteksi Sarkas dengan IndoBERT, Retail Behaviour Analysis dengan Computer Vision, Mood2Movie untuk rekomendasi film, dan ChatMyDocs untuk RAG-based document assistant."
+        "content": "Proyek unggulan terbaru Pradana meliputi KawanIsyarat, aplikasi Android untuk komunikasi BISINDO yang meraih Cactus Prize Google DeepMind pada 2026; NusaVoice, model text-to-speech Bahasa Indonesia yang ringan; BMKG-Hirup, sistem prakiraan PM2.5; Smart Space (Jarvis), asisten suara offline untuk otomasi laboratorium; ask-docs, asisten dokumen dengan agentic RAG; serta TRACKO, platform analitik perilaku pelanggan berbasis CCTV yang meraih Champion DATATHON 2025. Proyek lainnya mencakup analisis sentimen, hate speech, sarkasme, Mood2Movie, dan ChatMyDocs."
     },
     {
         "category": "faq",

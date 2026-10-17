@@ -139,6 +139,18 @@ async def chat(
         
         context = "\n\n".join(context_parts)
     
+    # Keep the current profile available when semantic search returns older details.
+    profile = next(
+        (item for item in list_payloads_by_category("about") if item.get("title") == "Bio"),
+        None,
+    )
+    if profile and profile.get("content"):
+        context = f"PROFIL TERBARU PRADANA:\n{profile['content']}\n\nKONTEKS TAMBAHAN:\n{context}"
+        sources = [{"category": "about", "title": "Bio", "score": 1.0}] + [
+            source for source in sources
+            if (source["category"], source["title"]) != ("about", "Bio")
+        ]
+
     # Generate answer
     if context:
         answer = generate_answer(data.message, context)
