@@ -1,3 +1,5 @@
+import pixelEsimGuide from './posts/fixing-pixel-9-pro-esim.md?raw';
+
 export interface BlogPost {
     slug: string;
     title: string;
@@ -8,6 +10,13 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+    {
+        slug: "fixing-pixel-9-pro-esim",
+        title: 'Fixing "SIM not activated" on a Pixel 9 Pro',
+        date: "2026-10-17",
+        category: "Android",
+        content: pixelEsimGuide.trim(),
+    },
     {
         slug: "hello-world",
         title: "Hello World!",

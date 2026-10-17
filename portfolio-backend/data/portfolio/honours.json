@@ -3,7 +3,7 @@
     "id": "edu-ugm-information-technology",
     "category": "education",
     "title": "B.Sc. in Information Technology",
-    "content": "Education: B.Sc. in Information Technology. Organisasi: Universitas Gadjah Mada. Periode: Aug 2023 - Present. Deskripsi: Undergraduate student at the Faculty of Engineering, focusing on machine learning, computer vision, and on-device AI systems. Current GPA 3.44. Tags: Education.",
+    "content": "Education: B.Sc. in Information Technology. Organisasi: Universitas Gadjah Mada. Periode: Aug 2023 - Present. Deskripsi: Undergraduate student at the Faculty of Engineering, focusing on machine learning, computer vision, and on-device AI systems. Current GPA 3.51. Tags: Education.",
     "org": "Universitas Gadjah Mada",
     "period": {
       "from": "Aug 2023",
@@ -13,7 +13,7 @@
       "Education"
     ],
     "source": "src/lib/data/honours.ts",
-    "content_hash": "40bc594e4278ec53f125a62b15ee215e2cfc1e69411046b752babd61e1ec36a5"
+    "content_hash": "0a1b45b387e37120107f2947615a1b5133a7c16e9440115e9d882f6c4e6be7ec"
   },
   {
     "id": "exp-night-login-community",
@@ -36,11 +36,11 @@
     "id": "exp-fukuro-cv-programmer",
     "category": "experience",
     "title": "Computer Vision Programmer - FUKURO",
-    "content": "Experience: Computer Vision Programmer - FUKURO. Organisasi: Gadjah Mada Robotic Team (GMRT). Periode: Oct 2024 - Present. Deskripsi: Develop image processing algorithms for an omnidirectional 360° vision system used in wheeled soccer robots, plus real-time object detection and tracking for in-match decisions. Tags: Computer Vision, OpenCV, ROS2, C++.",
+    "content": "Experience: Computer Vision Programmer - FUKURO. Organisasi: Gadjah Mada Robotic Team (GMRT). Periode: Sep 2024 - Sep 2026. Deskripsi: Developed image processing algorithms for an omnidirectional 360° vision system used in wheeled soccer robots, plus real-time object detection and tracking for in-match decisions. Tags: Computer Vision, OpenCV, ROS2, C++.",
     "org": "Gadjah Mada Robotic Team (GMRT)",
     "period": {
-      "from": "Oct 2024",
-      "to": "Present"
+      "from": "Sep 2024",
+      "to": "Sep 2026"
     },
     "tags": [
       "Computer Vision",
@@ -49,24 +49,24 @@
       "C++"
     ],
     "source": "src/lib/data/honours.ts",
-    "content_hash": "896f76dda8a1c7ff4ac9e32b5145b739596b2552ccba48e31b43965f3e7c1bca"
+    "content_hash": "4080aac2ae1f70615c3a8305cfd73eeb71f740c6e8d4622691245bc960d01811"
   },
   {
     "id": "exp-fukuro-captain",
     "category": "experience",
     "title": "Team Captain - FUKURO (KRSBI Wheeled)",
-    "content": "Experience: Team Captain - FUKURO (KRSBI Wheeled). Organisasi: Gadjah Mada Robotic Team (GMRT). Periode: Sep 2025 - Present. Deskripsi: Lead the wheeled soccer robot team for the national KRSBI competition, coordinating hardware and software divisions. Qualified to represent UGM at RoboCup 2026 in Incheon, South Korea. Tags: Leadership, Robotics.",
+    "content": "Experience: Team Captain - FUKURO (KRSBI Wheeled). Organisasi: Gadjah Mada Robotic Team (GMRT). Periode: Sep 2025 - Sep 2026. Deskripsi: Led the wheeled soccer robot team for the national KRSBI competition, coordinating hardware and software divisions. Qualified to represent UGM at RoboCup 2026 in Incheon, South Korea. Tags: Leadership, Robotics.",
     "org": "Gadjah Mada Robotic Team (GMRT)",
     "period": {
       "from": "Sep 2025",
-      "to": "Present"
+      "to": "Sep 2026"
     },
     "tags": [
       "Leadership",
       "Robotics"
     ],
     "source": "src/lib/data/honours.ts",
-    "content_hash": "8bae253e8b7bf258177fba3ea2361f76befc7d360f5b04282f451dc915147c12"
+    "content_hash": "d3648e9adcda3e8dbc52d639ee53628f1c4b47d57875b747839c48adf1af2c98"
   },
   {
     "id": "exp-datains-ai-engineer-intern",
@@ -92,11 +92,11 @@
     "id": "exp-research-assistant",
     "category": "experience",
     "title": "Research Assistant - Smart Lab & Smart Space",
-    "content": "Experience: Research Assistant - Smart Lab & Smart Space. Organisasi: DTETI, Universitas Gadjah Mada. Periode: Dec 2025 - Present. Deskripsi: Research on AI and IoT systems for Smart Lab and Smart Space. Developed NusaVoice, a lightweight Indonesian text-to-speech system based on fine-tuned Piper/VITS models for CPU-only inference. Tags: Piper, VITS, FastAPI, React, IoT.",
+    "content": "Experience: Research Assistant - Smart Lab & Smart Space. Organisasi: DTETI, Universitas Gadjah Mada. Periode: Dec 2025 - Oct 2026. Deskripsi: Researched AI and IoT systems for Smart Lab and Smart Space. Developed NusaVoice, a lightweight Indonesian text-to-speech system based on fine-tuned Piper/VITS models for CPU-only inference. Tags: Piper, VITS, FastAPI, React, IoT.",
     "org": "DTETI, Universitas Gadjah Mada",
     "period": {
       "from": "Dec 2025",
-      "to": "Present"
+      "to": "Oct 2026"
     },
     "tags": [
       "Piper",
@@ -106,17 +106,17 @@
       "IoT"
     ],
     "source": "src/lib/data/honours.ts",
-    "content_hash": "5e65ff202542eac8fc51772369feeffa5230c780273ef27cf30c64c73540c398"
+    "content_hash": "1e88f846321ffb67bf0e1734b13a9593e31191fd6c91280828e2283a806a664c"
   },
   {
     "id": "exp-bmkg-intern",
     "category": "experience",
-    "title": "Machine Learning Intern",
-    "content": "Experience: Machine Learning Intern. Organisasi: BMKG - Badan Meteorologi, Klimatologi, dan Geofisika. Periode: Dec 2025 - Jan 2026. Deskripsi: Developed a PM2.5 air quality forecasting system with Random Forest and deployed it as a full-stack web app at bmkg-hirup.pradanayahya.com. Also built rainfall forecasting models from climatology station data and internal tools for BMKG workflows. Tags: scikit-learn, FastAPI, React, Docker, Time Series.",
+    "title": "Data Scientist",
+    "content": "Experience: Data Scientist. Organisasi: BMKG - Badan Meteorologi, Klimatologi, dan Geofisika. Periode: Dec 2025 - Feb 2026. Deskripsi: Developed a PM2.5 air quality forecasting system with Random Forest and deployed it as a full-stack web app at bmkg-hirup.pradanayahya.com. Also built rainfall forecasting models from climatology station data and internal tools for BMKG workflows. Tags: scikit-learn, FastAPI, React, Docker, Time Series.",
     "org": "BMKG - Badan Meteorologi, Klimatologi, dan Geofisika",
     "period": {
       "from": "Dec 2025",
-      "to": "Jan 2026"
+      "to": "Feb 2026"
     },
     "tags": [
       "scikit-learn",
@@ -126,7 +126,25 @@
       "Time Series"
     ],
     "source": "src/lib/data/honours.ts",
-    "content_hash": "ec6d242207fe87d6e2f5b8bcea88c08cf7e47e9b5c60c9ae20b95baff7f5c510"
+    "content_hash": "282d334874a24301d08af7c5c32b578da8984f79ccfb50be0ffa23bcc6b5a862"
+  },
+  {
+    "id": "exp-divistant-intern",
+    "category": "experience",
+    "title": "Data & AI, Power Platform Engineer",
+    "content": "Experience: Data & AI, Power Platform Engineer. Organisasi: Divistant. Periode: Jun 2026 - Oct 2026. Deskripsi: Completed an internship at Divistant as a Data & AI, Power Platform Engineer. Tags: Data & AI, Power Platform, Internship.",
+    "org": "Divistant",
+    "period": {
+      "from": "Jun 2026",
+      "to": "Oct 2026"
+    },
+    "tags": [
+      "Data & AI",
+      "Power Platform",
+      "Internship"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "bc4b004fcaba6d2b7db90830f42d03ebd9fb96bce5b2d2ce16077cd8aeaf594b"
   },
   {
     "id": "award-datathon-2024-ristek",
@@ -212,5 +230,23 @@
     ],
     "source": "src/lib/data/honours.ts",
     "content_hash": "755b448897f336b3ac78c42088c87fbf53c57495a18da501c82d7857b06af73c"
+  },
+  {
+    "id": "award-gemma-4-good-cactus-2026",
+    "category": "award",
+    "title": "Cactus Prize Winner - The Gemma 4 Good Challenge 2026",
+    "content": "Award: Cactus Prize Winner - The Gemma 4 Good Challenge 2026. Organisasi: Google DeepMind. Periode: Aug 2026. Deskripsi: Won the Cactus Prize with KawanIsyarat, an offline Android assistant for two-way BISINDO communication. The team received US$10,000; Google highlighted its memory-aware model routing and latency optimizations for on-device AI. Tags: Gemma 4, Cactus, On-device AI, Accessibility.",
+    "org": "Google DeepMind",
+    "period": {
+      "from": "Aug 2026"
+    },
+    "tags": [
+      "Gemma 4",
+      "Cactus",
+      "On-device AI",
+      "Accessibility"
+    ],
+    "source": "src/lib/data/honours.ts",
+    "content_hash": "d8aa1a4889d38cd88d0e7bbf7d4c142b8044d88137a0bc8757f5740b2cf0da16"
   }
 ]

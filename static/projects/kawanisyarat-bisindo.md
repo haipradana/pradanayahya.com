@@ -6,7 +6,16 @@
 
 KawanIsyarat adalah aplikasi komunikasi dua arah antara pengguna Tuli BISINDO dan masyarakat dengar di Indonesia. Aplikasi ini berjalan offline setelah model awal diunduh, sehingga tidak membutuhkan server dan data pengguna tidak keluar dari perangkat.
 
-Project ini dibuat untuk Gemma 4 Good Hackathon. Tujuannya bukan menggantikan bahasa isyarat, tetapi membantu lebih banyak orang memahami dan merespons pengguna BISINDO dengan lebih baik.
+Project ini meraih **Cactus Prize** pada **The Gemma 4 Good Challenge 2026** yang diselenggarakan Google DeepMind melalui Kaggle, dengan hadiah tim sebesar **US$10.000**. Tujuannya bukan menggantikan bahasa isyarat, tetapi membantu lebih banyak orang memahami dan merespons pengguna BISINDO dengan lebih baik.
+
+## Penghargaan
+
+Google mengumumkan KawanIsyarat sebagai pemenang Cactus Prize pada 24 Agustus 2026. Juri menyoroti **memory-aware model routing**, yang memuat Whisper saat dibutuhkan untuk transkripsi lalu melepasnya untuk memberi ruang bagi Gemma, serta optimasi latency agar aplikasi dapat digunakan secara interaktif pada smartphone Android.
+
+Tim KawanIsyarat beranggotakan Pradana Yahya Abdillah, Maulana Isqi Habibah, dan Muhammad Ghozy Wira Elmada.
+
+- <a href="https://blog.google/innovation-and-ai/technology/developers-tools/winning-entries-gemma-4-good-challenge/" target="_blank" rel="noopener noreferrer">Pengumuman resmi Google</a>
+- <a href="https://jteti.ugm.ac.id/2026/09/18/mahasiswa-dteti-ugm-dan-tim-raih-cactus-prize-pada-the-gemma-4-good-challenge-2026/" target="_blank" rel="noopener noreferrer">Liputan DTETI UGM</a>
 
 ## Cara Kerja
 

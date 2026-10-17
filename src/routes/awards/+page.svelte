@@ -60,6 +60,15 @@
             {/each}
           </div>
         {/if}
+        {#if item.links?.length}
+          <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+            {#each item.links as link}
+              <a class="underline decoration-accent-500 underline-offset-4" href={link.url}>
+                {link.label}
+              </a>
+            {/each}
+          </div>
+        {/if}
       </article>
     {/each}
   </div>

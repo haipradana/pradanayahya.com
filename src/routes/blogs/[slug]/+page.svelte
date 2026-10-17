@@ -1,18 +1,29 @@
 <script lang="ts">
     import { page } from "$app/stores";
+    import { browser } from "$app/environment";
     import { blogPosts, formatDate } from "$lib/data/blogPosts";
-    import { marked } from "marked";
+    import { Marked } from "marked";
     import DOMPurify from "dompurify";
-    import { onMount } from "svelte";
     import JsonLd from "$lib/components/JsonLd.svelte";
 
     $: slug = $page.params.slug;
     $: post = blogPosts.find((p) => p.slug === slug);
 
-    // Parse markdown content
-    $: htmlContent = post
-        ? DOMPurify.sanitize(marked.parse(post.content) as string)
-        : "";
+    function headingId(text: string): string {
+        return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    }
+
+    const markdown = new Marked({
+        renderer: {
+            heading({ tokens, depth, text }) {
+                return `<h${depth} id="${headingId(text)}">${this.parser.parseInline(tokens)}</h${depth}>`;
+            },
+        },
+    });
+
+    $: parsedContent = post ? markdown.parse(post.content) as string : "";
+    // Posts are trusted, checked-in Markdown; DOMPurify needs a browser DOM.
+    $: htmlContent = browser ? DOMPurify.sanitize(parsedContent) : parsedContent;
 
     // Extract headings for table of contents
     interface TocItem {
@@ -21,24 +32,13 @@
         level: number;
     }
 
-    let tocItems: TocItem[] = [];
-
-    onMount(() => {
-        if (post) {
-            // Extract headings from markdown
-            const headingRegex = /^(#{2,3})\s+(.+)$/gm;
-            const matches = [...post.content.matchAll(headingRegex)];
-
-            tocItems = matches.map((match) => ({
-                id: match[2]
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]+/g, "-")
-                    .replace(/(^-|-$)/g, ""),
-                text: match[2],
-                level: match[1].length,
-            }));
-        }
-    });
+    $: tocItems = (post
+        ? [...post.content.matchAll(/^(#{2,3})\s+(.+)$/gm)]
+        : []).map((match): TocItem => ({
+            id: headingId(match[2]),
+            text: match[2],
+            level: match[1].length,
+        }));
 
     function scrollToSection(id: string) {
         const element = document.getElementById(id);
@@ -103,7 +103,7 @@
         <div class="max-w-5xl mx-auto px-6 lg:px-8">
             <div class="lg:flex lg:gap-16">
                 <!-- Main Content -->
-                <article class="flex-1 max-w-3xl">
+                <article class="flex-1 min-w-0 max-w-3xl">
                     <header class="mb-10">
                         <h1
                             class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3"
@@ -187,6 +187,11 @@
 {/if}
 
 <style>
+    :global(.blog-content h2),
+    :global(.blog-content h3) {
+        scroll-margin-top: 6rem;
+    }
+
     :global(.blog-content h2) {
         font-size: 1.5rem;
         font-weight: 700;
@@ -244,6 +249,7 @@
         padding: 0.125rem 0.375rem;
         border-radius: 0.25rem;
         font-size: 0.875rem;
+        overflow-wrap: anywhere;
     }
 
     :global(.dark .blog-content code) {
@@ -263,6 +269,27 @@
         background-color: transparent;
         padding: 0;
         color: #e5e7eb;
+        overflow-wrap: normal;
+    }
+
+    :global(.blog-content table) {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        border-collapse: collapse;
+        margin-bottom: 1.5rem;
+    }
+
+    :global(.blog-content th),
+    :global(.blog-content td) {
+        border: 1px solid #d1d5db;
+        padding: 0.75rem;
+        text-align: left;
+    }
+
+    :global(.dark .blog-content th),
+    :global(.dark .blog-content td) {
+        border-color: #374151;
     }
 
     :global(.blog-content blockquote) {

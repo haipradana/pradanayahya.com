@@ -74,7 +74,7 @@ export const projects: Project[] = [
     id: '11',
     title: 'KawanIsyarat - Offline BISINDO Translator',
     description:
-      'Android app for real-time BISINDO and Indonesian translation. It runs fully on-device and was built for Google Gemma 4 Good Hackathon.',
+      'Cactus Prize winner at Google DeepMind’s Gemma 4 Good Challenge 2026, awarded US$10,000. An on-device Android app for two-way BISINDO and Indonesian communication.',
     image: `${PROJECT_IMAGE_BASE}/kawan_isyarat/kawan-isyarat.webp`,
     tags: ['Flutter', 'MediaPipe', 'Gemma 4', 'Sign Language', 'On-device AI'],
     category: 'computer-vision',

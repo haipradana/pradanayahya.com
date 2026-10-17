@@ -56,7 +56,7 @@ export const honours: HonourItem[] = [
     location: 'Yogyakarta, Indonesia',
     period: { from: 'Aug 2023', to: 'Present' },
     description:
-      'Undergraduate student at the Faculty of Engineering, focusing on machine learning, computer vision, and on-device AI systems. Current GPA 3.44.',
+      'Undergraduate student at the Faculty of Engineering, focusing on machine learning, computer vision, and on-device AI systems. Current GPA 3.51.',
     tags: ['Education'],
   },
 
@@ -78,9 +78,9 @@ export const honours: HonourItem[] = [
     title: 'Computer Vision Programmer - FUKURO',
     org: 'Gadjah Mada Robotic Team (GMRT)',
     location: 'Yogyakarta, Indonesia',
-    period: { from: 'Oct 2024', to: 'Present' },
+    period: { from: 'Sep 2024', to: 'Sep 2026' },
     description:
-      'Develop image processing algorithms for an omnidirectional 360° vision system used in wheeled soccer robots, plus real-time object detection and tracking for in-match decisions.',
+      'Developed image processing algorithms for an omnidirectional 360° vision system used in wheeled soccer robots, plus real-time object detection and tracking for in-match decisions.',
     tags: ['Computer Vision', 'OpenCV', 'ROS2', 'C++'],
   },
   {
@@ -89,9 +89,9 @@ export const honours: HonourItem[] = [
     title: 'Team Captain - FUKURO (KRSBI Wheeled)',
     org: 'Gadjah Mada Robotic Team (GMRT)',
     location: 'Yogyakarta, Indonesia',
-    period: { from: 'Sep 2025', to: 'Present' },
+    period: { from: 'Sep 2025', to: 'Sep 2026' },
     description:
-      'Lead the wheeled soccer robot team for the national KRSBI competition, coordinating hardware and software divisions. Qualified to represent UGM at RoboCup 2026 in Incheon, South Korea.',
+      'Led the wheeled soccer robot team for the national KRSBI competition, coordinating hardware and software divisions. Qualified to represent UGM at RoboCup 2026 in Incheon, South Korea.',
     tags: ['Leadership', 'Robotics'],
   },
   {
@@ -111,21 +111,31 @@ export const honours: HonourItem[] = [
     title: 'Research Assistant - Smart Lab & Smart Space',
     org: 'DTETI, Universitas Gadjah Mada',
     location: 'Yogyakarta, Indonesia',
-    period: { from: 'Dec 2025', to: 'Present' },
+    period: { from: 'Dec 2025', to: 'Oct 2026' },
     description:
-      'Research on AI and IoT systems for Smart Lab and Smart Space. Developed NusaVoice, a lightweight Indonesian text-to-speech system based on fine-tuned Piper/VITS models for CPU-only inference.',
+      'Researched AI and IoT systems for Smart Lab and Smart Space. Developed NusaVoice, a lightweight Indonesian text-to-speech system based on fine-tuned Piper/VITS models for CPU-only inference.',
     tags: ['Piper', 'VITS', 'FastAPI', 'React', 'IoT'],
   },
   {
     id: 'exp-bmkg-intern',
     type: 'experience',
-    title: 'Machine Learning Intern',
+    title: 'Data Scientist',
     org: 'BMKG - Badan Meteorologi, Klimatologi, dan Geofisika',
     location: 'Yogyakarta, Indonesia',
-    period: { from: 'Dec 2025', to: 'Jan 2026' },
+    period: { from: 'Dec 2025', to: 'Feb 2026' },
     description:
       'Developed a PM2.5 air quality forecasting system with Random Forest and deployed it as a full-stack web app at bmkg-hirup.pradanayahya.com. Also built rainfall forecasting models from climatology station data and internal tools for BMKG workflows.',
     tags: ['scikit-learn', 'FastAPI', 'React', 'Docker', 'Time Series'],
+  },
+  {
+    id: 'exp-divistant-intern',
+    type: 'experience',
+    title: 'Data & AI, Power Platform Engineer',
+    org: 'Divistant',
+    period: { from: 'Jun 2026', to: 'Oct 2026' },
+    description:
+      'Completed an internship at Divistant as a Data & AI, Power Platform Engineer.',
+    tags: ['Data & AI', 'Power Platform', 'Internship'],
   },
 
   // Awards (oldest to newest)
@@ -188,5 +198,22 @@ export const honours: HonourItem[] = [
     description:
       'DINOv3 + pseudo-labeling pipeline for Indonesian traditional house classification; final test accuracy 97.21%.',
     tags: ['Computer Vision', 'DINOv3', 'Semi-supervised'],
+  },
+  {
+    id: 'award-gemma-4-good-cactus-2026',
+    type: 'award',
+    title: 'Cactus Prize Winner - The Gemma 4 Good Challenge 2026',
+    org: 'Google DeepMind',
+    period: { from: 'Aug 2026' },
+    description:
+      'Won the Cactus Prize with KawanIsyarat, an offline Android assistant for two-way BISINDO communication. The team received US$10,000; Google highlighted its memory-aware model routing and latency optimizations for on-device AI.',
+    tags: ['Gemma 4', 'Cactus', 'On-device AI', 'Accessibility'],
+    links: [
+      {
+        label: 'Official Google announcement',
+        url: 'https://blog.google/innovation-and-ai/technology/developers-tools/winning-entries-gemma-4-good-challenge/',
+      },
+      { label: 'KawanIsyarat', url: '/portfolio/kawanisyarat-bisindo' },
+    ],
   },
 ];

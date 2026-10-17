@@ -40,6 +40,7 @@ def generate_answer(question: str, context: str) -> str:
     
     payload = {
         "model": settings.byteplus_model,
+        "stream": False,
         "messages": [
             {
                 "role": "system",

@@ -11,7 +11,7 @@
   import ProjectCard from '$lib/components/ProjectCard.svelte';
   import JsonLd from '$lib/components/JsonLd.svelte';
   import { projects } from '$lib/data/projects';
-  import { honours, sortAwardsByBest } from '$lib/data/honours';
+  import { honours } from '$lib/data/honours';
 
   // Hero photo carousel featuring profile and achievement photos
   const heroPhotos = [
@@ -32,9 +32,15 @@
     .map((s) => projects.find((p) => p.slug === s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
-  const featuredAwards = sortAwardsByBest(
-    honours.filter((h) => h.type === 'award')
-  ).slice(0, 4);
+  const featuredAwardIds = [
+    'award-gemma-4-good-cactus-2026',
+    'award-datathon-2025-1st',
+    'award-logika-ui-2025-2nd',
+    'award-action-unesa-3rd',
+  ];
+  const featuredAwards = featuredAwardIds
+    .map((id) => honours.find((h) => h.id === id))
+    .filter((h): h is NonNullable<typeof h> => Boolean(h));
 
   // Professional experiences, newest first (education excluded).
   const allExperiences = honours.filter((h) => h.type === 'experience').reverse();
@@ -95,7 +101,7 @@
 
   const stats = [
     { label: 'Production deployments', value: '4+' },
-    { label: 'Competition podiums', value: '3' },
+    { label: 'Competition awards', value: '4' },
     { label: 'Years building AI', value: '3' },
   ];
 
@@ -146,7 +152,7 @@
   <title>Pradana Yahya Abdillah - AI Engineer & Data Scientist</title>
   <meta
     name="description"
-    content="Pradana Yahya Abdillah (Dana) is an AI engineer and data scientist at Universitas Gadjah Mada, building projects across NLP, computer vision, RAG, and on-device AI. Champion of DATATHON 2025."
+    content="Pradana Yahya Abdillah (Dana), AI engineer and data scientist at UGM. Cactus Prize winner at Google DeepMind’s Gemma 4 Good Challenge 2026; former Divistant intern."
   />
 </svelte:head>
 
@@ -180,10 +186,16 @@
         </p>
 
         <p class="mt-5 max-w-md text-[14.5px] leading-relaxed text-ink-light/85 dark:text-ink-dark/85 text-pretty">
-          Third-year <strong class="font-semibold">Information Technology</strong>
+          <strong class="font-semibold">Information Technology</strong>
           student at <strong class="font-semibold">Universitas Gadjah Mada</strong>,
           passionate about <em>computer vision</em>, <em>NLP</em>, and
           <em>on-device AI</em>.
+        </p>
+
+        <p class="mt-3 max-w-md text-[14.5px] leading-relaxed text-ink-light/85 dark:text-ink-dark/85 text-pretty">
+          <a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/kawanisyarat-bisindo">Cactus Prize winner</a>
+          at Google DeepMind’s Gemma 4 Good Challenge 2026.
+          Former Data &amp; AI, Power Platform Engineer intern at Divistant.
         </p>
 
         <div class="mt-6 flex flex-wrap items-center gap-2">
@@ -251,15 +263,16 @@
       <p>
         Recent work includes an offline BISINDO translator for the Tuli community
         (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/kawanisyarat-bisindo">KawanIsyarat</a>),
+        which won Google DeepMind’s Cactus Prize with a US$10,000 team award,
         a multimodal retail-analytics platform that won DATATHON 2025
         (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/retail-behaviour-analysis-v1">TRACKO</a>),
         and a lightweight Indonesian text-to-speech model
         (<a class="underline decoration-accent-500 underline-offset-4" href="/portfolio/nusavoice-indonesian-tts">NusaVoice</a>).
       </p>
       <p>
-        Outside the terminal, I hike, play football, and lead
-        <strong>Gadjah Mada Robotic Team - FUKURO</strong>, which qualified for
+        I previously led <strong>Gadjah Mada Robotic Team - FUKURO</strong>, which qualified for
         RoboCup 2026 in Incheon, South Korea.
+        Outside the terminal, I hike and play football.
       </p>
     </div>
   </div>
