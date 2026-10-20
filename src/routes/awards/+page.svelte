@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { honours, sortAwardsByBest, type HonourItem } from '$lib/data/honours';
+  import { honours, type HonourItem } from '$lib/data/honours';
   import { Trophy, MapPin } from 'lucide-svelte';
 
-  const items: HonourItem[] = sortAwardsByBest(honours.filter((h) => h.type === 'award'));
+  const items: HonourItem[] = honours.filter((h) => h.type === 'award').reverse();
 </script>
 
 <svelte:head>
